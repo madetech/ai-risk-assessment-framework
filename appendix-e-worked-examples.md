@@ -19,7 +19,7 @@
 
 **Overall inherent risk level: Medium** (driven by data leakage).
 
-**[Step 4](step-4-check-tool.md) — Check the tool:** The coding assistant has an enterprise plan with: no training on inputs, EU data residency, SOC 2 certification, audit logging, and IP indemnification. Meets all criteria.
+**[Step 4](step-4-check-tool.md) — Check the tool:** The coding assistant is on the project's approved tools list (enterprise plan). Confirmed: no training on inputs, EU data residency, SOC 2 certification, audit logging, and IP indemnification. Meets all criteria. As this is an approved tool being used within its approved scope, no additional SRO approval is needed at this step.
 
 **[Step 5](step-5-mitigate.md) — Mitigations and residual risk:** Medium inherent risk requires enhanced controls and tech lead approval.
 
@@ -63,7 +63,7 @@ Residual risk after mitigations:
 
 **Overall inherent risk level: High** (driven by data leakage, accuracy, bias, and prompt injection).
 
-**[Step 4](step-4-check-tool.md) — Check the tool:** Selected AI provider offers: UK data residency, GDPR-compliant DPA, no training on inputs, ISO 27001, SOC 2, 99.9% SLA, API access with audit logging. Meets all criteria.
+**[Step 4](step-4-check-tool.md) — Check the tool:** This is a new tool not previously on the approved list. The team gathered evidence using the Appendix A template: UK data residency, GDPR-compliant DPA, no training on inputs, ISO 27001, SOC 2, 99.9% SLA, API access with audit logging. Meets all criteria. Submitted to SRO for approval — SRO approved the tool for use on this project.
 
 **[Step 5](step-5-mitigate.md) — Mitigations and residual risk:** High inherent risk requires formal documentation and SRO approval.
 
@@ -115,11 +115,13 @@ Residual risk after mitigations:
 
 **Overall inherent risk level: High** (driven by data leakage).
 
-**[Step 4](step-4-check-tool.md) — Check the tool:** The team evaluates options. A cloud-hosted AI tool with enterprise terms (no training on inputs, UK data residency, SOC 2) is available but requires sending the full codebase to an external service. An alternative is to use a locally-hosted open-source model, which keeps the code on-premises but may produce lower-quality analysis. The team decides to:
+**[Step 4](step-4-check-tool.md) — Check the tool:** The cloud-hosted tool is not yet on the approved list. The team evaluates options using the Appendix A template. A cloud-hosted AI tool with enterprise terms (no training on inputs, UK data residency, SOC 2) is available but requires sending the full codebase to an external service. An alternative is to use a locally-hosted open-source model, which keeps the code on-premises but may produce lower-quality analysis. The team decides to:
 
 1. First run a secrets scanning tool across the codebase to identify and remove embedded credentials
 2. Use the cloud-hosted tool with enterprise terms for the bulk analysis, having removed secrets
-3. Seek explicit client approval given the OFFICIAL-SENSITIVE classification
+3. Submit the tool evaluation to the SRO for approval, and seek explicit client approval given the OFFICIAL-SENSITIVE classification
+
+SRO approved the tool for this specific use case with the condition that secrets are removed first.
 
 **[Step 5](step-5-mitigate.md) — Mitigations and residual risk:** High inherent risk requires formal documentation and SRO approval.
 
@@ -174,7 +176,7 @@ Residual risk after mitigations:
 
 **Overall inherent risk level: High** (driven by data leakage).
 
-**[Step 4](step-4-check-tool.md) — Check the tool:** The selected AI service offers: UK data residency, no training on inputs (enterprise tier), SOC 2 and ISO 27001 certification, API access with audit logging, and a DPA that meets GDPR requirements. The tool integrates with the existing ticketing system via API. Meets all criteria.
+**[Step 4](step-4-check-tool.md) — Check the tool:** The team assessed the selected AI service using the Appendix A template: UK data residency, no training on inputs (enterprise tier), SOC 2 and ISO 27001 certification, API access with audit logging, and a DPA that meets GDPR requirements. The tool integrates with the existing ticketing system via API. Meets all criteria. Tool evaluation submitted to SRO — approved for use on this project.
 
 **[Step 5](step-5-mitigate.md) — Mitigations and residual risk:** High inherent risk requires formal documentation and SRO approval.
 

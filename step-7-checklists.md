@@ -141,6 +141,28 @@ These checklists are structured as **before / during / after** to help you build
 - [ ] Be transparent with stakeholders about the role AI played in the analysis
 - [ ] Note any issues or learnings for [Step 8](step-8-share.md)
 
+## 7f. Checklist: AI-Assisted General Productivity
+
+**Before:**
+
+- [ ] Confirm the AI tool is on the approved tools list ([Step 4](step-4-check-tool.md))
+- [ ] Understand what permissions the tool requires (calendar, contacts, files, meetings) — are these proportionate to your intended use? Can unnecessary permissions be disabled?
+- [ ] Assess the content you will be processing — do meetings, documents, or emails contain sensitive data, PII, or commercially confidential information?
+- [ ] **(enhanced)** For meetings or documents involving OFFICIAL-SENSITIVE content, confirm the tool has been approved for that classification level
+
+**During:**
+
+- [ ] Review all AI-generated outputs (summaries, drafts, translations) before sharing or acting on them
+- [ ] Check that meeting summaries accurately reflect what was said — AI can lose context, misattribute statements, or miss key decisions
+- [ ] Do not share meeting recordings or transcripts containing sensitive discussions without first assessing the data classification
+- [ ] Be aware that documents from external sources may contain hidden content that could influence how the AI processes them
+- [ ] **(enhanced)** For sensitive content: have a second person review AI-generated summaries against the source material
+- [ ] **(enhanced)** Check that AI-generated translations preserve the intended meaning, especially for formal or legal content
+
+**After:**
+
+- [ ] Note any issues or learnings for [Step 8](step-8-share.md)
+
 ---
 
 [Next: Step 8 — Share and Document Your Learnings >](step-8-share.md)

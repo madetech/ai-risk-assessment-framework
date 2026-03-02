@@ -10,11 +10,13 @@ The principle is proportionality: higher inherent risk requires more rigorous co
 
 Required mitigations:
 
+- Confirm the AI tool is on the approved tools list (see [Step 4](step-4-check-tool.md))
 - Human review of all AI outputs before they are used, committed, or acted upon
 - Record the AI use in the project's AI usage log (see [Step 6](step-6-record.md))
 - Follow the relevant per-use checklist in [Step 7](step-7-checklists.md)
+- Comply with the project's data handling policies — do not share data beyond the classification level the tool has been approved for
 
-No additional approval required beyond standard team practices.
+No additional approval required beyond confirming the tool is approved and following standard team practices.
 
 **Inherent risk: Medium**
 

@@ -15,12 +15,20 @@ Not every risk category will be equally relevant to every use case. Focus on the
 | **AI-powered product features** | User data (PII, case records, health data) is processed by AI services at runtime, on an ongoing basis. A data breach or policy change by the AI provider could expose user data at scale. |
 | **AI-assisted support** | Support tickets contain an unpredictable mix of sensitive data — users routinely paste credentials, PII, system details, and screenshots into tickets. This data is processed by the AI tool for categorisation, response drafting, or automation. Attachments may contain visible secrets that bypass text-based scanning. |
 | **AI-assisted research & design** | Research participant transcripts, survey responses, and demographic data are shared with AI tools. This data is often highly personal and was collected under specific consent agreements. |
+| **AI-assisted general productivity** | Meeting transcripts, email content, documents, and calendar data are processed by AI tools. Meetings frequently contain sensitive discussions, PII, and commercially confidential information. AI tools may also access data via broad permissions (calendar, contacts, files) beyond what the user explicitly shares. |
 
 **Key questions to assess this risk:**
 - What data will actually be sent to the AI tool? Have you checked for embedded secrets or PII?
 - Does the AI provider retain your inputs? Do they use inputs for model training?
 - Where is the data processed geographically? Does this comply with data residency requirements?
 - What would the impact be if this data were exposed or breached?
+
+**Key controls:**
+- Use only approved tools that meet the criteria in [Step 4](step-4-check-tool.md)
+- Run secrets scanning tools before sharing code
+- Anonymise or redact personal data before sharing with AI tools
+- Verify the provider's data retention and training policies via their data processing agreement
+- Review what permissions the AI tool requires and disable unnecessary access
 
 ## 3.2 Accuracy and hallucination
 
@@ -33,12 +41,20 @@ Not every risk category will be equally relevant to every use case. Focus on the
 | **AI-powered product features** | Incorrect information presented to users as fact. Fabricated citations or references. Wrong classifications or recommendations that affect service delivery. In government contexts, this can directly harm citizens — for example, incorrect eligibility assessments or misleading guidance. |
 | **AI-assisted support** | Incorrect ticket categorisation delays resolution of critical issues. Wrong troubleshooting advice makes problems worse. AI suggests plausible but fictitious resolution steps or references non-existent procedures. Stale knowledge from historical tickets leads to outdated advice for current systems. |
 | **AI-assisted research & design** | Distorted summaries of what research participants actually said. Fabricated themes or patterns that don't exist in the source data. Subtle bias in synthesis that systematically underweights certain participant perspectives. |
+| **AI-assisted general productivity** | Incorrect meeting summaries that misattribute statements or miss key decisions. Inaccurate translations that change meaning. Email drafts that contain fabricated details or references. Document summaries that lose important context or nuance. |
 
 **Key questions to assess this risk:**
 - What is the consequence if the AI output is wrong? Minor inconvenience, or harm to individuals?
 - Will a qualified human review the output before it is acted on or published?
 - Can the output be validated against a known source of truth?
 - How easy is it to detect errors in this type of output?
+
+**Key controls:**
+
+- Human review of all AI outputs before they are used, published, or acted upon
+- Validate AI outputs against source material or known facts
+- Do not use AI outputs as the sole basis for important decisions
+- Clearly label AI-generated content as such in working documents
 
 ## 3.3 Accountability gaps
 
@@ -51,12 +67,20 @@ Not every risk category will be equally relevant to every use case. Focus on the
 | **AI-powered product features** | The most critical accountability gap. When an AI system makes or influences decisions that affect citizens, there must be a clear human decision-maker who is accountable. Algorithmic transparency obligations (ATRS) apply. Users must be able to understand how decisions were reached and challenge them. |
 | **AI-assisted support** | Accountability is diffuse — support team, tool provider, and management all share responsibility. When AI gives wrong advice that causes a user to take an action damaging a system, or auto-closes a ticket that should have remained open, the escalation path may be unclear. Precedent exists (e.g. the Air Canada chatbot ruling) establishing that organisations are liable for their AI tool's statements. |
 | **AI-assisted research & design** | Research findings presented without transparency about AI involvement. Design decisions based on AI-synthesised insights rather than direct engagement with users. Stakeholders may not realise the evidence base was AI-processed. |
+| **AI-assisted general productivity** | Shared meeting notes or summaries produced by AI without colleagues knowing. Decisions based on AI-processed information where the AI involvement is not disclosed. Unclear responsibility when AI-drafted communications cause misunderstandings. |
 
 **Key questions to assess this risk:**
 - Is there a named individual accountable for the AI-assisted output?
 - Will it be clear to stakeholders that AI was involved?
 - Is there an audit trail showing what AI produced versus what humans decided?
 - If something goes wrong, is the escalation path clear?
+
+**Key controls:**
+
+- Assign clear ownership: the person using AI is accountable for the output
+- Be transparent with stakeholders about AI involvement
+- Maintain audit trails of AI-assisted work where appropriate
+- Log AI usage in the project's AI usage log ([Step 6](step-6-record.md))
 
 ## 3.4 Bias and fairness
 
@@ -69,12 +93,20 @@ Not every risk category will be equally relevant to every use case. Focus on the
 | **AI-powered product features** | The highest risk. Classification, recommendation, or decision-support systems may discriminate against protected groups. AI trained on historical data will reflect historical biases. This applies to any feature that treats different users differently or prioritises some over others. |
 | **AI-assisted support** | Language bias — sentiment analysis and categorisation tools perform differently with non-native English speakers or regional dialects. Prioritisation bias — AI trained on historical ticket data reproduces historical patterns, potentially disadvantaging certain user groups or issue types. Tone bias — direct or terse communication styles may be misinterpreted. Digital literacy bias — well-structured tickets may receive better AI-assisted responses than those from less technically confident users. |
 | **AI-assisted research & design** | AI synthesis may systematically underweight perspectives from minority or marginalised participants. AI-generated personas may rely on stereotypes. Design recommendations may reflect the biases of the AI's training data rather than the actual needs of diverse user groups. |
+| **AI-assisted general productivity** | Translation tools may introduce cultural bias or lose nuance. Summarisation may systematically underweight certain viewpoints in meeting discussions. AI-generated content may reflect cultural assumptions that are not appropriate for the audience. |
 
 **Key questions to assess this risk:**
 - Could the AI output treat different groups of people differently?
 - Has the AI been tested with diverse inputs representative of the actual user population?
 - Are there protected characteristics (age, disability, gender, race, etc.) that could be affected?
 - If bias is present, how would you detect it?
+
+**Key controls:**
+
+- Test AI systems with diverse inputs representative of the actual user population
+- Conduct Equality Impact Assessments for public-facing AI features
+- Monitor for bias in AI outputs over time
+- Ensure human review considers fairness and representativeness
 
 ## 3.5 Intellectual property and licensing
 
@@ -87,12 +119,20 @@ Not every risk category will be equally relevant to every use case. Focus on the
 | **AI-powered product features** | Content generated by AI for users may not be copyrightable. If the product relies on AI-generated content, consider whether this creates a business or legal risk. Liability for incorrect AI-generated content shown to users is an evolving area. |
 | **AI-assisted support** | Generally lower risk. AI-generated knowledge base articles or response templates may incorporate content from training data, but the main concern is operational accuracy rather than IP. If the support tool generates customer-facing content, consider whether it accurately represents your organisation's position. |
 | **AI-assisted research & design** | AI-generated content (copy, design concepts) may incorporate elements from training data. If used in public-facing materials, provenance should be considered. |
+| **AI-assisted general productivity** | Generally lower risk. AI-generated text for internal use is unlikely to raise significant IP concerns. However, AI-generated content used in external communications or publications may have uncertain copyright status. |
 
 **Key questions to assess this risk:**
 - Will AI-generated code be included in a codebase with specific licensing requirements?
 - Does the AI tool's provider offer intellectual property indemnification?
 - Is the provenance of AI-generated outputs important for this use case?
 - Could AI-generated content create legal exposure?
+
+**Key controls:**
+
+- Check the AI provider's IP terms and indemnification provisions
+- Review AI-generated code for licensing conflicts before committing
+- Consider provenance requirements for public-facing content
+- Use tools that offer IP indemnification where available
 
 ## 3.6 Over-reliance and skill erosion
 
@@ -105,12 +145,20 @@ Not every risk category will be equally relevant to every use case. Focus on the
 | **AI-powered product features** | Less directly applicable to skill erosion, but teams may over-rely on AI features rather than building simpler, more robust solutions where appropriate. |
 | **AI-assisted support** | Support agents who rely on AI-suggested resolutions stop building deep understanding of the systems they support. Automation bias leads to uncritical acceptance of AI suggestions. When experienced staff leave, institutional knowledge — the "muscle memory" of manual operations — goes with them. Teams may be unable to handle normal ticket volumes if the AI tool becomes unavailable. |
 | **AI-assisted research & design** | Researchers use AI summaries as a substitute for engaging directly with raw data. Analytical skills atrophy. The empathy and nuance that comes from direct user engagement is lost. Design decisions are based on AI-processed insights rather than first-hand understanding. |
+| **AI-assisted general productivity** | Staff rely on AI for writing tasks and lose the ability to draft clearly without it. Meeting notes are delegated entirely to AI, reducing active listening and engagement. Teams cannot function at normal pace if the AI tool becomes unavailable. |
 
 **Key questions to assess this risk:**
 - Could the team still do this work effectively without the AI tool?
 - Are junior team members developing foundational skills alongside AI use?
 - Is the AI augmenting human capability, or replacing it?
 - Would anyone notice if the AI output were subtly wrong?
+
+**Key controls:**
+
+- Ensure AI augments rather than replaces core skills
+- Maintain the ability to work without AI tools (business continuity)
+- Encourage junior staff to develop foundational skills alongside AI use
+- Periodically review whether AI use is building or eroding team capability
 
 ## 3.7 Supply chain and security
 
@@ -123,12 +171,21 @@ Not every risk category will be equally relevant to every use case. Focus on the
 | **AI-powered product features** | The AI service is a runtime dependency. Its availability, security, and behaviour directly affect the product. Changes to the AI model's behaviour (through provider updates) can change the product's behaviour without any code change on your part. |
 | **AI-assisted support** | The AI tool becomes part of the operational support infrastructure. If it has access to the ticketing system, its security posture matters — a compromised tool could access ticket data including credentials and system details. Prompt injection via malicious ticket content is a specific risk: a crafted support ticket could cause the AI to reveal sensitive information or take unintended actions. If AI can take actions (reset passwords, modify configurations), each automated action needs defined guardrails. |
 | **AI-assisted research & design** | Lower direct risk, but AI tools processing sensitive research data become part of the data processing chain and must be assessed accordingly. |
+| **AI-assisted general productivity** | AI productivity tools become part of the organisation's infrastructure. Broad permissions (calendar, email, files) create a large attack surface if the tool or provider is compromised. Changes to the AI model's behaviour can affect how it processes sensitive information without any action on your part. |
 
 **Key questions to assess this risk:**
 - Will AI-generated code be subject to the same security review as human-written code?
 - Are dependencies suggested by AI verified against known vulnerability databases?
 - Is the AI tool itself a security risk (access to code, data exfiltration potential)?
 - For product features: what happens if the AI service changes behaviour or becomes unavailable?
+
+**Key controls:**
+
+- Subject AI-generated code to the same security review as human-written code
+- Verify AI-suggested dependencies against vulnerability databases
+- Assess the security posture of the AI tool itself before granting access
+- Define fallback procedures for when AI tools become unavailable
+- Monitor for changes in AI tool behaviour after provider updates
 
 ## 3.8 Prompt injection
 
@@ -146,6 +203,7 @@ There are two forms:
 | **AI-powered product features** | End users craft inputs to extract system prompts, bypass safety filters, or cause the AI to behave in unintended ways. Indirect injection via processed documents (hidden text in PDFs, zero-width Unicode characters, CSS-based obfuscation) can manipulate summarisation, classification, or decision support. AI-generated output may contain executable content (HTML, JavaScript) enabling cross-site scripting. Real-world incidents include zero-click data exfiltration from Microsoft 365 Copilot (CVE-2025-32711, CVSS 9.3) and session cookie theft via a customer support chatbot. |
 | **AI-assisted support** | Crafted support tickets can manipulate AI categorisation (e.g. causing a security incident to be classified as routine), extract information from other tickets via the AI's context retrieval, bypass exclusion rules designed to route sensitive tickets to humans, or instruct the AI to take unintended actions (password resets, configuration changes). Ticket attachments (screenshots, logs, PDFs) are a further injection vector that may bypass text-based scanning. |
 | **AI-assisted research & design** | Adversarial content in survey responses or interview transcripts can manipulate AI-powered analysis — amplifying particular viewpoints, suppressing others, or injecting false themes. Research has shown this is effective in digital democracy and consensus-building tools. Documents from external sources may contain hidden instructions (white-on-white text, zero-width characters) that skew how the AI summarises or analyses them. |
+| **AI-assisted general productivity** | Documents from external sources processed for summarisation may contain hidden adversarial instructions. Emails or messages processed by AI tools could contain content designed to manipulate how the AI summarises or responds. Meeting recordings shared with transcription tools could include deliberately misleading statements intended to influence the AI's summary. |
 
 **Key questions to assess this risk:**
 
@@ -153,6 +211,14 @@ There are two forms:
 - If prompt injection succeeds, what is the worst that could happen? Can the AI access sensitive data, take actions, or produce outputs that bypass human review?
 - Are there deterministic safeguards (enforced by code, not by the AI) that limit what the AI can do?
 - Has the system been tested with adversarial inputs designed to exploit prompt injection?
+
+**Key controls:**
+
+- Use deterministic safeguards (enforced in code, not by the AI) to limit what the AI can do
+- Sanitise all AI-generated output before rendering to users
+- Do not embed secrets or sensitive configuration in system prompts
+- Conduct adversarial testing (red teaming) for public-facing AI features
+- Apply least privilege: restrict the AI's access to only what it needs
 
 ## Determining your inherent risk level
 

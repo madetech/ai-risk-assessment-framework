@@ -9,6 +9,7 @@ This document provides a practical framework for delivery teams to assess whethe
 - **AI-powered product features** — building AI capabilities into the products and services being delivered to end users
 - **AI-assisted support** — using AI to help process, triage, respond to, or automate support requests and service desk operations
 - **AI-assisted research and design** — using AI to support user research analysis, content drafting, or design exploration
+- **AI-assisted general productivity** — using AI for routine office tasks such as meeting transcription, report drafting, translation, or summarisation
 
 The goal is not to prevent the use of AI. AI tools can significantly improve the quality and efficiency of delivery work when used well. The goal is to ensure that teams make informed decisions about AI use by understanding the risks involved and applying proportionate safeguards.
 
@@ -22,7 +23,7 @@ If you are already familiar with the framework and just need the checklist for y
 
 The framework follows eight steps. Each builds on the previous one:
 
-1. **[Define what you want to do](step-1-define.md)** — describe your intended AI use and categorise it (coding, code analysis, product feature, support, or research & design)
+1. **[Define what you want to do](step-1-define.md)** — describe your intended AI use and categorise it (coding, code analysis, product feature, support, research & design, or general productivity)
 2. **[Understand what you are sharing](step-2-understand-data.md)** — assess the code and data that will be shared with the AI tool, including classification, PII, consent constraints, and commercial sensitivity
 3. **[Assess the risks](step-3-assess-risks.md)** — rate each risk category (data leakage, accuracy, accountability, bias, IP, over-reliance, supply chain, prompt injection) by likelihood and impact to determine the **inherent** risk level (before mitigations)
 4. **[Check the tool](step-4-check-tool.md)** — confirm the AI tool meets baseline criteria for data residency, retention, security, and IP terms
@@ -35,7 +36,7 @@ The framework follows eight steps. Each builds on the previous one:
 flowchart TD
     START["I want to use AI for ..."] --> STEP1
 
-    STEP1["<b>Step 1: Define what you want to do</b><br/>Categorise: Coding / Code Analysis / Product Feature /<br/>Support / Research & Design"]
+    STEP1["<b>Step 1: Define what you want to do</b><br/>Categorise: Coding / Code Analysis / Product Feature /<br/>Support / Research & Design / General Productivity"]
     STEP1 --> STEP2
 
     STEP2["<b>Step 2: Understand what you are sharing</b><br/>Classification? Code? Data? PII?<br/>Consent constraints? Contractual restrictions?"]
@@ -46,13 +47,17 @@ flowchart TD
     RISK_CHECK -- Do not proceed --> STOP2[/"🛑 STOP<br/>Escalate if exception needed"/]
     RISK_CHECK -- Low / Medium / High --> STEP4
 
-    STEP4["<b>Step 4: Check the tool</b><br/>Data residency? Retention? Training policy?<br/>Security certs? IP terms?"]
-    STEP4 --> TOOL_CHECK{Meets criteria?}
+    STEP4["<b>Step 4: Check the tool</b><br/>On the approved list?<br/>Data residency? Retention? Training policy?<br/>Security certs? IP terms?"]
+    STEP4 --> TOOL_CHECK{On approved list<br/>or meets criteria?}
     TOOL_CHECK -- No --> STOP3[/"🛑 STOP<br/>Choose a different tool"/]
-    TOOL_CHECK -- Yes --> STEP5
+    TOOL_CHECK -- New tool --> SRO_APPROVE["Gather evidence using<br/>Appendix A template<br/>Submit to SRO for approval"]
+    SRO_APPROVE --> SRO_CHECK{SRO approved?}
+    SRO_CHECK -- No --> STOP3
+    SRO_CHECK -- Yes --> STEP5
+    TOOL_CHECK -- Yes, already approved --> STEP5
 
     STEP5{"<b>Step 5: Mitigate risks and reassess</b><br/>Based on inherent risk level"}
-    STEP5 -- Low inherent risk --> LOW["Standard practices<br/>Human review, log usage"]
+    STEP5 -- Low inherent risk --> LOW["Standard practices<br/>Approved tools only, human review, log usage"]
     STEP5 -- Medium inherent risk --> MED["Enhanced controls<br/>Tech/delivery lead approval"]
     STEP5 -- High inherent risk --> HIGH["Formal documentation<br/>DPIA / ATRS / SRO approval"]
 
@@ -84,6 +89,27 @@ The AI landscape — tools, capabilities, risks, and regulation — is evolving 
 
 **Last reviewed:** [Date]
 
+### Staff responsibilities and training
+
+Anyone using AI tools on project work is personally responsible for the outputs they produce, just as they would be for any other work product. AI-generated code, analysis, content, or advice that you submit, commit, publish, or act upon is your responsibility — treat it as your own work and apply the same quality standards.
+
+Before using AI tools on a project, staff should:
+
+- Understand the data classification levels relevant to their work and the handling requirements for each
+- Be aware of their data protection obligations, including when a Data Protection Impact Assessment (DPIA) is required
+- Be familiar with this framework and able to apply it to their intended AI use
+- Know which tools are approved for use and where to find the approved tools list
+
+Organisations should provide AI awareness training that covers responsible use, risks, and this framework. Consider establishing AI champions within teams who can support colleagues and share good practices.
+
+### Approved tools and public AI
+
+Publicly available AI tools — including free or consumer versions of ChatGPT, Google Gemini, Claude, and others — **must not be used for work-related information**. These consumer tools often store user inputs, may use them to train or improve their models, and operate under terms and conditions that do not provide the data handling guarantees required for government work. They are not the same as enterprise or approved versions of the same products.
+
+Each project or organisation should maintain an **approved tools list** — a register of AI tools that have been assessed and authorised for use on project work (see [Step 4](step-4-check-tool.md)). Only tools on this list may be used. If you want to use a tool that is not on the list, you must have it assessed and approved before use — do not use it first and seek approval later.
+
+The use of unapproved AI tools by staff — sometimes called "shadow AI" — is a significant risk. It bypasses the safeguards in this framework and may breach data protection obligations, contractual requirements, or government security policies. If you become aware of unapproved AI tool use, raise it with your delivery lead or SRO.
+
 ---
 
 ## 2. Alignment with UK Government Guidance
@@ -104,7 +130,17 @@ The key government publications this framework aligns with are:
 
 - **Government Security Classifications Policy** — the data classification framework (OFFICIAL, OFFICIAL-SENSITIVE, SECRET, TOP SECRET) is one of the key inputs to the data assessment in [Step 2](step-2-understand-data.md).
 
-A detailed mapping of this framework's steps to the AI Playbook's 10 principles is provided in [Appendix C](appendix-c-playbook-mapping.md).
+- **ICO AI and Data Protection Risk Toolkit** — the Information Commissioner's Office's practical toolkit for assessing AI systems against UK GDPR requirements, covering accountability, transparency, lawfulness, accuracy, fairness, security, individual rights, and automated decision-making. The risk assessment in [Step 3](step-3-assess-risks.md) and the DPIA requirements in [Step 5](step-5-mitigate.md) align with this toolkit.
+
+- **ICO Toolkit for Data Analytics** — the ICO's introductory assessment for organisations considering data analytics, covering lawfulness, accountability, data protection principles, and data subject rights. Useful for teams new to AI-assisted data processing.
+
+- **Understanding AI Ethics and Safety** (Office for AI / GDS / Alan Turing Institute) — establishes the SUM values framework (respect dignity, connect sincerely, care for wellbeing, protect social values) and the FAST Track principles (Fairness, Accountability, Sustainability, Transparency) for public sector AI. The ethical considerations throughout this framework reflect these principles.
+
+- **UNESCO Recommendation on the Ethics of AI** (2021) — adopted by all 193 UNESCO member states, establishing principles including proportionality, safety, privacy, accountability, transparency, and human oversight. Provides the broader ethical context for responsible AI use.
+
+- **AI Action Plan for Justice** (2025) — for teams working on justice sector projects, this sets out the Ministry of Justice's approach to AI adoption, including the role of the Justice AI Unit, the SAFE-D ethical principles (Sustainability, Accountability, Fairness, Explainability, Data Responsibility), and approved tools. Justice sector teams should follow this plan alongside this framework.
+
+A detailed mapping of this framework's steps to the AI Playbook's 10 principles and other referenced frameworks is provided in [Appendix C](appendix-c-playbook-mapping.md).
 
 ---
 
@@ -114,7 +150,7 @@ A detailed mapping of this framework's steps to the AI Playbook's 10 principles 
 
 | Step | Description |
 | ---- | ---- |
-| [Step 1: Define What You Want to Do](step-1-define.md) | Categorise your AI use into one of five types |
+| [Step 1: Define What You Want to Do](step-1-define.md) | Categorise your AI use into one of six types |
 | [Step 2: Understand What You Are Sharing](step-2-understand-data.md) | Assess the code and data you will share with the AI tool |
 | [Step 3: Assess the Risks](step-3-assess-risks.md) | Rate 8 risk categories to determine the inherent risk level |
 | [Step 4: Check the Tool](step-4-check-tool.md) | Confirm the AI tool meets baseline criteria |

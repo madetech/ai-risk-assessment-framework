@@ -6,16 +6,16 @@ Use this template when completing [Step 3](step-3-assess-risks.md) and [Step 5](
 
 **Data summary:** [From Step 2]
 
-| Risk category | Likelihood | Impact | Inherent risk | Mitigations | Residual risk |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| Data leakage | | | | | |
-| Accuracy and hallucination | | | | | |
-| Accountability gaps | | | | | |
-| Bias and fairness | | | | | |
-| IP and licensing | | | | | |
-| Over-reliance and skill erosion | | | | | |
-| Supply chain and security | | | | | |
-| Prompt injection | | | | | |
+| Risk category | Likelihood | Impact | Inherent risk | Mitigation method | Mitigation detail | Residual risk |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| Data leakage | | | | | | |
+| Accuracy and hallucination | | | | | | |
+| Accountability gaps | | | | | | |
+| Bias and fairness | | | | | | |
+| IP and licensing | | | | | | |
+| Over-reliance and skill erosion | | | | | | |
+| Supply chain and security | | | | | | |
+| Prompt injection | | | | | | |
 
 **Overall inherent risk level:** [Highest individual inherent risk level]
 
