@@ -16,7 +16,7 @@ AI tools may also require additional permissions that must be identified, contro
 
 | Criterion | What to check |
 | ---- | ---- |
-| **Data residency** | Where is data processed and stored? Does this comply with the project's data residency requirements and any client contractual obligations? For UK government work, data should typically be processed within the UK or EEA unless explicitly agreed otherwise. |
+| **Data residency** | Where is data processed and stored? Does this comply with the project's data residency requirements and any client contractual obligations? For UK government work, data should typically be processed within the UK. |
 | **Data retention and training** | Does the provider retain your inputs? Are inputs used to train or improve their models? For any use involving sensitive data, the tool must offer a clear commitment not to use your data for training. Check the provider's data processing agreement, not just their marketing materials. |
 | **Authentication and access controls** | Does the tool support appropriate authentication (SSO, MFA)? Can access be managed at the team or project level? Can individual usage be audited? |
 | **Audit logging** | Does the tool provide logs of what was submitted and returned? This matters for accountability and incident investigation. |
