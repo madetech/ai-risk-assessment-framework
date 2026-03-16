@@ -88,7 +88,7 @@ These checklists are structured as **before / during / after** to help you build
 - [ ] Establish an incident response process: what happens when the AI produces harmful output?
 - [ ] Note any issues or learnings for [Step 8](step-8-share.md)
 
-## 7e. Checklist: AI-Assisted Support
+## 7d. Checklist: AI-Assisted Support
 
 **Before:**
 
@@ -116,7 +116,7 @@ These checklists are structured as **before / during / after** to help you build
 - [ ] Ensure support agents continue to develop system knowledge and diagnostic skills alongside AI tool use
 - [ ] Note any issues or learnings for [Step 8](step-8-share.md)
 
-## 7d. Checklist: AI-Assisted Research and Design
+## 7e. Checklist: AI-Assisted Research and Design
 
 **Before:**
 
