@@ -50,7 +50,7 @@ flowchart TD
     STEP4["<b>Step 4: Check the tool</b><br/>On the approved list?<br/>Data residency? Retention? Training policy?<br/>Security certs? IP terms?"]
     STEP4 --> TOOL_CHECK{On approved list<br/>or meets criteria?}
     TOOL_CHECK -- No --> STOP3[/"🛑 STOP<br/>Choose a different tool"/]
-    TOOL_CHECK -- New tool --> SRO_APPROVE["Gather evidence using<br/>Appendix A template<br/>Submit to SRO for approval"]
+    TOOL_CHECK -- New tool --> SRO_APPROVE["Gather evidence using<br/>tool evaluation template<br/>Submit to SRO for approval"]
     SRO_APPROVE --> SRO_CHECK{SRO approved?}
     SRO_CHECK -- No --> STOP3
     SRO_CHECK -- Yes --> STEP5
@@ -140,7 +140,7 @@ The key government publications this framework aligns with are:
 
 - **AI Action Plan for Justice** (2025) — for teams working on justice sector projects, this sets out the Ministry of Justice's approach to AI adoption, including the role of the Justice AI Unit, the SAFE-D ethical principles (Sustainability, Accountability, Fairness, Explainability, Data Responsibility), and approved tools. Justice sector teams should follow this plan alongside this framework.
 
-A detailed mapping of this framework's steps to the AI Playbook's 10 principles and other referenced frameworks is provided in [Appendix C](appendix-c-playbook-mapping.md).
+A detailed mapping of this framework's steps to the AI Playbook's 10 principles and other referenced frameworks is provided in [Appendix: Mapping to the AI Playbook](appendices/playbook-mapping.md).
 
 ---
 
@@ -167,8 +167,8 @@ New to the framework? The **[Getting Started guide](getting-started.md)** walks 
 
 | Appendix | Description |
 | ---- | ---- |
-| [Appendix A: Tool Evaluation Template](appendix-a-tool-evaluation.md) | Template for assessing whether an AI tool meets baseline criteria |
-| [Appendix B: Risk Assessment Template](appendix-b-risk-template.md) | Template for completing Steps 3 and 5 |
-| [Appendix C: Mapping to the AI Playbook](appendix-c-playbook-mapping.md) | How this framework maps to the AI Playbook's 10 principles |
-| [Appendix D: Glossary](appendix-d-glossary.md) | Definitions of key terms |
-| [Appendix E: Worked Examples](appendix-e-worked-examples.md) | Four worked examples covering different AI use types |
+| [Risk Assessment Template](templates/risk-assessment.md) | Template for creating a new risk assessment |
+| [Tool Evaluation Template](templates/tool-evaluation.md) | Template for assessing whether an AI tool meets baseline criteria |
+| [Mapping to the AI Playbook](appendices/playbook-mapping.md) | How this framework maps to the AI Playbook's 10 principles |
+| [Glossary](appendices/glossary.md) | Definitions of key terms |
+| [Worked Examples](appendices/worked-examples.md) | Four worked examples covering different AI use types |

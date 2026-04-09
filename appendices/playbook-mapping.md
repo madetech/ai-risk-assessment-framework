@@ -1,11 +1,11 @@
-# Appendix C: Mapping to the AI Playbook for the UK Government
+# Mapping to the AI Playbook for the UK Government
 
 The AI Playbook sets out 10 principles for responsible AI use in government. The table below shows how each principle is addressed by this framework.
 
 | AI Playbook principle | Where addressed in this framework |
 | ---- | ---- |
 | 1. Know AI's limitations | [Step 3](step-3-assess-risks.md) (Accuracy and hallucination), [Step 7](step-7-checklists.md) (all checklists require human review) |
-| 2. Use AI lawfully and ethically | [Step 2](step-2-understand-data.md) (data and consent assessment), [Step 3](step-3-assess-risks.md) (bias and fairness, IP), [Appendix B](appendix-b-risk-template.md) (risk assessment) |
+| 2. Use AI lawfully and ethically | [Step 2](step-2-understand-data.md) (data and consent assessment), [Step 3](step-3-assess-risks.md) (bias and fairness, IP), [risk assessment template](templates/risk-assessment.md) |
 | 3. Ensure meaningful human control | [Step 5](step-5-mitigate.md) (mitigations and approvals), [Step 7](step-7-checklists.md) (human review in all checklists) |
 | 4. Be transparent about AI use | [Step 6](step-6-record.md) (AI usage log), [Step 7](step-7-checklists.md) checklist 7c (ATRS), checklist 7d (methodology documentation) |
 | 5. Use the right tool for the job | [Step 1](step-1-define.md) (define the use), [Step 4](step-4-check-tool.md) (tool evaluation criteria) |
@@ -19,7 +19,7 @@ The AI Playbook sets out 10 principles for responsible AI use in government. The
 
 | Framework | Key principles | Where addressed in this framework |
 | ---- | ---- | ---- |
-| **ICO AI and Data Protection Risk Toolkit** | Accountability, transparency, lawfulness, accuracy, fairness, security, individual rights, Article 22 compliance | [Step 2](step-2-understand-data.md) (data assessment, GDPR), [Step 3](step-3-assess-risks.md) (all risk categories), [Step 5](step-5-mitigate.md) (DPIA), [Appendix B](appendix-b-risk-template.md) |
+| **ICO AI and Data Protection Risk Toolkit** | Accountability, transparency, lawfulness, accuracy, fairness, security, individual rights, Article 22 compliance | [Step 2](step-2-understand-data.md) (data assessment, GDPR), [Step 3](step-3-assess-risks.md) (all risk categories), [Step 5](step-5-mitigate.md) (DPIA), [risk assessment template](templates/risk-assessment.md) |
 | **ICO Data Analytics Toolkit** | Lawfulness, accountability, data protection principles, data subject rights | [Step 2](step-2-understand-data.md) (data classification, consent), [Step 4](step-4-check-tool.md) (tool evaluation) |
 | **UNESCO Recommendation on the Ethics of AI** | Proportionality, safety, privacy, governance, accountability, transparency, human oversight, sustainability, awareness, fairness | Proportionality: [Step 5](step-5-mitigate.md). Human oversight: [Step 7](step-7-checklists.md). Fairness: [Step 3](step-3-assess-risks.md) (bias). Transparency: [Step 6](step-6-record.md). Awareness: Staff responsibilities section in overview. |
 | **Understanding AI Ethics and Safety (SUM/FAST)** | Fairness, Accountability, Sustainability, Transparency | Fairness: [Step 3](step-3-assess-risks.md) (bias and fairness). Accountability: [Step 3](step-3-assess-risks.md) (accountability gaps), [Step 6](step-6-record.md). Sustainability: [Step 7](step-7-checklists.md) (ongoing monitoring). Transparency: [Step 6](step-6-record.md), [Step 7](step-7-checklists.md) (ATRS). |

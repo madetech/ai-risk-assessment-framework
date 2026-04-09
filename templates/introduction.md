@@ -34,7 +34,7 @@ The following AI tools have been assessed and approved for use on this project:
 | | | | |
 | | | | |
 
-**Do not use tools that are not on this list for project work.** If you want to use a new tool, speak to the Technical Lead and follow the tool evaluation process in [Appendix A](https://github.com/bjpirt/ai-risk-assessment/blob/main/appendix-a-tool-evaluation.md) of the framework.
+**Do not use tools that are not on this list for project work.** If you want to use a new tool, speak to the Technical Lead and follow the tool evaluation process in [tool evaluation template](https://github.com/madetech/ai-risk-assessment/blob/main/templates/tool-evaluation.md) of the framework.
 
 **Do not use free or consumer versions of AI tools** (e.g. free ChatGPT, consumer Claude) for any work-related information.
 

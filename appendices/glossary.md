@@ -1,4 +1,4 @@
-# Appendix D: Glossary
+# Glossary
 
 | Term | Definition |
 | ---- | ---- |

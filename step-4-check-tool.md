@@ -4,7 +4,7 @@ Before proceeding, confirm that the specific AI tool you intend to use has been 
 
 **If the tool is already on the approved tools list**, this step is a quick confirmation — verify that it is approved for the classification level and use type you identified in Steps 1 and 2, then proceed to [Step 5](step-5-mitigate.md).
 
-**If the tool is not on the approved list**, it must be assessed and approved before you use it. Use the evaluation template in [Appendix A](appendix-a-tool-evaluation.md) to gather the necessary information, then submit it to the SRO for approval. **Do not begin using an unapproved tool.**
+**If the tool is not on the approved list**, it must be assessed and approved before you use it. Use the evaluation template in [tool evaluation template](templates/tool-evaluation.md) to gather the necessary information, then submit it to the SRO for approval. **Do not begin using an unapproved tool.**
 
 ## AI tools as data sharing
 

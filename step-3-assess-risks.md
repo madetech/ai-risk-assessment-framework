@@ -232,7 +232,7 @@ For each risk category, rate the likelihood and impact for your specific use cas
 
 Your **overall inherent risk level** is determined by the highest risk rating across all categories. A use case that is low risk for data leakage but high risk for accuracy is a high-risk use case overall.
 
-Record your inherent risk assessment. You will use this in [Step 5](step-5-mitigate.md) to determine what mitigations are needed, apply them, and then reassess the residual risk. A blank risk assessment template is provided in [Appendix B](appendix-b-risk-template.md).
+Record your inherent risk assessment. You will use this in [Step 5](step-5-mitigate.md) to determine what mitigations are needed, apply them, and then reassess the residual risk. A blank risk assessment template is provided in [risk assessment template](templates/risk-assessment.md).
 
 ---
 

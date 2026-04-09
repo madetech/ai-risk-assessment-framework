@@ -2,9 +2,10 @@
 
 Before starting work, make sure the risk assessment you completed in Steps 1–5 is saved in your project's documentation space (see the [Getting Started guide](getting-started.md) for how to set this up). The risk assessment itself is your record — there is no need for a separate log. The purpose is to maintain transparency, support audit requirements, and ensure there is an agreed basis for the work.
 
-**Each risk assessment should capture:**
+Use the [risk assessment template](templates/risk-assessment.md) to ensure you capture everything needed. Each assessment should cover:
 
 - **Date** of the assessment
+- **Author** and current **status** (Draft / Proposed / Approved / Rejected)
 - **Who** is covered by it (this may be one person or several doing the same type of work)
 - **What** the AI will be used for (from Step 1)
 - **What data** will be shared (from Step 2)

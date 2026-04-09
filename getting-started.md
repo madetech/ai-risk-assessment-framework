@@ -43,7 +43,7 @@ Copy the [introduction template](templates/introduction.md) into your documentat
 
 1. **Responsible people** — Identify who fills each role. Not every project will need all roles as separate people; on smaller teams one person may cover multiple roles. The important thing is that responsibilities are explicitly assigned.
 
-2. **Approved tools** — If your organisation already has an approved tools list, reference or copy it. If not, this is the place to build one. Start with the tools your team is already using (or wants to use) and run each through the tool evaluation process ([Step 4](step-4-check-tool.md) and [Appendix A](appendix-a-tool-evaluation.md)).
+2. **Approved tools** — If your organisation already has an approved tools list, reference or copy it. If not, this is the place to build one. Start with the tools your team is already using (or wants to use) and run each through the tool evaluation process ([Step 4](step-4-check-tool.md) and [tool evaluation template](templates/tool-evaluation.md)).
 
 3. **Review schedule** — Set a realistic cadence. Tying it to an existing ceremony (e.g. sprint retros, monthly team reviews) is more sustainable than creating a new meeting.
 
@@ -51,9 +51,9 @@ Copy the [introduction template](templates/introduction.md) into your documentat
 
 When someone on the team wants to use AI for a specific activity, create a new risk assessment page:
 
-1. **Create a new page** under your Risk Assessments section. Name it descriptively, e.g. "2026-04 — Using Copilot for unit test generation on payments service".
+1. **Create a new page** under your Risk Assessments section using the [risk assessment template](templates/risk-assessment.md). Name it descriptively, e.g. "2026-04 — Using Copilot for unit test generation on payments service".
 
-2. **Work through Steps 1–5** of the framework, filling in each section of the risk assessment template ([Appendix B](appendix-b-risk-template.md)):
+2. **Work through each section** of the template, using the framework for detailed guidance:
    - Define the use case (Step 1)
    - Document what data will be shared (Step 2)
    - Assess each risk category for likelihood and impact (Step 3)
@@ -79,7 +79,7 @@ When someone on the team wants to use AI for a specific activity, create a new r
 When someone wants to use a tool that is not on the approved list:
 
 1. Create a new page under **Tool Evaluations**.
-2. Use the tool evaluation template ([Appendix A](appendix-a-tool-evaluation.md)) to gather the required information.
+2. Use the tool evaluation template ([tool evaluation template](templates/tool-evaluation.md)) to gather the required information.
 3. Have the Technical Lead review the evaluation.
 4. Submit to the SRO for approval.
 5. If approved, add it to the **Approved Tools** table on the introduction page.
