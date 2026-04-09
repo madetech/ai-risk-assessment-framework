@@ -146,6 +146,10 @@ A detailed mapping of this framework's steps to the AI Playbook's 10 principles 
 
 ## Contents
 
+### Getting Started
+
+New to the framework? The **[Getting Started guide](getting-started.md)** walks you through setting up AI governance on your project — creating the documentation structure, filling in the introduction template, and running your first risk assessment.
+
 ### The Assessment Framework
 
 | Step | Description |
