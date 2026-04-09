@@ -14,6 +14,7 @@ OUTPUT = ROOT / f"ai-risk-assessment-framework-{date.today().strftime('%Y-%m-%d'
 
 FILE_ORDER = [
     "readme.md",
+    "getting-started.md",
     "step-1-define.md",
     "step-2-understand-data.md",
     "step-3-assess-risks.md",
@@ -22,11 +23,12 @@ FILE_ORDER = [
     "step-6-record.md",
     "step-7-checklists.md",
     "step-8-share.md",
-    "appendix-a-tool-evaluation.md",
-    "appendix-b-risk-template.md",
-    "appendix-c-playbook-mapping.md",
-    "appendix-d-glossary.md",
-    "appendix-e-worked-examples.md",
+    "templates/risk-assessment.md",
+    "templates/tool-evaluation.md",
+    "templates/introduction.md",
+    "appendices/playbook-mapping.md",
+    "appendices/glossary.md",
+    "appendices/worked-examples.md",
 ]
 
 PAGE_BREAK = "\n<div style=\"page-break-before: always;\"></div>\n"
@@ -56,12 +58,19 @@ def main():
         })
 
     # 2. Build filename → anchor mapping for inter-file link conversion
-    file_to_anchor = {s["filename"]: s["anchor"] for s in sections}
+    # Map both the full path and the basename so links work from any directory
+    file_to_anchor = {}
+    for s in sections:
+        file_to_anchor[s["filename"]] = s["anchor"]
+        # Also map relative paths that start with ../ (e.g. ../appendices/glossary.md)
+        file_to_anchor["../" + s["filename"]] = s["anchor"]
 
     def replace_link(match):
         text = match.group(1)
-        file = match.group(2)
-        anchor = file_to_anchor.get(file)
+        prefix = match.group(2) or ""
+        file = match.group(3)
+        # Try the full path as written, then with prefix
+        anchor = file_to_anchor.get(file) or file_to_anchor.get(prefix + file)
         if anchor:
             return f"[{text}](#{anchor})"
         return match.group(0)
@@ -74,15 +83,15 @@ def main():
         # Strip leading --- (e.g. step-7-checklists.md)
         md = re.sub(r"^---\n+", "", md)
 
-        # Strip navigation footer: --- followed by [Next: ...](file.md)
-        md = re.sub(r"\n---\n+\[Next:.*?>\]\(.*?\.md\)\s*$", "\n", md)
+        # Strip navigation footer: --- followed by [Next/Back ...](file.md)
+        md = re.sub(r"\n---\n+\[(?:Next|Back).*?\]\(.*?\.md\)\s*$", "\n", md)
 
         # Strip the "Contents" section from readme.md
         if section["filename"] == "readme.md":
             md = re.sub(r"\n## Contents[\s\S]*$", "\n", md)
 
         # Convert inter-file .md links to internal anchor links
-        md = re.sub(r"\[([^\]]+)\]\(([a-z][\w-]*\.md)\)", replace_link, md)
+        md = re.sub(r"\[([^\]]+)\]\((\.\.?/)?([a-z][\w/-]*\.md)\)", replace_link, md)
 
         # Add page break before each section (except the first)
         if i > 0:
