@@ -1,3 +1,4 @@
 .claude/settings.local.json
 ai-risk-assessment-framework-*.md
 *.pdf
+risk-assessments/*
