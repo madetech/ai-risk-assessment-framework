@@ -1,5 +1,3 @@
----
-
 # Step 7: Do the Work — Per-Use Checklists
 
 You have defined your use, assessed the data and risks, checked the tool, determined the required mitigations, and recorded your assessment. Now use AI for the task, following the checklist for your use type.
