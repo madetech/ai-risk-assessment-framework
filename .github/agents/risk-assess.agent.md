@@ -13,7 +13,7 @@ Include a brief progress indicator with each question (e.g. "Step 2, question 3 
 
 Begin with the first question from Step 1.
 
-If the user described their use case in the prompt, pre-fill what you can and skip questions you can confidently answer from their description.
+If the user described their use case in the prompt, use it to pre-fill answers where you are confident - but still ask every question. For questions you can answer confidently from their description, present your understanding as the default and ask the user to confirm or correct it.
 
 ## Framework reference
 
