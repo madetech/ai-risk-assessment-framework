@@ -17,7 +17,10 @@ _Be specific. "Using AI for coding" is too broad. "Using an AI coding assistant 
 
 [Description]
 
-**Category:** [Coding / Code analysis / Product feature / Support / Research & design / General productivity]
+**Category:** [Coding / Code analysis / Synthetic data generation / Product feature / User-facing support / Live service operations / User research / Design / Content / Business analysis / General productivity]
+
+**Autonomy level:** [Suggests / Drafts / Acts with approval / Acts autonomously]
+_What is the AI permitted to do, not what you intend to let it do. See [Step 1](../assess/1-scope.md#assess-the-level-of-autonomy)._
 
 **What will you do with the AI's output?**
 _Will it go directly into production? Inform a decision? Be reviewed and edited first?_
@@ -67,7 +70,7 @@ For each risk category, rate the **likelihood** (how likely is this to happen?) 
 
 Use: **Low**, **Medium**, **High**, or **N/A** (if genuinely not applicable to this use case — justify briefly).
 
-See [Step 3 of the framework](../step-3-assess-risks.md) for detailed guidance on each risk category.
+See [Step 2 of the framework](../assess/2-identify-risks.md) for guidance on identifying and rating each risk, and the [risk catalogue](../reference/risk-catalogue.md) for detail on each category. If the autonomy level above is "acts with approval" or "acts autonomously", apply the autonomy adjustment in Step 2 before recording these ratings.
 
 | Risk category | Likelihood | Impact | Inherent risk | Notes |
 | ---- | ---- | ---- | ---- | ---- |
@@ -108,7 +111,7 @@ _If no, a tool evaluation must be completed before proceeding. See [tool evaluat
 
 ### Mitigations
 
-Based on the inherent risk level, describe the mitigations that will be applied. See [Step 5 of the framework](../step-5-mitigate.md) for required mitigations at each risk level.
+Based on the inherent risk level, describe the mitigations that will be applied. See [Step 4 of the framework](../assess/4-safeguards.md) for required mitigations at each risk level.
 
 | Risk category | Mitigation | Detail |
 | ---- | ---- | ---- |
@@ -148,6 +151,8 @@ _If no, identify additional mitigations and reassess, or do not proceed._
 
 **Approval required:** [None (low) / Tech/Delivery Lead (medium) / SRO (high)]
 
+_An autonomy level of "acts autonomously" requires SRO approval regardless of the risk level._
+
 | Role | Name | Decision | Date |
 | ---- | ---- | ---- | ---- |
 | Assessed by | | | |
@@ -157,7 +162,7 @@ _If no, identify additional mitigations and reassess, or do not proceed._
 
 ## Review and learnings
 
-_Update this section once the work is complete (see [Step 8](../step-8-share.md))._
+_Update this section once the work is complete (see [Step 5](../assess/5-record-and-work.md))._
 
 **Issues encountered:**
 

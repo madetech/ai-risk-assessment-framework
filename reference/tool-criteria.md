@@ -1,10 +1,6 @@
-# Step 4: Check the Tool
+# Reference: Tool Baseline Criteria
 
-Before proceeding, confirm that the specific AI tool you intend to use has been approved for use on this project.
-
-**If the tool is already on the approved tools list**, this step is a quick confirmation — verify that it is approved for the classification level and use type you identified in Steps 1 and 2, then proceed to [Step 5](step-5-mitigate.md).
-
-**If the tool is not on the approved list**, it must be assessed and approved before you use it. Use the evaluation template in [tool evaluation template](templates/tool-evaluation.md) to gather the necessary information, then submit it to the SRO for approval. **Do not begin using an unapproved tool.**
+These are the baseline criteria any AI tool must meet before it is approved for use on a project. Use them in [Step 3: Check the Tool](../assess/3-check-tool.md) — either to confirm an existing tool is suitable, or to evaluate a new one using the [tool evaluation template](../templates/tool-evaluation.md) before submitting it to the SRO for approval.
 
 ## AI tools as data sharing
 
@@ -28,7 +24,3 @@ AI tools may also require additional permissions that must be identified, contro
 **If the tool does not meet these criteria, stop.** Either choose a different tool that does, or escalate to get the criteria formally waived with appropriate justification and approval.
 
 **Remember the "stricter wins" principle.** If the client has a list of approved AI tools, or specific requirements beyond these criteria, those take precedence. Check with the client before introducing any AI tool not already approved for the engagement.
-
----
-
-[Next: Step 5 — Mitigate Risks and Reassess >](step-5-mitigate.md)

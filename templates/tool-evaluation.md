@@ -1,6 +1,6 @@
 # Appendix A: Tool Evaluation Template
 
-Use this template when assessing whether an AI tool meets the criteria in [Step 4](step-4-check-tool.md).
+Use this template when assessing whether an AI tool meets the criteria in [Step 3](../assess/3-check-tool.md) (see the [baseline tool criteria](../reference/tool-criteria.md)).
 
 | Criterion | Details | Meets criteria? |
 | ---- | ---- | ---- |

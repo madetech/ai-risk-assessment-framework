@@ -15,20 +15,21 @@ OUTPUT = ROOT / f"ai-risk-assessment-framework-{date.today().strftime('%Y-%m-%d'
 FILE_ORDER = [
     "readme.md",
     "getting-started.md",
-    "step-1-define.md",
-    "step-2-understand-data.md",
-    "step-3-assess-risks.md",
-    "step-4-check-tool.md",
-    "step-5-mitigate.md",
-    "step-6-record.md",
-    "step-7-checklists.md",
-    "step-8-share.md",
+    "assess/1-scope.md",
+    "assess/2-identify-risks.md",
+    "assess/3-check-tool.md",
+    "assess/4-safeguards.md",
+    "assess/5-record-and-work.md",
     "templates/risk-assessment.md",
     "templates/tool-evaluation.md",
     "templates/introduction.md",
-    "appendices/playbook-mapping.md",
-    "appendices/glossary.md",
-    "appendices/worked-examples.md",
+    "reference/use-type-profiles.md",
+    "reference/risk-catalogue.md",
+    "reference/checklists.md",
+    "reference/tool-criteria.md",
+    "reference/worked-examples.md",
+    "reference/government-guidance.md",
+    "reference/glossary.md",
 ]
 
 PAGE_BREAK = "\n<div style=\"page-break-before: always;\"></div>\n"
@@ -62,8 +63,12 @@ def main():
     file_to_anchor = {}
     for s in sections:
         file_to_anchor[s["filename"]] = s["anchor"]
-        # Also map relative paths that start with ../ (e.g. ../appendices/glossary.md)
+        # Also map relative paths that start with ../ (e.g. ../reference/glossary.md)
         file_to_anchor["../" + s["filename"]] = s["anchor"]
+        # Also map the bare basename so sibling links within a subdirectory
+        # (e.g. [Step 2](2-identify-risks.md) inside assess/) resolve too.
+        # Basenames are unique across the framework, so this cannot collide.
+        file_to_anchor[Path(s["filename"]).name] = s["anchor"]
 
     def replace_link(match):
         text = match.group(1)

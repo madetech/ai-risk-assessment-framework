@@ -1,0 +1,52 @@
+# Reference: Alignment with UK Government Guidance
+
+This framework is designed to be consistent with current UK Government guidance on AI. It does not replace that guidance but provides a practical mechanism for delivery teams to apply it in their day-to-day work.
+
+## Key publications this framework aligns with
+
+- **AI Playbook for the UK Government** (February 2025) — the primary government guidance on AI use, setting out 10 principles for responsible AI including knowing AI's limitations, using AI lawfully and ethically, and maintaining meaningful human control. This framework operationalises those principles into a practical assessment process.
+
+- **Data and AI Ethics Framework** (updated December 2025) — provides ethical principles covering privacy, fairness, accountability, and transparency, along with a self-assessment tool. The risk categories in [Step 2: Identify the Risks](../assess/2-identify-risks.md) map directly to these principles.
+
+- **Algorithmic Transparency Recording Standard (ATRS)** — mandatory for central government departments since 2024. If you are building AI-powered product features or AI-assisted user-facing support that involves algorithmic decision-making affecting how requests are handled, you may need to complete an ATRS record. This is addressed in [Step 4: Safeguards and Approvals](../assess/4-safeguards.md) and the relevant [checklists](checklists.md).
+
+- **Code of Practice for the Cyber Security of AI** (January 2025) — establishes baseline security requirements for AI systems across five lifecycle phases. The [tool criteria](tool-criteria.md) and the security considerations in the [risk catalogue](risk-catalogue.md) reflect these requirements.
+
+- **NCSC guidance on prompt injection** (December 2025) — the National Cyber Security Centre's position that prompt injection "may never be totally mitigated" and that LLMs should be treated as "inherently confusable deputies." This informs the prompt injection risk category and the emphasis on deterministic safeguards and least privilege throughout the checklists.
+
+- **Government Security Classifications Policy** — the data classification framework (OFFICIAL, OFFICIAL-SENSITIVE, SECRET, TOP SECRET) is one of the key inputs to the data assessment in [Step 1: Scope Your Use](../assess/1-scope.md).
+
+- **ICO AI and Data Protection Risk Toolkit** — the Information Commissioner's Office's practical toolkit for assessing AI systems against UK GDPR requirements, covering accountability, transparency, lawfulness, accuracy, fairness, security, individual rights, and automated decision-making. The risk assessment and the DPIA requirements align with this toolkit.
+
+- **ICO Toolkit for Data Analytics** — the ICO's introductory assessment for organisations considering data analytics, covering lawfulness, accountability, data protection principles, and data subject rights. Useful for teams new to AI-assisted data processing.
+
+- **Understanding AI Ethics and Safety** (Office for AI / GDS / Alan Turing Institute) — establishes the SUM values framework (respect dignity, connect sincerely, care for wellbeing, protect social values) and the FAST Track principles (Fairness, Accountability, Sustainability, Transparency) for public sector AI. The ethical considerations throughout this framework reflect these principles.
+
+- **UNESCO Recommendation on the Ethics of AI** (2021) — adopted by all 193 UNESCO member states, establishing principles including proportionality, safety, privacy, accountability, transparency, and human oversight. Provides the broader ethical context for responsible AI use.
+
+- **AI Action Plan for Justice** (2025) — for teams working on justice sector projects, this sets out the Ministry of Justice's approach to AI adoption, including the role of the Justice AI Unit, the SAFE-D ethical principles (Sustainability, Accountability, Fairness, Explainability, Data Responsibility), and approved tools. Justice sector teams should follow this plan alongside this framework.
+
+## Mapping to the AI Playbook's 10 principles
+
+| AI Playbook principle | Where addressed in this framework |
+| ---- | ---- |
+| 1. Know AI's limitations | [Step 2](../assess/2-identify-risks.md) (Accuracy and hallucination), [checklists](checklists.md) (all require human review) |
+| 2. Use AI lawfully and ethically | [Step 1](../assess/1-scope.md) (data and consent assessment), [Step 2](../assess/2-identify-risks.md) (bias and fairness, IP), [risk assessment template](../templates/risk-assessment.md) |
+| 3. Ensure meaningful human control | [Step 4](../assess/4-safeguards.md) (mitigations and approvals), [checklists](checklists.md) (human review in all) |
+| 4. Be transparent about AI use | [Step 5](../assess/5-record-and-work.md) (record and share), [checklists](checklists.md) (ATRS, methodology documentation) |
+| 5. Use the right tool for the job | [Step 1](../assess/1-scope.md) (define the use), [Step 3](../assess/3-check-tool.md) (tool evaluation criteria) |
+| 6. Work collaboratively | [Step 5](../assess/5-record-and-work.md) (share and document learnings, periodic review) |
+| 7. Manage AI throughout its lifecycle | [checklists](checklists.md) (ongoing monitoring), [Step 5](../assess/5-record-and-work.md) (periodic review) |
+| 8. Secure AI systems | [Step 2](../assess/2-identify-risks.md) (supply chain and security, prompt injection), [Step 3](../assess/3-check-tool.md) (security certifications), [checklists](checklists.md) (all include prompt injection considerations). Aligned with the NCSC's guidance that prompt injection is a design-time concern requiring deterministic safeguards and least privilege. |
+| 9. Use AI proportionately | [Step 2](../assess/2-identify-risks.md) (risk assessment), [Step 4](../assess/4-safeguards.md) (proportionate mitigations) |
+| 10. Learn, iterate, and improve | [Step 5](../assess/5-record-and-work.md) (share and document learnings, periodic review) |
+
+## Mapping to other referenced frameworks
+
+| Framework | Key principles | Where addressed in this framework |
+| ---- | ---- | ---- |
+| **ICO AI and Data Protection Risk Toolkit** | Accountability, transparency, lawfulness, accuracy, fairness, security, individual rights, Article 22 compliance | [Step 1](../assess/1-scope.md) (data assessment, GDPR), [Step 2](../assess/2-identify-risks.md) (all risk categories), [Step 4](../assess/4-safeguards.md) (DPIA), [risk assessment template](../templates/risk-assessment.md) |
+| **ICO Data Analytics Toolkit** | Lawfulness, accountability, data protection principles, data subject rights | [Step 1](../assess/1-scope.md) (data classification, consent), [Step 3](../assess/3-check-tool.md) (tool evaluation) |
+| **UNESCO Recommendation on the Ethics of AI** | Proportionality, safety, privacy, governance, accountability, transparency, human oversight, sustainability, awareness, fairness | Proportionality: [Step 4](../assess/4-safeguards.md). Human oversight: [checklists](checklists.md). Fairness: [Step 2](../assess/2-identify-risks.md) (bias). Transparency: [Step 5](../assess/5-record-and-work.md). Awareness: ground rules in the [overview](../readme.md). |
+| **Understanding AI Ethics and Safety (SUM/FAST)** | Fairness, Accountability, Sustainability, Transparency | Fairness: [Step 2](../assess/2-identify-risks.md) (bias and fairness). Accountability: [Step 2](../assess/2-identify-risks.md) (accountability gaps), [Step 5](../assess/5-record-and-work.md). Sustainability: [checklists](checklists.md) (ongoing monitoring). Transparency: [Step 5](../assess/5-record-and-work.md) (ATRS). |
+| **AI Action Plan for Justice (SAFE-D)** | Sustainability, Accountability, Fairness, Explainability, Data Responsibility | Sustainability: [checklists](checklists.md) (ongoing monitoring), [Step 5](../assess/5-record-and-work.md) (periodic review). Accountability: [Step 2](../assess/2-identify-risks.md), [Step 5](../assess/5-record-and-work.md). Fairness: [Step 2](../assess/2-identify-risks.md) (bias). Explainability: [checklists](checklists.md) (ATRS, model card). Data Responsibility: [Step 1](../assess/1-scope.md), [Step 3](../assess/3-check-tool.md). |

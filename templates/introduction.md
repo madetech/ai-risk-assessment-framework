@@ -12,15 +12,15 @@ We recognise that AI tools can significantly improve the quality and efficiency 
 
 - **Risk-based** — we assess each AI use case individually rather than applying blanket rules. Higher-risk uses require more rigorous assessment and approval.
 - **Proportionate** — safeguards are matched to the level of risk. Low-risk uses follow standard practices; higher-risk uses require formal documentation and senior approval.
-- **Transparent** — all AI use is recorded, and assessments are available for review. We maintain an AI usage log and review it regularly.
-- **"Stricter wins"** — where our client or department has its own AI policy, the more restrictive position on any given point takes precedence.
+- **Transparent** — all AI use is recorded, and assessments are available for review. Each assessed use case has its own risk assessment document; that assessment is the record, and we review our assessments regularly.
+- **"Stricter wins" by default** — where this framework and our client or department policy differ, the more restrictive position on any given point applies automatically. A less restrictive approach is only permitted with a specific, documented exemption approved by the SRO.
 
 ## Responsible people
 
 | Role | Name | Responsibilities |
 | ---- | ---- | ---- |
 | **Senior Responsible Owner (SRO)** | [Name] | Overall accountability for AI use on the project. Approves high-risk use cases and new tools. |
-| **Delivery Lead** | [Name] | Day-to-day oversight of AI use. Approves medium-risk use cases. Reviews the AI usage log. |
+| **Delivery Lead** | [Name] | Day-to-day oversight of AI use. Approves medium-risk use cases. Reviews the project's risk assessments periodically. |
 | **Technical Lead** | [Name] | Assesses technical risks, tool suitability, and security implications. Reviews mitigations for coding and product feature use cases. |
 | **Data Protection Lead** | [Name] | Advises on data classification, PII handling, and DPIA requirements. Reviews use cases involving personal data. |
 
@@ -40,16 +40,13 @@ The following AI tools have been assessed and approved for use on this project:
 
 ## How to assess a new AI use case
 
-Before using AI for a new activity, follow the eight-step assessment process:
+Before using AI for a new activity, follow the five-step assessment process:
 
-1. **Define** what you want to do and categorise it
-2. **Understand** what data you will share with the AI tool
-3. **Assess** the risks across eight categories
-4. **Check** the tool meets baseline criteria
-5. **Mitigate** risks and reassess the residual risk level
-6. **Record** your assessment before starting work
-7. **Do the work** following the relevant checklist
-8. **Share** your learnings and update the usage log
+1. **Scope your use** — define the activity, categorise it, record how much the AI is allowed to do on its own, and assess what code and data you will share
+2. **Identify the risks** — find the risks that matter for your use, rate each, adjust for autonomy, and take the highest as your inherent risk level
+3. **Check the tool** — confirm it is approved for your classification and use
+4. **Safeguards and approvals** — apply mitigations proportionate to the inherent risk, reassess the residual risk, and get the required sign-off
+5. **Record and do the work** — save the assessment, follow the relevant checklist, and share what you learned
 
 For full details, see the [framework documentation](https://github.com/madetech/ai-risk-assessment).
 
