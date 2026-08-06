@@ -10,7 +10,7 @@ The eleven use types are defined in [Reference: Use-Type Profiles](use-type-prof
 
 **Before:**
 
-- [ ] Confirm the AI tool is approved for this project ([Step 3: Check the Tool](../assess/3-check-tool.md))
+- [ ] Confirm the AI tool is eligible for this use ([Step 2: Check the Tool Is Eligible](../assess/2-check-tool.md))
 - [ ] Check that no secrets, credentials, or API keys are present in the code context the tool will access
 - [ ] Configure the tool appropriately (e.g. disable telemetry if required, set correct organisation/workspace)
 - [ ] Audit AI configuration files (`.cursorrules`, `.github/copilot-instructions.md`, or equivalent) for hidden or adversarial instructions before trusting them
@@ -62,9 +62,9 @@ The eleven use types are defined in [Reference: Use-Type Profiles](use-type-prof
 
 **Before:**
 
-- [ ] Confirm the AI tool is approved for this project ([Step 3: Check the Tool](../assess/3-check-tool.md))
+- [ ] Confirm the AI tool is eligible for this use ([Step 2: Check the Tool Is Eligible](../assess/2-check-tool.md))
 - [ ] Determine whether the dataset can be generated from the schema alone — if it can, do that, and record why real data was not needed
-- [ ] If real data must seed the generation, confirm the tool is approved for that data's classification and apply the same controls you would to the source system
+- [ ] If real data must seed the generation, confirm the tool is eligible for that data's classification and apply the same controls you would to the source system
 - [ ] Define what the dataset must represent: which edge cases, character sets, field lengths, and demographic distributions matter for this service
 - [ ] Decide in advance what classification the output will carry, and who owns that decision
 - [ ] **(enhanced)** Where the seed data contains personal data, complete or update a DPIA — generating from personal data is processing it
@@ -120,7 +120,7 @@ The eleven use types are defined in [Reference: Use-Type Profiles](use-type-prof
 
 **Before:**
 
-- [ ] Confirm the AI tool is approved for this project ([Step 3: Check the Tool](../assess/3-check-tool.md)), paying particular attention to data retention policies given the unpredictable sensitivity of ticket content
+- [ ] Confirm the AI tool is eligible for this use ([Step 2: Check the Tool Is Eligible](../assess/2-check-tool.md)), paying particular attention to data retention policies given the unpredictable sensitivity of ticket content
 - [ ] Assess what ticket data the AI tool will access — does it process full ticket content including attachments, or only specific fields?
 - [ ] Implement automatic PII detection and credential scanning on ticket content before it is sent to the AI tool
 - [ ] Define which ticket types must never be handled by AI (e.g. security incidents, safeguarding concerns, data breach reports, complaints) — enforce these exclusion rules in code, not by relying on the AI's own judgement
@@ -148,7 +148,7 @@ The eleven use types are defined in [Reference: Use-Type Profiles](use-type-prof
 
 **Before:**
 
-- [ ] Confirm the AI tool is approved for this project ([Step 3: Check the Tool](../assess/3-check-tool.md)) at the classification of production telemetry — which is usually higher than teams assume
+- [ ] Confirm the AI tool is eligible for this use ([Step 2: Check the Tool Is Eligible](../assess/2-check-tool.md)) at the classification of production telemetry — which is usually higher than teams assume
 - [ ] Decide, before any incident, what may and may not be shared with an AI tool — and put it somewhere a responder can find at 3am
 - [ ] Identify and restrict credential-bearing log fields (tokens, session identifiers, connection strings, authorisation headers) before they can reach the tool
 - [ ] Confirm the autonomy level recorded in [Step 1](../assess/1-scope.md#assess-the-level-of-autonomy) matches what the tool is actually permitted to do
@@ -202,7 +202,7 @@ The eleven use types are defined in [Reference: Use-Type Profiles](use-type-prof
 
 **Before:**
 
-- [ ] Confirm the AI tool is approved for this project ([Step 3: Check the Tool](../assess/3-check-tool.md))
+- [ ] Confirm the AI tool is eligible for this use ([Step 2: Check the Tool Is Eligible](../assess/2-check-tool.md))
 - [ ] Establish the project's position on AI-generated imagery and illustration in public-facing output *before* producing any
 - [ ] Check what research findings or prototype data you are about to share — summarised findings and realistic-looking prototype data can carry more than intended
 
@@ -224,7 +224,7 @@ The eleven use types are defined in [Reference: Use-Type Profiles](use-type-prof
 
 **Before:**
 
-- [ ] Confirm the AI tool is approved for this project ([Step 3: Check the Tool](../assess/3-check-tool.md))
+- [ ] Confirm the AI tool is eligible for this use ([Step 2: Check the Tool Is Eligible](../assess/2-check-tool.md))
 - [ ] Identify the authoritative source for every rule, entitlement, deadline, or statutory duty the content will state
 - [ ] Check whether the content is sensitive before publication — content for an unannounced service or policy change usually is
 - [ ] Establish the project's position on AI-generated copy in published material
@@ -250,7 +250,7 @@ The eleven use types are defined in [Reference: Use-Type Profiles](use-type-prof
 
 **Before:**
 
-- [ ] Confirm the AI tool is approved for this project ([Step 3: Check the Tool](../assess/3-check-tool.md))
+- [ ] Confirm the AI tool is eligible for this use ([Step 2: Check the Tool Is Eligible](../assess/2-check-tool.md))
 - [ ] Identify who will be named as the author of the resulting requirement, decision record, or assurance artefact, and is accountable for its content
 - [ ] Check whether the source material is sensitive before a decision is announced — draft business cases, commercial information, and pre-decision policy material usually are
 
@@ -273,7 +273,7 @@ The eleven use types are defined in [Reference: Use-Type Profiles](use-type-prof
 
 **Before:**
 
-- [ ] Confirm the AI tool is on the approved tools list ([Step 3: Check the Tool](../assess/3-check-tool.md))
+- [ ] Confirm the AI tool is eligible for this use ([Step 2: Check the Tool Is Eligible](../assess/2-check-tool.md))
 - [ ] Confirm the task genuinely belongs in this category — if the output will be read as evidence that someone reasoned a decision through, use the business analysis checklist instead
 - [ ] Understand what permissions the tool requires (calendar, contacts, files, meetings) — are these proportionate to your intended use? Can unnecessary permissions be disabled?
 - [ ] Assess the content you will be processing — do meetings, documents, or emails contain sensitive data, PII, or commercially confidential information?

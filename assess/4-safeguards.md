@@ -1,6 +1,6 @@
 # Step 4: Safeguards and Approvals
 
-You now have an inherent risk level from [Step 2](2-identify-risks.md) — the risk before any mitigations. This step has three parts: determine mitigations proportionate to that inherent risk, apply them, and reassess the residual risk to confirm they are sufficient. It ends with the required approvals.
+You now have an inherent risk level from [Step 3](3-identify-risks.md) — the risk before any mitigations. This step has three parts: determine mitigations proportionate to that inherent risk, apply them, and reassess the residual risk to confirm they are sufficient. It ends with the required approvals.
 
 ## Part A: Determine mitigations based on the inherent risk level
 
@@ -8,13 +8,13 @@ The principle is proportionality: higher inherent risk requires more rigorous co
 
 **Inherent risk: Low**
 
-- Confirm the AI tool is on the approved tools list (see [Step 3](3-check-tool.md))
+- Confirm the tool is eligible for this use, within its recorded limits (see [Step 2](2-check-tool.md))
 - Human review of all AI outputs before they are used, committed, or acted upon
 - Record the AI use as a risk assessment (see [Step 5](5-record-and-work.md))
 - Follow the relevant per-use [checklist](../reference/checklists.md)
-- Comply with data handling policies — do not share data beyond the classification level the tool is approved for
+- Comply with data handling policies — do not share data beyond the tool's recorded classification ceiling
 
-No additional approval is required beyond confirming the tool is approved and following standard team practices.
+No additional approval is required beyond confirming the tool is eligible and following standard team practices.
 
 **Inherent risk: Medium**
 
@@ -42,7 +42,7 @@ Some uses should not proceed regardless of mitigations, including:
 
 - Processing SECRET or TOP SECRET data through any external AI service
 - Using AI to make automated decisions about individuals without meaningful human oversight, particularly in statutory contexts
-- Using tools that do not meet the [baseline criteria](../reference/tool-criteria.md) and cannot be brought into compliance
+- Using tools that do not meet the [baseline eligibility criteria](../reference/tool-criteria.md) and cannot be brought into compliance
 - Using AI on data where consent or contractual agreements explicitly prohibit it
 - Any use the client has explicitly prohibited
 
@@ -68,7 +68,7 @@ With the mitigations identified, go back through each risk category and re-rate 
 - Does this mitigation reduce the **impact** if it does materialise? (e.g. human review of all outputs limits the impact of hallucination)
 - Is the residual risk now at an acceptable level?
 
-Use the same risk matrix from [Step 2](2-identify-risks.md) to determine the residual level for each category and overall.
+Use the same risk matrix from [Step 3](3-identify-risks.md) to determine the residual level for each category and overall.
 
 **If the residual risk for any category remains at "Do not proceed"**, the mitigations are insufficient — identify stronger mitigations, change your approach, or do not proceed.
 

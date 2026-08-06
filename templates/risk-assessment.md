@@ -19,7 +19,7 @@ _Be specific. "Using AI for coding" is too broad. "Using an AI coding assistant 
 
 **Category:** [Coding / Code analysis / Synthetic data generation / Product feature / User-facing support / Live service operations / User research / Design / Content / Business analysis / General productivity]
 
-**Autonomy level:** [Suggests / Drafts / Acts with approval / Acts autonomously]
+**Autonomy level:** [Suggests / Drafts for review / Acts with approval / Acts autonomously]
 _What is the AI permitted to do, not what you intend to let it do. See [Step 1](../assess/1-scope.md#assess-the-level-of-autonomy)._
 
 **What will you do with the AI's output?**
@@ -70,7 +70,7 @@ For each risk category, rate the **likelihood** (how likely is this to happen?) 
 
 Use: **Low**, **Medium**, **High**, or **N/A** (if genuinely not applicable to this use case — justify briefly).
 
-See [Step 2 of the framework](../assess/2-identify-risks.md) for guidance on identifying and rating each risk, and the [risk catalogue](../reference/risk-catalogue.md) for detail on each category. If the autonomy level above is "acts with approval" or "acts autonomously", apply the autonomy adjustment in Step 2 before recording these ratings.
+See [Step 2 of the framework](../assess/3-identify-risks.md) for guidance on identifying and rating each risk, and the [risk catalogue](../reference/risk-catalogue.md) for detail on each category. If the autonomy level above is "acts with approval" or "acts autonomously", apply the autonomy adjustment in Step 2 before recording these ratings.
 
 | Risk category | Likelihood | Impact | Inherent risk | Notes |
 | ---- | ---- | ---- | ---- | ---- |
@@ -91,11 +91,11 @@ See [Step 2 of the framework](../assess/2-identify-risks.md) for guidance on ide
 
 **Tool name:** [e.g. GitHub Copilot Business, Claude API via AWS Bedrock]
 
-**Is this tool on the project's approved tools list?** [Yes / No]
+**Is this tool on the project's tool register?** [Yes / No]
 
-_If no, a tool evaluation must be completed before proceeding. See [tool evaluation template](tool-evaluation.md)._
+_If no, a tool evaluation must be completed and the tool entered on the register before proceeding. See [tool evaluation template](tool-evaluation.md)._
 
-**Does the tool meet baseline criteria for:**
+**Does the tool meet the baseline eligibility criteria for:**
 
 | Criterion | Met? | Notes |
 | ---- | ---- | ---- |
@@ -104,6 +104,17 @@ _If no, a tool evaluation must be completed before proceeding. See [tool evaluat
 | Inputs not used for model training | | |
 | Security certifications | | |
 | Acceptable IP/licensing terms | | |
+
+**Does its entry cover this use?** Compare your scope against the tool's recorded limits.
+
+| Check | Tool's recorded limit | This use | Within limits? |
+| ---- | ---- | ---- | ---- |
+| Classification | | | |
+| Use type | | | |
+| Autonomy level | | | |
+| Conditions attached | | | |
+
+_If any answer is no, you may not proceed on this basis. Narrow the use to fit, choose a different tool, or seek a wider register entry with SRO approval._
 
 ---
 

@@ -43,7 +43,7 @@ Copy the [introduction template](templates/introduction.md) into your documentat
 
 1. **Responsible people** — Identify who fills each role. Not every project will need all roles as separate people; on smaller teams one person may cover multiple roles. The important thing is that responsibilities are explicitly assigned.
 
-2. **Approved tools** — If your organisation already has an approved tools list, reference or copy it. If not, this is the place to build one. Start with the tools your team is already using (or wants to use) and run each through the tool evaluation process ([Step 3](assess/3-check-tool.md) and [tool evaluation template](templates/tool-evaluation.md)).
+2. **Tool register** — If your organisation already has an approved AI tools list, reference or copy it, but record what each tool is eligible *for* rather than just that it is on the list. If there is no list, this is the place to build one. Start with the tools your team is already using (or wants to use) and run each through the evaluation process ([Step 2](assess/2-check-tool.md) and [tool evaluation template](templates/tool-evaluation.md)).
 
 3. **Review schedule** — Set a realistic cadence. Tying it to an existing ceremony (e.g. sprint retros, monthly team reviews) is more sustainable than creating a new meeting.
 
@@ -55,8 +55,8 @@ When someone on the team wants to use AI for a specific activity, create a new r
 
 2. **Work through each section** of the template, using the framework for detailed guidance:
    - Scope the use — define it and assess what code and data you will share (Step 1)
-   - Identify the risks using the heatmap and rate each one (Step 2)
-   - Confirm the tool is approved, or evaluate it (Step 3)
+   - Check the tool is eligible for this classification, use type and autonomy level — or evaluate it (Step 2)
+   - Identify the risks using the heatmap and rate each one (Step 3)
    - Apply mitigations and reassess the residual risk (Step 4)
    - Record the assessment and do the work (Step 5)
 
@@ -76,13 +76,13 @@ When someone on the team wants to use AI for a specific activity, create a new r
 
 ## 4. Evaluate and approve new tools
 
-When someone wants to use a tool that is not on the approved list:
+When someone wants to use a tool that is not on the register, or needs a wider envelope than an existing entry allows:
 
 1. Create a new page under **Tool Evaluations**.
 2. Use the tool evaluation template ([tool evaluation template](templates/tool-evaluation.md)) to gather the required information.
 3. Have the Technical Lead review the evaluation.
 4. Submit to the SRO for approval.
-5. If approved, add it to the **Approved Tools** table on the introduction page.
+5. If signed off, add it to the **Tool register** on the introduction page, recording its classification ceiling, eligible use types, autonomy ceiling, and any conditions.
 
 Do not let people use tools while the evaluation is in progress. This is one area where being strict up front avoids problems later.
 
@@ -106,17 +106,6 @@ The framework only works if people use it. Some practical ways to embed it:
 - **Keep it lightweight for low-risk cases.** If the process feels burdensome for routine use, people will skip it. A low-risk assessment should take minutes, not hours.
 - **Celebrate good practice.** When someone's assessment catches a real issue, or their shared learnings help the team, acknowledge it.
 - **Use retrospectives.** Review the assessments during retros. Ask: "What AI did we use this sprint? Did anything go wrong? Did anything go well?"
-
-## 7. Scale as you learn
-
-Start simple and add structure as you need it:
-
-- **Week 1:** Set up the documentation space, fill in the introduction page, approve your initial tools.
-- **Month 1:** Create assessments for your most common use cases.
-- **Month 3:** Review how it is going. Are assessments being done? Are the risk levels calibrated right? Update the introduction page and any assessments that need revisiting.
-- **Ongoing:** Share learnings across teams. Feed improvements back into the framework.
-
-The goal is informed, proportionate AI use — not perfect paperwork. If the framework is helping your team make better decisions about AI, it is working.
 
 ---
 

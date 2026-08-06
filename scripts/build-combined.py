@@ -16,8 +16,8 @@ FILE_ORDER = [
     "readme.md",
     "getting-started.md",
     "assess/1-scope.md",
-    "assess/2-identify-risks.md",
-    "assess/3-check-tool.md",
+    "assess/3-identify-risks.md",
+    "assess/2-check-tool.md",
     "assess/4-safeguards.md",
     "assess/5-record-and-work.md",
     "templates/risk-assessment.md",
@@ -66,7 +66,7 @@ def main():
         # Also map relative paths that start with ../ (e.g. ../reference/glossary.md)
         file_to_anchor["../" + s["filename"]] = s["anchor"]
         # Also map the bare basename so sibling links within a subdirectory
-        # (e.g. [Step 2](2-identify-risks.md) inside assess/) resolve too.
+        # (e.g. [Step 2](3-identify-risks.md) inside assess/) resolve too.
         # Basenames are unique across the framework, so this cannot collide.
         file_to_anchor[Path(s["filename"]).name] = s["anchor"]
 

@@ -24,17 +24,17 @@ We recognise that AI tools can significantly improve the quality and efficiency 
 | **Technical Lead** | [Name] | Assesses technical risks, tool suitability, and security implications. Reviews mitigations for coding and product feature use cases. |
 | **Data Protection Lead** | [Name] | Advises on data classification, PII handling, and DPIA requirements. Reviews use cases involving personal data. |
 
-## Approved tools
+## Tool register
 
-The following AI tools have been assessed and approved for use on this project:
+The following AI tools have been assessed and are **eligible** for use on this project, within the limits recorded below. Whether a particular use may go ahead is decided by its risk assessment.
 
-| Tool | Approved uses | Conditions | Date approved |
-| ---- | ---- | ---- | ---- |
-| [e.g. GitHub Copilot Business] | [e.g. AI-assisted coding] | [e.g. No OFFICIAL-SENSITIVE data] | [Date] |
-| | | | |
-| | | | |
+| Tool (and tier) | Classification ceiling | Eligible use types | Autonomy ceiling | Conditions | Assessed / approved by | Last reviewed |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| [e.g. GitHub Copilot Business] | [e.g. OFFICIAL] | [e.g. Coding] | [e.g. Drafts for review] | [e.g. Secrets scan before sharing; agent mode disabled] | [Names] | [Date] |
+| | | | | | | |
+| | | | | | | |
 
-**Do not use tools that are not on this list for project work.** If you want to use a new tool, speak to the Technical Lead and follow the tool evaluation process in [tool evaluation template](https://github.com/madetech/ai-risk-assessment/blob/main/templates/tool-evaluation.md) of the framework.
+**Do not use a tool that is not on this register, and do not use one beyond its recorded limits.** Going outside the classification ceiling, the eligible use types, or the autonomy ceiling is the same as using a tool nobody assessed, and needs the same escalation. If you want to use a new tool, or need a wider envelope for an existing one, speak to the Technical Lead and follow the [tool evaluation template](https://github.com/madetech/ai-risk-assessment/blob/main/templates/tool-evaluation.md) in the framework.
 
 **Do not use free or consumer versions of AI tools** (e.g. free ChatGPT, consumer Claude) for any work-related information.
 
@@ -63,7 +63,7 @@ Before using AI tools on this project, all team members should:
 
 This document should be reviewed when:
 
-- The approved tools list changes
+- The tool register changes
 - Responsible people change
 - The project's risk profile changes significantly
 - At least every six months

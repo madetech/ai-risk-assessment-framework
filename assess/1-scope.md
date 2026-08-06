@@ -20,7 +20,7 @@ The categories below describe **tasks people do while delivering a service**, no
 
 Most AI use falls into one of eleven categories. Some uses span more than one — if so, assess against each and apply the more restrictive safeguards.
 
-**These categories are a thinking aid, not an exhaustive taxonomy.** Their job is to get you to the right risks quickly by pointing at the closest well-understood shape of work. There is no prize for classifying correctly. If your use does not fit neatly, pick the nearest one or two, note why the fit is imperfect, and carry on — what matters is that you assess the right risks, not that you chose the right label. If you are doing something the categories genuinely do not describe, work through [Step 2](2-identify-risks.md) on its merits and [feed the gap back](5-record-and-work.md) so the framework can catch up.
+**These categories are a thinking aid, not an exhaustive taxonomy.** Their job is to get you to the right risks quickly by pointing at the closest well-understood shape of work. There is no prize for classifying correctly. If your use does not fit neatly, pick the nearest one or two, note why the fit is imperfect, and carry on — what matters is that you assess the right risks, not that you chose the right label. If you are doing something the categories genuinely do not describe, work through [Step 3](3-identify-risks.md) on its merits and [feed the gap back](5-record-and-work.md) so the framework can catch up.
 
 | Category | The key characteristic |
 | ---- | ---- |
@@ -47,13 +47,13 @@ Pick the level that matches what the AI is actually permitted to do:
 | Level | What it means | Example |
 | ---- | ---- | ---- |
 | **Suggests** | AI proposes; a person decides and does the work themselves | Inline code completion; a list of possible root causes |
-| **Drafts** | AI produces a complete artefact that a person reviews and edits before it takes effect | A generated pull request; a drafted support response awaiting agent approval |
+| **Drafts for review** | AI produces a complete artefact that a person reviews and edits before it takes effect | A generated pull request; a drafted support response awaiting agent approval |
 | **Acts with approval** | AI performs actions in a real system, but each action needs explicit human approval first | An agent that runs commands or edits files with per-action confirmation |
 | **Acts autonomously** | AI performs actions in a real system with no human in the loop for each action | Automated ticket closure; auto-remediation of an alert |
 
-Two things to be careful about. First, **the level is what the AI is permitted to do, not what you intend to let it do** — if the approval prompt can be turned off, or a "yes to all" option exists and gets used under pressure, assess at the higher level. Second, **autonomy tends to creep**: a tool introduced at "drafts" acquires an auto-apply setting, or a team that reviewed every suggestion in week one stops by week six. Note the level you assessed, and reassess if the way the tool is used changes.
+Two things to be careful about. First, **the level is what the AI is permitted to do, not what you intend to let it do** — if the approval prompt can be turned off, or a "yes to all" option exists and gets used under pressure, assess at the higher level. Second, **autonomy tends to creep**: a tool introduced at *drafts for review* acquires an auto-apply setting, or a team that reviewed every suggestion in week one stops by week six. Note the level you assessed, and reassess if the way the tool is used changes.
 
-You will use this in [Step 2](2-identify-risks.md), where higher autonomy raises specific risks, and in [Step 4](4-safeguards.md), where fully autonomous action requires SRO approval regardless of the overall risk level.
+You will use this in [Step 3](3-identify-risks.md), where higher autonomy raises specific risks, and in [Step 4](4-safeguards.md), where fully autonomous action requires SRO approval regardless of the overall risk level.
 
 ## Understand what you are sharing
 
@@ -75,7 +75,7 @@ Beyond secrets, consider:
 
 | Classification | AI implications |
 | ---- | ---- |
-| **OFFICIAL** | AI tools that meet the [tool criteria](../reference/tool-criteria.md) are generally appropriate, subject to the risk assessment in [Step 2](2-identify-risks.md). |
+| **OFFICIAL** | AI tools that meet the [tool criteria](../reference/tool-criteria.md) are generally appropriate, subject to the risk assessment in [Step 3](3-identify-risks.md). |
 | **OFFICIAL-SENSITIVE** | Only tools formally assessed and approved for OFFICIAL-SENSITIVE data may be used. Do not make this assessment yourself — if the tool has not been approved for this level, escalate to the SRO before proceeding. Client approval is likely needed. |
 | **SECRET / TOP SECRET** | 🛑 Do not use external AI services. Any AI use must be within accredited secure environments. This is outside the scope of most delivery projects and requires specialist security guidance. |
 
@@ -90,8 +90,8 @@ Classification is not the only factor. OFFICIAL data can still carry significant
 
 Many uses involve both — for example, code analysis on a codebase that contains sample records, or a product feature whose defining prompts are shared alongside user data at runtime. Assess each independently and apply the more restrictive set of safeguards. See [Reference: Use-Type Profiles](../reference/use-type-profiles.md) for how code and data typically combine in each use type.
 
-**Record your scope.** Note what the AI will be used for, its category, its autonomy level, what code and data will be shared, the data classification, whether PII is involved, and any consent or contractual constraints. You will use all of this in [Step 2: Identify the Risks](2-identify-risks.md).
+**Record your scope.** Note what the AI will be used for, its category, its autonomy level, what code and data will be shared, the data classification, whether PII is involved, and any consent or contractual constraints. You will use all of this in [Step 2](2-check-tool.md) and [Step 3](3-identify-risks.md).
 
 ---
 
-[Next: Step 2 — Identify the Risks >](2-identify-risks.md)
+[Next: Step 2 — Check the Tool Is Eligible >](2-check-tool.md)

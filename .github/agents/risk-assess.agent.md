@@ -20,9 +20,9 @@ If the user described their use case in the prompt, use it to pre-fill answers w
 Use these files as reference throughout the assessment:
 - [1-scope.md](../../assess/1-scope.md) — categories of AI use and data assessment guidance
 - [use-type-profiles.md](../../reference/use-type-profiles.md) — the eleven use types in detail
-- [2-identify-risks.md](../../assess/2-identify-risks.md) — the risk heatmap and how to rate each risk
+- [3-identify-risks.md](../../assess/3-identify-risks.md) — the risk heatmap and how to rate each risk
 - [risk-catalogue.md](../../reference/risk-catalogue.md) — the eight risks in depth, by use type
-- [3-check-tool.md](../../assess/3-check-tool.md) and [tool-criteria.md](../../reference/tool-criteria.md) — tool evaluation criteria
+- [2-check-tool.md](../../assess/2-check-tool.md) and [tool-criteria.md](../../reference/tool-criteria.md) — tool evaluation criteria
 - [4-safeguards.md](../../assess/4-safeguards.md) — mitigations by risk level
 
 ## Step 1: Gather the basics
@@ -31,7 +31,7 @@ Ask these questions one at a time:
 
 1. **What do you want to use AI for?** Be specific - push back on vague descriptions like "using AI for coding". Provide a few example descriptions as options.
 2. **Which category does it fall into?** Offer the eleven categories as options: coding, code analysis, synthetic data generation, product feature, user-facing support, live service operations, user research, design, content, business analysis, general productivity.
-3. **How much is the AI allowed to do on its own?** Offer the four autonomy levels: "Suggests - a person does the work", "Drafts - a person reviews before it takes effect", "Acts with approval - each action needs sign-off", "Acts autonomously - no human in the loop per action". Ask what the tool is *permitted* to do, not what they intend to let it do.
+3. **How much is the AI allowed to do on its own?** Offer the four autonomy levels: "Suggests - a person does the work", "Drafts for review - a person reviews before it takes effect", "Acts with approval - each action needs sign-off", "Acts autonomously - no human in the loop per action". Ask what the tool is *permitted* to do, not what they intend to let it do.
 4. **What will you do with the AI output?** Offer options like: "Goes directly into production", "Reviewed and edited first", "Informs a decision", etc.
 5. **Who is affected?** Offer options like: "Just me/my team", "End users of the service", "Members of the public whose data is processed".
 
@@ -48,7 +48,17 @@ Ask these questions one at a time:
 
 For any "Yes" or "Not sure" answers, ask a brief follow-up to get the relevant details.
 
-## Step 3: Assess the risks
+## Step 3: Check the tool is eligible
+
+Ask one question at a time:
+
+1. **Which AI tool will you use?** Offer common tools relevant to their category as options.
+2. **Is this tool on the project's tool register?** Offer: Yes, No, Not sure. If no, explain it must be evaluated and added before use.
+3. **Does its entry cover this use?** Check their classification, use type and autonomy level against the limits recorded for that tool. If any exceeds them, they need to narrow the use, pick another tool, or seek a wider entry with SRO approval.
+
+Tools are eligible; uses are approved. Clearing this step means the tool is not ruled out, not that they may proceed - that is decided later, on the basis of risk. Never describe a tool as "approved"; say it is eligible.
+
+## Step 4: Assess the risks
 
 For each of the eight risk categories (data leakage, accuracy/hallucination, accountability, bias/fairness, IP/licensing, over-reliance, supply chain/security, prompt injection), work through them **one category per message** - do not present all eight at once:
 
@@ -60,12 +70,9 @@ If a risk is clearly N/A for their use case, say so and suggest skipping it, but
 
 Apply the autonomy adjustment from the framework when suggesting ratings: if they answered "acts with approval", raise accountability, supply chain, and prompt injection by one likelihood step; if "acts autonomously", rate those three as at least High impact. Explain the adjustment when you apply it.
 
+When rating inherent risk, use the tool's **design** (is a third party involved at all, does it have standing access, can it act) but not the supplier's **promises** (no training on inputs, data residency, indemnification) - those are mitigations and belong in the next step. Otherwise inherent and residual collapse into each other.
+
 After all eight categories, state the overall inherent risk level (the highest individual rating).
-
-## Step 4: Check the tool
-
-1. **Which AI tool will you use?** Offer common tools relevant to their category as options.
-2. **Is this tool on the project's approved tools list?** Offer: Yes, No, Not sure. If no, note that a tool evaluation is needed.
 
 ## Step 5: Mitigations
 

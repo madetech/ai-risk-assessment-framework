@@ -1,4 +1,4 @@
-# Step 2: Identify the Risks
+# Step 3: Identify the Risks
 
 Not every risk matters equally for every use. The goal of this step is to quickly find the risks that are **material to your use**, then rate those by likelihood and impact to arrive at an inherent risk level — the risk before any mitigations are applied.
 
@@ -29,6 +29,12 @@ The heatmap shows *typical* starting points, not fixed ratings. Your specific si
 ## 2. Rate each risk
 
 For each risk that is live for your use, read the one-paragraph definition below, ask yourself the questions, and rate the **likelihood** (how likely is this to happen?) and **impact** (how serious if it did?) **before any mitigations**. For the full detail on how each risk shows up per use type, and the controls that reduce it, see [Reference: Risk Catalogue](../reference/risk-catalogue.md).
+
+### Rate the design, not the promises
+
+A model running in your own tenancy has lower inherent data leakage than a cloud service — the data never leaves. That is the tool's **design**, and it changes the size of the risk.
+
+"We don't train on your inputs", UK residency, indemnification — those are **promises**. They shrink a risk that already exists, so they belong in [Step 4](4-safeguards.md).
 
 ### Data leakage
 Sensitive data sent to a third-party AI service is exposed, retained, used for training, or otherwise leaves your control — via prompts, context windows, uploaded files, or metadata.
@@ -87,7 +93,7 @@ Take the autonomy level you recorded in [Step 1](1-scope.md#assess-the-level-of-
 | Autonomy level | Adjustment |
 | ---- | ---- |
 | **Suggests** | No adjustment — the heatmap already assumes this |
-| **Drafts** | No adjustment, provided review is genuine and unhurried. If the artefact is large enough that review will be shallow in practice, raise **accuracy** by one likelihood step |
+| **Drafts for review** | No adjustment, provided review is genuine and unhurried. If the artefact is large enough that review will be shallow in practice, raise **accuracy** by one likelihood step |
 | **Acts with approval** | Raise **accountability**, **supply chain**, and **prompt injection** by one likelihood step. A human clicking "approve" on something they did not fully read is not a control |
 | **Acts autonomously** | Rate **accountability**, **supply chain**, and **prompt injection** as at least **High impact**. Requires SRO approval regardless of the overall level (see [Step 4](4-safeguards.md)) |
 
@@ -109,4 +115,4 @@ Record your inherent risk assessment — the overall level and the individual ra
 
 ---
 
-[Next: Step 3 — Check the Tool >](3-check-tool.md)
+[Next: Step 4 — Safeguards and Approvals >](4-safeguards.md)

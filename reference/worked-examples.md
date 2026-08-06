@@ -4,11 +4,11 @@ Six end-to-end assessments, covering different use types, risk levels, and auton
 
 | # | Use | Category | Autonomy | Inherent → residual |
 | ---- | ---- | ---- | ---- | ---- |
-| [1](#example-1-coding-assistant-on-an-official-sensitive-project) | Unit test generation | Coding | Drafts | Medium → Low |
+| [1](#example-1-coding-assistant-on-an-official-sensitive-project) | Unit test generation | Coding | Drafts for review | Medium → Low |
 | [2](#example-2-ai-triage-chatbot-for-a-public-facing-service) | Public triage chatbot | Product feature | Acts autonomously | High → Medium |
 | [3](#example-3-code-analysis-across-a-legacy-codebase) | Legacy codebase analysis | Code analysis | Suggests | High → Medium |
 | [4](#example-4-service-desk-ticket-triage-and-response) | Service desk triage | User-facing support | Acts autonomously | High → Medium |
-| [5](#example-5-a-non-generative-model-prioritising-housing-inspections) | Inspection prioritisation model | Product feature (non-generative ML) | Drafts | High → Medium |
+| [5](#example-5-a-non-generative-model-prioritising-housing-inspections) | Inspection prioritisation model | Product feature (non-generative ML) | Drafts for review | High → Medium |
 | [6](#example-6-an-agent-triaging-and-remediating-production-alerts) | Automated alert remediation | Live service operations | Acts autonomously | High → Medium |
 
 ---
@@ -18,11 +18,13 @@ Six end-to-end assessments, covering different use types, risk levels, and auton
 **[Step 1](../assess/1-scope.md) — Scope:** A developer wants to use a cloud-hosted AI coding assistant to help write unit tests for a case management service. The service handles OFFICIAL-SENSITIVE data including personal details of individuals in the justice system.
 
 - **Category:** AI-assisted coding
-- **Autonomy:** Drafts — the assistant generates whole test files that the developer reviews and edits before committing. Agent mode, which can edit files across the repository unprompted, is disabled in the team's shared configuration.
+- **Autonomy:** Drafts for review — the assistant generates whole test files that the developer reviews and edits before committing. Agent mode, which can edit files across the repository unprompted, is disabled in the team's shared configuration.
 
 *What is shared:* The code itself is classified as OFFICIAL-SENSITIVE because it contains business logic that reveals how sensitive cases are handled. The test code will reference data structures that mirror the real data model, including field names for personal information. No real PII will be in the code, but the data structures are revealing.
 
-**[Step 2](../assess/2-identify-risks.md) — Inherent risks (before mitigations):**
+**[Step 2](../assess/2-check-tool.md) — Check the tool is eligible:** The coding assistant (enterprise plan) is already on the project's tool register, with a classification ceiling of OFFICIAL-SENSITIVE, coding as an eligible use type, an autonomy ceiling of *drafts for review*, and the condition that agent mode stays disabled. This use is within all four limits, so the assessment continues.
+
+**[Step 3](../assess/3-identify-risks.md) — Inherent risks (before mitigations):**
 
 - **Data leakage: Medium inherent risk (Possible likelihood, Medium impact).** Code snippets containing sensitive business logic and data model structures will be sent to the cloud AI service. No actual PII, but the structures are revealing.
 - **Accuracy: Low inherent risk (Possible likelihood, Low impact).** Incorrect unit tests will be caught by code review and test execution. The consequence of a wrong test is limited. The team is alert to the specific failure mode of tests that pass without asserting anything meaningful.
@@ -33,11 +35,9 @@ Six end-to-end assessments, covering different use types, risk levels, and auton
 - **Supply chain: Low inherent risk.** Unit tests don't typically introduce new dependencies.
 - **Prompt injection: Low inherent risk.** The codebase is internal and trusted. The developer is working on their own code, not processing untrusted external content. AI rule files in the repository were audited.
 
-*Autonomy adjustment:* none. At "drafts", with test files small enough to review properly, the heatmap's assumptions hold.
+*Autonomy adjustment:* none. At *drafts for review*, with test files small enough to review properly, the heatmap's assumptions hold.
 
 **Overall inherent risk level: Medium** (driven by data leakage).
-
-**[Step 3](../assess/3-check-tool.md) — Check the tool:** The coding assistant is on the project's approved tools list (enterprise plan). Confirmed: no training on inputs, EU data residency, SOC 2 certification, audit logging, and IP indemnification. Meets all criteria. As this is an approved tool being used within its approved scope, no additional SRO approval is needed at this step.
 
 **[Step 4](../assess/4-safeguards.md) — Safeguards and residual risk:** Medium inherent risk requires enhanced controls and tech lead approval.
 
@@ -74,7 +74,9 @@ Residual risk after mitigations:
 
 *What is shared:* At runtime, the chatbot processes user messages which may contain PII (names, case references, personal circumstances). The configuration data includes service descriptions and routing rules, which are OFFICIAL. User conversations are logged for quality monitoring.
 
-**[Step 2](../assess/2-identify-risks.md) — Inherent risks (before mitigations):**
+**[Step 2](../assess/2-check-tool.md) — Check the tool is eligible:** This is a new tool, so it has to be evaluated and added to the register first. The team gathers evidence using the [tool evaluation template](../templates/tool-evaluation.md): UK data residency, GDPR-compliant DPA, no training on inputs, ISO 27001, SOC 2, 99.9% SLA, API access with audit logging. The entry is written with a classification ceiling of OFFICIAL, product features as an eligible use type, an autonomy ceiling of *acts autonomously* limited to replying and routing, and the condition that it holds no access to case records. Signed off by the SRO.
+
+**[Step 3](../assess/3-identify-risks.md) — Inherent risks (before mitigations):**
 
 - **Data leakage: High inherent risk (Likely likelihood, High impact).** Users will inevitably share personal and sensitive information in their messages. This data will be processed by the AI service. Data handling must be robust.
 - **Accuracy: High inherent risk (Likely likelihood, Medium impact).** If the chatbot directs someone to the wrong service, they may not get the help they need in time. Incorrect triage could have real consequences.
@@ -86,8 +88,6 @@ Residual risk after mitigations:
 - **Prompt injection: High inherent risk (Likely likelihood, High impact).** The chatbot is public-facing — anyone can interact with it. Users could attempt to extract system prompts, bypass triage logic, or cause the chatbot to produce inappropriate content. Indirect injection is also possible if the chatbot retrieves content from a knowledge base that could be compromised.
 
 **Overall inherent risk level: High** (driven by data leakage, accuracy, accountability, bias, supply chain, and prompt injection).
-
-**[Step 3](../assess/3-check-tool.md) — Check the tool:** This is a new tool not previously on the approved list. The team gathered evidence using the [tool evaluation template](../templates/tool-evaluation.md): UK data residency, GDPR-compliant DPA, no training on inputs, ISO 27001, SOC 2, 99.9% SLA, API access with audit logging. Meets all criteria. Submitted to SRO for approval — SRO approved the tool for use on this project.
 
 **[Step 4](../assess/4-safeguards.md) — Safeguards and residual risk:** High inherent risk requires formal documentation and SRO approval. The "acts autonomously" level adds the autonomy controls.
 
@@ -132,7 +132,15 @@ Residual risk after mitigations:
 
 *What is shared:* The codebase is classified as OFFICIAL-SENSITIVE. It contains business logic for case management in the justice system, including rules about case handling, sentencing calculations, and data access controls. There are configuration files that may contain database connection strings and service endpoints. The codebase also contains comments that reference specific operational procedures.
 
-**[Step 2](../assess/2-identify-risks.md) — Inherent risks (before mitigations):**
+**[Step 2](../assess/2-check-tool.md) — Check the tool is eligible:** The cloud-hosted tool is not yet on the register. Note that the team's existing coding assistant would not do either: it is eligible, but only up to OFFICIAL and only for coding — not for sending an entire OFFICIAL-SENSITIVE codebase to a third party. Using it here would be using a tool outside its recorded limits, so a fresh assessment is needed either way. The team evaluates options using the [tool evaluation template](../templates/tool-evaluation.md). A cloud-hosted AI tool with enterprise terms (no training on inputs, UK data residency, SOC 2) is available but requires sending the full codebase to an external service. An alternative is to use a locally-hosted open-source model, which keeps the code on-premises but may produce lower-quality analysis. The team decides to:
+
+1. First run a secrets scanning tool across the codebase to identify and remove embedded credentials
+2. Use the cloud-hosted tool with enterprise terms for the bulk analysis, having removed secrets
+3. Submit the tool evaluation to the SRO, and seek explicit client approval given the OFFICIAL-SENSITIVE classification
+
+The SRO enters the tool on the register with a classification ceiling of OFFICIAL-SENSITIVE, code analysis as the only eligible use type, an autonomy ceiling of *suggests*, and the condition that a secrets scan is completed first. Note how narrow that entry is: the tool is eligible for this shape of work and nothing wider, and extending it later would require a fresh assessment.
+
+**[Step 3](../assess/3-identify-risks.md) — Inherent risks (before mitigations):**
 
 - **Data leakage: High inherent risk (Likely likelihood, High impact).** The entire codebase — 500,000 lines — will be processed by the AI tool. This includes sensitive business logic, potential embedded credentials, and security-sensitive implementation details. The volume means manual review of every input is impractical.
 - **Accuracy: Medium inherent risk (Possible likelihood, Medium impact).** Incorrect analysis could lead to wrong modernisation decisions (e.g. underestimating complexity, missing critical dependencies). However, the analysis will be validated by experienced engineers and is an input to decision-making, not a final decision itself. The team notes that AI is weakest precisely where legacy systems are hardest: undocumented business rules that only make sense in historical policy context.
@@ -143,17 +151,9 @@ Residual risk after mitigations:
 - **Supply chain: Low inherent risk.** The AI tool is used for analysis only, not generating production code, and has no write access.
 - **Prompt injection: Medium inherent risk (Possible likelihood, Medium impact).** The legacy codebase could contain comments or string literals that inadvertently or deliberately mislead the analysis tool. Given the size of the codebase, it is impractical to review all comments for adversarial content.
 
-*Autonomy adjustment:* none. At "suggests", with no write access, the heatmap's assumptions hold.
+*Autonomy adjustment:* none. At *suggests*, with no write access, the heatmap's assumptions hold.
 
 **Overall inherent risk level: High** (driven by data leakage).
-
-**[Step 3](../assess/3-check-tool.md) — Check the tool:** The cloud-hosted tool is not yet on the approved list. The team evaluates options using the [tool evaluation template](../templates/tool-evaluation.md). A cloud-hosted AI tool with enterprise terms (no training on inputs, UK data residency, SOC 2) is available but requires sending the full codebase to an external service. An alternative is to use a locally-hosted open-source model, which keeps the code on-premises but may produce lower-quality analysis. The team decides to:
-
-1. First run a secrets scanning tool across the codebase to identify and remove embedded credentials
-2. Use the cloud-hosted tool with enterprise terms for the bulk analysis, having removed secrets
-3. Submit the tool evaluation to the SRO for approval, and seek explicit client approval given the OFFICIAL-SENSITIVE classification
-
-SRO approved the tool for this specific use case with the condition that secrets are removed first.
 
 **[Step 4](../assess/4-safeguards.md) — Safeguards and residual risk:** High inherent risk requires formal documentation and SRO approval.
 
@@ -198,11 +198,13 @@ Residual risk after mitigations:
 **[Step 1](../assess/1-scope.md) — Scope:** The team wants to use AI to help the service desk manage incoming support tickets for an internal case management system used by approximately 2,000 staff. The AI will auto-categorise and route tickets, suggest responses for agents to review and send, and surface relevant knowledge base articles.
 
 - **Category:** AI-assisted user-facing support
-- **Autonomy:** Mixed, so assessed at the higher level: **acts autonomously**. Responses are only "drafts" — no reply is sent without an agent approving it. But categorisation and routing happen with no human approving each decision, and a miscategorised ticket changes how urgently a real problem is handled. This triggers SRO approval regardless of the risk rating.
+- **Autonomy:** Mixed, so assessed at the higher level: **acts autonomously**. The response path only drafts for review — no reply is sent without an agent approving it. But categorisation and routing happen with no human approving each decision, and a miscategorised ticket changes how urgently a real problem is handled. This triggers SRO approval regardless of the risk rating.
 
 *What is shared:* Support tickets are classified as OFFICIAL but frequently contain OFFICIAL-SENSITIVE material in practice — users paste error messages containing database details, attach screenshots showing case data, and include personal information about themselves and the people they work with. Tickets sometimes contain reports of security vulnerabilities or system misconfigurations. The ticketing system contains approximately 50,000 historical tickets that would be used to fine-tune the categorisation model.
 
-**[Step 2](../assess/2-identify-risks.md) — Inherent risks (before mitigations):**
+**[Step 2](../assess/2-check-tool.md) — Check the tool is eligible:** The team assesses the selected AI service using the [tool evaluation template](../templates/tool-evaluation.md): UK data residency, no training on inputs (enterprise tier), SOC 2 and ISO 27001 certification, API access with audit logging, and a DPA that meets GDPR requirements. The register entry sets a classification ceiling of OFFICIAL, user-facing support as the eligible use type, an autonomy ceiling of *acts autonomously* restricted to setting a category and queue, and the condition that exclusion rules are enforced in code. The categorisation path sits at that ceiling; the response path sits below it. Signed off by the SRO.
+
+**[Step 3](../assess/3-identify-risks.md) — Inherent risks (before mitigations):**
 
 - **Data leakage: High inherent risk (Likely likelihood, High impact).** Ticket content is inherently unpredictable. Users routinely paste credentials, share screenshots containing PII and system details, and describe security issues. The volume of historical tickets makes manual review of training data impractical.
 - **Accuracy: Medium inherent risk (Possible likelihood, Medium impact).** Incorrect categorisation could delay resolution of critical issues. Wrong troubleshooting suggestions could make problems worse. However, human agents review all responses before sending, which limits the impact on that path.
@@ -214,8 +216,6 @@ Residual risk after mitigations:
 - **Prompt injection: High inherent risk (Possible likelihood, High impact).** Raised from medium by the autonomy adjustment. The user base is known and authenticated rather than public, which keeps likelihood at possible, but a crafted ticket that manipulates categorisation now changes routing directly rather than proposing it to someone.
 
 **Overall inherent risk level: High** (driven by data leakage, accountability, supply chain, and prompt injection).
-
-**[Step 3](../assess/3-check-tool.md) — Check the tool:** The team assessed the selected AI service using the [tool evaluation template](../templates/tool-evaluation.md): UK data residency, no training on inputs (enterprise tier), SOC 2 and ISO 27001 certification, API access with audit logging, and a DPA that meets GDPR requirements. The tool integrates with the existing ticketing system via API. Meets all criteria. Tool evaluation submitted to SRO — approved for use on this project.
 
 **[Step 4](../assess/4-safeguards.md) — Safeguards and residual risk:** High inherent risk requires formal documentation and SRO approval. The "acts autonomously" level adds the autonomy controls.
 
@@ -261,11 +261,13 @@ Residual risk after mitigations:
 **[Step 1](../assess/1-scope.md) — Scope:** A local authority housing service is adding a prioritisation model to its disrepair reporting system. The model scores incoming reports for likely severity — damp and mould, structural defects, hazards to health — and orders the inspection queue. A scheduling officer reviews the ranked queue each morning and books visits.
 
 - **Category:** AI-powered product feature. It is not generative: it is a gradient-boosted classifier trained on historical inspection outcomes.
-- **Autonomy:** Drafts. The model produces a ranked queue; a scheduling officer reviews it and can reorder before visits are booked.
+- **Autonomy:** Drafts for review. The model produces a ranked queue; a scheduling officer reviews it and can reorder before visits are booked.
 
 *What is shared:* The model is trained on six years of historical inspection records — address, property type, tenure, the text of the original report, repair history, and the inspector's recorded outcome. This is personal data: addresses identify households even with names removed. Both training and inference run inside the authority's own cloud tenancy. **No third-party AI service receives any data at any point.**
 
-**[Step 2](../assess/2-identify-risks.md) — Inherent risks (before mitigations):**
+**[Step 2](../assess/2-check-tool.md) — Check the tool is eligible:** There is no third-party AI service to assess, so most of the [baseline eligibility criteria](tool-criteria.md) — data residency, retention, training on inputs, provider certifications — do not apply. Rather than skip the step, the team records why each is not applicable and substitutes the checks that are: the model is documented in a model card covering intended use, training data, performance by subgroup, and known limitations; the hosting platform is already assured under the authority's existing arrangements; and the ML libraries fall under the standard dependency policy. The register entry records a classification ceiling of OFFICIAL, product features as the eligible use type, an autonomy ceiling of *drafts for review*, and the condition that the statutory floor rule is enforced outside the model. The SRO signs it off on that basis.
+
+**[Step 3](../assess/3-identify-risks.md) — Inherent risks (before mitigations):**
 
 - **Data leakage: Low inherent risk (Unlikely likelihood, Medium impact).** No external AI service is involved, so the framework's most common leakage route does not exist here. Training data is personal data, but it stays inside the existing system boundary under existing access controls. The residual concern is that models can memorise training records and leak them through their outputs — a ranked score reveals very little, so the exposure is small.
 - **Accuracy: High inherent risk (Possible likelihood, High impact).** A wrongly deprioritised damp and mould report can leave a household in a hazardous home for weeks. The consequences fall on residents, not on the service, and the people most affected are least able to escalate.
@@ -277,8 +279,6 @@ Residual risk after mitigations:
 - **Prompt injection: Not applicable.** The model does not follow instructions and there is no prompt to inject. The analogous risk is **data poisoning** — someone able to influence recorded inspection outcomes over time could shift the model's behaviour. Assessed as low: outcome records are written only by inspectors, under individual accounts, with an audit trail.
 
 **Overall inherent risk level: High** (driven by bias, accuracy, and accountability).
-
-**[Step 3](../assess/3-check-tool.md) — Check the tool:** There is no third-party AI service to assess, so the [baseline tool criteria](tool-criteria.md) — data residency, retention, training on inputs, provider certifications — largely do not apply. Rather than skip the step, the team records why each criterion is not applicable and substitutes the checks that are: the model is documented in a model card covering intended use, training data, performance by subgroup, and known limitations; the hosting platform is already assured under the authority's existing arrangements; and the ML libraries are covered by the standard dependency policy. The SRO approves on that basis.
 
 **[Step 4](../assess/4-safeguards.md) — Safeguards and residual risk:** High inherent risk requires formal documentation and SRO approval.
 
@@ -325,7 +325,11 @@ Residual risk after mitigations:
 
 *What is shared:* Production logs, traces, metrics, alert payloads, deployment manifests, and infrastructure state. The service handles OFFICIAL data including personal details of applicants, and its logs were never written on the assumption that a third party would read them.
 
-**[Step 2](../assess/2-identify-risks.md) — Inherent risks (before mitigations):**
+**[Step 2](../assess/2-check-tool.md) — Check the tool is eligible:** The vendor's agent product meets the [baseline eligibility criteria](tool-criteria.md): UK and EU data residency, no training on customer inputs, SOC 2 and ISO 27001, and an audit API. Two of the criteria carry unusual weight here because the tool acts rather than advises. On **change and notice**, the vendor confirms 30 days' contractual notice of model changes — without which the team would have an agent in production whose behaviour could shift silently. On **control over what it can do**, the vendor confirms customer-defined action allowlists, and the team goes further by enforcing the limit in their own IAM rather than the agent's configuration, so a change at the vendor's end cannot widen it.
+
+The autonomy ceiling is the deciding limit here. The team enters the tool with a ceiling of *acts autonomously*, explicitly restricted to the four named remediation actions, on the condition that the restriction is enforced in the team's own IAM rather than in the agent's configuration. Had they entered it at *acts with approval* to cover phase one only, phase two would later have required a fresh assessment — which is the correct behaviour, and the reason the ceiling is recorded rather than left implicit.
+
+**[Step 3](../assess/3-identify-risks.md) — Inherent risks (before mitigations):**
 
 - **Data leakage: High inherent risk (Likely likelihood, High impact).** Logs contain session tokens, authorisation headers, connection strings, and applicant PII in error payloads. Unlike a one-off share, the agent has standing read access to the whole telemetry stream, continuously, with nobody reviewing what it sees.
 - **Accuracy: High inherent risk (Possible likelihood, High impact).** A confidently wrong root cause at 3am leads to a wrong remediation. Restarting the wrong component during a partial outage can turn degradation into a full outage, and incident pressure is precisely when plausible-sounding output gets least scrutiny.
@@ -337,8 +341,6 @@ Residual risk after mitigations:
 - **Prompt injection: High inherent risk (Likely likelihood, High impact).** Raised by the autonomy adjustment, and the vector here is unusually accessible: the service logs user-supplied form fields, so anyone who can submit the public form can place text in front of the agent without authenticating or touching any system. Combined with the ability to act, this is remote action in production triggered by an anonymous member of the public.
 
 **Overall inherent risk level: High**, and SRO approval is required by the autonomy level regardless.
-
-**[Step 3](../assess/3-check-tool.md) — Check the tool:** The vendor's agent product meets the [baseline criteria](tool-criteria.md): UK and EU data residency, no training on customer inputs, SOC 2 and ISO 27001, and an audit API. The team adds two questions the baseline criteria do not currently cover, because they matter specifically for a tool that acts: whether the vendor can change the underlying model or the agent's behaviour without notice, and whether the set of actions available to the agent is defined by the customer or by the vendor. The vendor confirms customer-defined action allowlists and 30 days' notice of model changes. Tool evaluation submitted to the SRO and approved.
 
 **[Step 4](../assess/4-safeguards.md) — Safeguards and residual risk:** High inherent risk requires formal documentation and SRO approval, plus the autonomy controls.
 

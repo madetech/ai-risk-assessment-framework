@@ -1,13 +1,13 @@
 # Reference: Risk Catalogue
 
-This catalogue provides the detail behind the eight risk categories. Use it alongside [Step 2: Identify the Risks](../assess/2-identify-risks.md) — once the heatmap has shown you which risks are material for your use, read the relevant entries here to understand how each risk typically shows up and what controls reduce it.
+This catalogue provides the detail behind the eight risk categories. Use it alongside [Step 3: Identify the Risks](../assess/3-identify-risks.md) — once the heatmap has shown you which risks are material for your use, read the relevant entries here to understand how each risk typically shows up and what controls reduce it.
 
 Each entry has two parts:
 
 - **How this risk typically manifests** — by use type, so you can find the description closest to your situation
 - **Key controls** — the mitigations that most effectively reduce this risk (apply the relevant ones in [Step 4: Safeguards and Approvals](../assess/4-safeguards.md))
 
-The eleven use types are defined in [Reference: Use-Type Profiles](use-type-profiles.md). Where a use involves AI that acts rather than advises, also apply the autonomy adjustment in [Step 2](../assess/2-identify-risks.md) — it raises accountability, supply chain, and prompt injection above the levels described here.
+The eleven use types are defined in [Reference: Use-Type Profiles](use-type-profiles.md). Where a use involves AI that acts rather than advises, also apply the autonomy adjustment in [Step 3](../assess/3-identify-risks.md) — it raises accountability, supply chain, and prompt injection above the levels described here.
 
 ---
 
@@ -31,7 +31,7 @@ The eleven use types are defined in [Reference: Use-Type Profiles](use-type-prof
 
 **Key controls:**
 
-- Use only approved tools that meet the criteria in [Reference: Tool Criteria](tool-criteria.md)
+- Use only eligible tools, within their recorded limits — see [Reference: Baseline Eligibility Criteria](tool-criteria.md)
 - Run secrets scanning tools before sharing code
 - Anonymise or redact personal data before sharing with AI tools
 - Verify the provider's data retention and training policies via their data processing agreement
