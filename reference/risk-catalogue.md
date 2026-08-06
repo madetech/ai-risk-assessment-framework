@@ -31,7 +31,7 @@ The eleven use types are defined in [Reference: Use-Type Profiles](use-type-prof
 
 **Key controls:**
 
-- Use only eligible tools, within their recorded limits — see [Reference: Baseline Eligibility Criteria](tool-criteria.md)
+- Use only tools on the register, never above the classification they are cleared for — see [Reference: Assessing a Tool](tool-criteria.md)
 - Run secrets scanning tools before sharing code
 - Anonymise or redact personal data before sharing with AI tools
 - Verify the provider's data retention and training policies via their data processing agreement

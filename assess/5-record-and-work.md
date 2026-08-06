@@ -11,7 +11,7 @@ Use the [risk assessment template](../templates/risk-assessment.md) to capture:
 - **Date** of the assessment, **author**, and current **status** (Draft / Proposed / Approved / Rejected)
 - **Who** it covers (one person, or several doing the same type of work)
 - **What** the AI will be used for, its **category** and **autonomy level**, and **what data** will be shared (Step 1)
-- **Which tool** will be used, and that it is eligible for this use (Step 2)
+- **Which tool** will be used, and the facts from its profile that the ratings rest on (Step 2)
 - **Inherent risk level** and the individual ratings (Step 3)
 - **Mitigations to be applied** and the **residual risk level** (Step 4)
 - **Approvals obtained** (if applicable)

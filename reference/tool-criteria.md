@@ -1,41 +1,49 @@
-# Reference: Baseline Eligibility Criteria
+# Reference: Assessing a Tool
 
-These are the baseline criteria any AI tool must meet to be **eligible** for use on a project. Use them in [Step 2](../assess/2-check-tool.md) when adding a tool to the project's tool register, alongside the [tool evaluation template](../templates/tool-evaluation.md).
+Use this when adding an AI tool to your project's tool register, alongside the [tool profile template](../templates/tool-evaluation.md). It sets out what disqualifies a tool, the facts to establish about the ones that survive, and the two things that are decisions rather than facts.
 
-## AI tools as data sharing
+A profile describes what a tool **is** and what its supplier **promises**. It does not say what the tool may be used for — that is settled use by use, through the risk assessment in [Step 3](../assess/3-identify-risks.md) and [Step 4](../assess/4-safeguards.md). Recording facts rather than permissions means the profile does not have to anticipate uses nobody has proposed yet, and it stays true rather than quietly going out of date.
 
-Any AI tool that processes your data constitutes sharing that data with a third party — the AI provider. This applies even if the tool feels like a local productivity aid. This data sharing may trigger UK GDPR obligations, contractual notification requirements, or government security policy considerations.
+## What disqualifies a tool
 
-AI tools may also require additional permissions that must be identified, controlled, and monitored. For example, a productivity assistant may request access to your calendar, meetings, email, or contact list — each of these represents additional data being shared with the provider beyond what you explicitly type into the tool.
+Stop if any of these are true. They rule the tool out whatever the intended use.
 
-## Criteria any AI tool must meet
+- **It trains on your inputs**, or the provider will not commit not to
+- **No data processing agreement**, or one that does not meet UK GDPR requirements
+- **A free or consumer tier** operating under consumer terms — these typically store inputs and use them for training, and must not be used for work information
+- **It fails a requirement set by your client or department** — "stricter wins" applies
 
-| Criterion | What to check |
+Either choose a different tool, or escalate for a documented exemption with justification and SRO approval.
+
+## Facts to record
+
+Any AI tool that processes your data is sharing that data with a third party — the provider. That is what most of these facts are pinning down.
+
+| Fact | What to establish |
 | ---- | ---- |
-| **Data residency** | Where is data processed and stored? Does this comply with the project's data residency requirements and any client contractual obligations? For UK government work, data should typically be processed within the UK. |
-| **Data retention and training** | Does the provider retain your inputs? Are inputs used to train or improve their models? For any use involving sensitive data, the tool must offer a clear commitment not to use your data for training. Check the provider's data processing agreement, not just their marketing materials. |
-| **Authentication and access controls** | Does the tool support appropriate authentication (SSO, MFA)? Can access be managed at the team or project level? Can individual usage be audited? |
-| **Audit logging** | Does the tool provide logs of what was submitted and returned? This matters for accountability and incident investigation. |
-| **Security certifications** | Does the provider hold relevant security certifications (e.g. ISO 27001, SOC 2)? Do they comply with the Code of Practice for the Cyber Security of AI? |
-| **Contractual IP terms** | What do the terms of service say about intellectual property? Does the provider claim any rights over outputs? Do they offer IP indemnification? |
-| **Risk mitigation** | Does the provider acknowledge and address key AI-specific risks (hallucination, bias, data leakage, prompt injection)? Do they clearly explain how they mitigate these risks? |
-| **Permissions and access** | What permissions does the tool require (e.g. access to calendar, contacts, files, meetings)? Are these proportionate to the intended use? Can unnecessary permissions be disabled? |
-| **Change and notice** | Can the provider change the underlying model, or the tool's behaviour, without telling you? What notice do you get, and is it contractual or a courtesy? A tool assessed on today's model may behave differently next month with no change on your side — this is how an assessment silently goes stale. |
-| **Control over what it can do** | For tools that can take actions rather than only produce output: is the set of available actions defined by you or by the vendor? Can you constrain it *outside* the tool's own configuration — in your IAM, network policy, or API scopes — so that a change at the vendor's end cannot widen it? A limit the tool enforces on itself is not a limit. |
+| **Where data is processed and stored** | Which countries and jurisdictions? For UK government work, data should typically stay in the UK. |
+| **Retention** | How long are inputs kept, and are they deleted after processing? Get this from the data processing agreement, not the marketing page. |
+| **Training on inputs** | Whether inputs are used to train or improve models, and whether that is contractual or a setting someone could change. |
+| **Permissions the tool holds** | What it can reach — calendar, mailbox, files, repositories, ticketing systems. Record what it *can* access, not what you intend to give it. |
+| **Authentication and access management** | SSO, MFA, team or project-level access control, and whether individual use can be attributed. |
+| **Audit logging** | Whether you can establish what was sent, what came back, and who did it. Who can read those logs. |
+| **What the tool can do** | Whether it only produces output, or can take actions — run commands, edit files, call APIs, change records. Record the most it is capable of, regardless of how you would configure it. |
+| **Control over what it can do** | For tools that can act: whether the available actions are defined by you or the vendor, and whether the limit can be enforced *outside* the tool's own configuration, in your IAM, network policy, or API scopes. A limit the tool enforces on itself is not a limit. |
+| **Security certifications** | ISO 27001, SOC 2, and alignment with the Code of Practice for the Cyber Security of AI. |
+| **IP terms** | Whether the provider claims rights over outputs, and whether indemnification is offered. |
+| **Change and notice** | Whether the provider can change the model or the tool's behaviour without telling you, how much notice you get, and whether that notice is contractual. This is how a profile silently goes stale. |
+| **Supplier's handling of AI-specific risk** | Whether they engage seriously with hallucination, bias and prompt injection, and explain how they address them — or simply gesture at them. |
+| **Tier or plan assessed** | The specific version. Enterprise and consumer versions of the same product are different tools for this purpose. |
 
-**If the tool does not meet these criteria it is excluded.** 🛑 Stop. Either choose a different tool that does meet them, or escalate to get a criterion formally waived with appropriate justification and approval.
+## The two decisions
 
-## Recording what the tool is eligible for
+Everything above is fact. These two are judgements, and need authority rather than individual opinion:
 
-Meeting the criteria is not the whole entry. Also record the limits that each use will be checked against:
-
-| Field | What to record |
+| Decision | Who makes it |
 | ---- | ---- |
-| **Classification ceiling** | The highest classification the tool's data handling supports — typically OFFICIAL unless it has been specifically assessed higher |
-| **Eligible use types** | Which of the [use types](use-type-profiles.md) this assessment covers. Do not write "all" unless you have genuinely considered each one |
-| **Autonomy ceiling** | The highest [autonomy level](../assess/1-scope.md#assess-the-level-of-autonomy) the tool may be configured to. A tool assessed while it only suggested things has not been assessed as an agent |
-| **Conditions** | Anything that must be true in use — secrets scanning first, telemetry disabled, a named tenancy or workspace, restricted network access, named users only |
-| **Tier or plan** | The specific version assessed. Enterprise and consumer versions of the same product are different tools for this purpose |
-| **Review** | Who assessed it, who approved it, and when it is next due for review |
+| **Excluded, or not** | Whoever assesses the tool, against the disqualifying list above. An exemption needs SRO approval. |
+| **Highest classification cleared** | The SRO or equivalent. Do not infer it from the facts yourself — a tool with UK residency and a DPA is not thereby cleared for OFFICIAL-SENSITIVE. |
 
-**Remember the "stricter wins" principle.** If the client has its own list of approved AI tools, or requirements beyond these criteria, those take precedence. Treat their list as an eligibility register: their exclusions bind you, but their inclusions do not authorise your specific use. Check with the client before introducing any AI tool not already on it.
+## Review
+
+Record who gathered the facts, who signed off the decisions, and when the profile is next due for review. A profile that has not been checked recently is a starting point, not a source of truth.

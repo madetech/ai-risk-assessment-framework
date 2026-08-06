@@ -22,7 +22,7 @@ Use these files as reference throughout the assessment:
 - [use-type-profiles.md](../../reference/use-type-profiles.md) — the eleven use types in detail
 - [3-identify-risks.md](../../assess/3-identify-risks.md) — the risk heatmap and how to rate each risk
 - [risk-catalogue.md](../../reference/risk-catalogue.md) — the eight risks in depth, by use type
-- [2-check-tool.md](../../assess/2-check-tool.md) and [tool-criteria.md](../../reference/tool-criteria.md) — tool evaluation criteria
+- [2-check-tool.md](../../assess/2-check-tool.md) and [tool-criteria.md](../../reference/tool-criteria.md) — the tool register and what a tool profile records
 - [4-safeguards.md](../../assess/4-safeguards.md) — mitigations by risk level
 
 ## Step 1: Gather the basics
@@ -48,15 +48,16 @@ Ask these questions one at a time:
 
 For any "Yes" or "Not sure" answers, ask a brief follow-up to get the relevant details.
 
-## Step 3: Check the tool is eligible
+## Step 3: Check the tool
 
 Ask one question at a time:
 
 1. **Which AI tool will you use?** Offer common tools relevant to their category as options.
-2. **Is this tool on the project's tool register?** Offer: Yes, No, Not sure. If no, explain it must be evaluated and added before use.
-3. **Does its entry cover this use?** Check their classification, use type and autonomy level against the limits recorded for that tool. If any exceeds them, they need to narrow the use, pick another tool, or seek a wider entry with SRO approval.
+2. **Is this tool on the project's tool register?** Offer: Yes, No, Not sure. If no, explain it must be profiled and added before use.
+3. **Is it excluded, and what classification is it cleared for?** A tool that trains on inputs, lacks a DPA, or is a consumer tier is excluded outright. If their data is above the cleared classification, they must escalate to the SRO.
+4. **What do its facts say?** Pull from the profile: what the tool *is* (third party involved, standing access, able to act) and what the supplier *promises* (no training, residency, retention, indemnification). Tell them the first group feeds the inherent ratings and the second are mitigations.
 
-Tools are eligible; uses are approved. Clearing this step means the tool is not ruled out, not that they may proceed - that is decided later, on the basis of risk. Never describe a tool as "approved"; say it is eligible.
+The register records what a tool is, not what it may be used for. Clearing this step means the tool is not ruled out and you now know the facts - whether this use proceeds is decided later, on the basis of risk. Never describe a tool as "approved for" a use.
 
 ## Step 4: Assess the risks
 

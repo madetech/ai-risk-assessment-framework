@@ -20,7 +20,7 @@ The categories below describe **tasks people do while delivering a service**, no
 
 Most AI use falls into one of eleven categories. Some uses span more than one — if so, assess against each and apply the more restrictive safeguards.
 
-**These categories are a thinking aid, not an exhaustive taxonomy.** Their job is to get you to the right risks quickly by pointing at the closest well-understood shape of work. There is no prize for classifying correctly. If your use does not fit neatly, pick the nearest one or two, note why the fit is imperfect, and carry on — what matters is that you assess the right risks, not that you chose the right label. If you are doing something the categories genuinely do not describe, work through [Step 3](3-identify-risks.md) on its merits and [feed the gap back](5-record-and-work.md) so the framework can catch up.
+**These categories are a thinking aid, not an exhaustive taxonomy.** Their job is to get you to the right risks quickly by pointing at the closest well-understood shape of work. If your use does not fit neatly, pick the nearest one or two, note why the fit is imperfect, and carry on — what matters is that you assess the right risks, not that you chose the right label. If you are doing something the categories genuinely do not describe, work through [Step 3](3-identify-risks.md) on its merits and [feed the gap back](5-record-and-work.md) so the framework can catch up.
 
 | Category | The key characteristic |
 | ---- | ---- |

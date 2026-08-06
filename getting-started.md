@@ -24,7 +24,7 @@ AI Governance/
 1. Create a new space or a top-level page called **AI Governance** (or similar) under your project space.
 2. Create child pages for each section above.
 3. For **Risk Assessments** and **Tool Evaluations**, create them as parent pages — individual assessments will be added as child pages beneath them.
-4. Consider using Confluence page templates (Space Settings > Content Templates) so that team members can create new risk assessments and tool evaluations with the correct structure pre-filled.
+4. Consider using Confluence page templates (Space Settings > Content Templates) so that team members can create new risk assessments and tool profiles with the correct structure pre-filled.
 
 ### In SharePoint
 
@@ -43,7 +43,7 @@ Copy the [introduction template](templates/introduction.md) into your documentat
 
 1. **Responsible people** — Identify who fills each role. Not every project will need all roles as separate people; on smaller teams one person may cover multiple roles. The important thing is that responsibilities are explicitly assigned.
 
-2. **Tool register** — If your organisation already has an approved AI tools list, reference or copy it, but record what each tool is eligible *for* rather than just that it is on the list. If there is no list, this is the place to build one. Start with the tools your team is already using (or wants to use) and run each through the evaluation process ([Step 2](assess/2-check-tool.md) and [tool evaluation template](templates/tool-evaluation.md)).
+2. **Tool register** — If your organisation already has an approved AI tools list, reference or copy it, but record what each tool actually *does* rather than just that it is on the list. If there is no list, this is the place to build one. Start with the tools your team is already using (or wants to use) and write a profile for each ([Step 2](assess/2-check-tool.md) and [tool profile template](templates/tool-evaluation.md)).
 
 3. **Review schedule** — Set a realistic cadence. Tying it to an existing ceremony (e.g. sprint retros, monthly team reviews) is more sustainable than creating a new meeting.
 
@@ -55,7 +55,7 @@ When someone on the team wants to use AI for a specific activity, create a new r
 
 2. **Work through each section** of the template, using the framework for detailed guidance:
    - Scope the use — define it and assess what code and data you will share (Step 1)
-   - Check the tool is eligible for this classification, use type and autonomy level — or evaluate it (Step 2)
+   - Check the tool is on the register, not excluded, and cleared for your classification — or profile it (Step 2)
    - Identify the risks using the heatmap and rate each one (Step 3)
    - Apply mitigations and reassess the residual risk (Step 4)
    - Record the assessment and do the work (Step 5)
@@ -79,10 +79,10 @@ When someone on the team wants to use AI for a specific activity, create a new r
 When someone wants to use a tool that is not on the register, or needs a wider envelope than an existing entry allows:
 
 1. Create a new page under **Tool Evaluations**.
-2. Use the tool evaluation template ([tool evaluation template](templates/tool-evaluation.md)) to gather the required information.
+2. Use the [tool profile template](templates/tool-evaluation.md) to gather the facts.
 3. Have the Technical Lead review the evaluation.
 4. Submit to the SRO for approval.
-5. If signed off, add it to the **Tool register** on the introduction page, recording its classification ceiling, eligible use types, autonomy ceiling, and any conditions.
+5. If signed off, add it to the **Tool register** on the introduction page, with a link to its full profile and the highest classification it is cleared for.
 
 Do not let people use tools while the evaluation is in progress. This is one area where being strict up front avoids problems later.
 

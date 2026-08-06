@@ -1,42 +1,53 @@
-# Step 2: Check the Tool Is Eligible
+# Step 2: Check the Tool
 
-Your project keeps a **tool register**: a record of which AI tools have been assessed, and what each one may be used for. This step asks two questions of it.
+Your project should keep a **tool register**: a record of the AI tools that have been assessed, and what is true about each one.
 
-1. **Is your tool on the register?** If not, it must be evaluated and added before you use it.
-2. **Does its entry cover what you are doing?** Check the classification, use type and autonomy level you recorded in [Step 1](1-scope.md) against the limits the register sets for that tool.
+This step has two jobs — confirm your tool is not excluded, and pick up the facts you will need for the rest of the assessment. It comes before the risk work because those facts feed straight into it.
 
-If either answer is no, stop until it is resolved. Never use a tool first and sort out eligibility afterwards.
+## Is the tool on the register?
 
-## Does the entry cover your use?
+If it is, you have its profile. Move on.
 
-| Check | Against the register |
-| ---- | ---- |
-| **Classification** | Is your data at or below the tool's classification ceiling? A tool eligible up to OFFICIAL is not thereby eligible for OFFICIAL-SENSITIVE. |
-| **Use type** | Is your [use type](../reference/use-type-profiles.md) one the tool is eligible for? A coding assistant cleared for writing code is not automatically cleared to analyse a whole codebase. |
-| **Autonomy** | Is your [autonomy level](1-scope.md#assess-the-level-of-autonomy) at or below the tool's ceiling? A tool assessed while it only proposed changes for a developer to review has not been assessed as an agent that runs commands by itself. |
-| **Conditions** | Are there conditions on the entry, and can you meet them? Typically: secrets scanning first, telemetry disabled, a named workspace or tenancy, named users only. |
+If it is not, it must be assessed and added before you use it. Gather the facts using the [tool profile template](../templates/tool-evaluation.md), following [Reference: Assessing a Tool](../reference/tool-criteria.md). Anyone can gather facts; the two decisions in a profile need sign-off.
 
-Using a tool outside its recorded limits is the same as using one nobody assessed. If your use does not fit, you can narrow it, choose a different tool, or ask for the entry to be widened — which means a fresh assessment and SRO approval.
+Never use a tool first and add it to the register afterwards.
 
-## Adding a new tool
+## Is it excluded?
 
-Evaluate it with the [tool evaluation template](../templates/tool-evaluation.md) against the [baseline eligibility criteria](../reference/tool-criteria.md), then submit it to the SRO. The criteria come down to six questions:
+A few facts disqualify a tool outright, whatever you intend to use it for:
 
-- **Where your data goes** — residency, retention, and whether your inputs train the provider's models
-- **What the tool can reach** — the permissions it asks for, and how access is managed
-- **What you could reconstruct afterwards** — audit logging
-- **Whether the supplier is credible** — certifications, and whether they engage seriously with hallucination, bias and prompt injection
-- **Who owns the output, and who carries the liability** — IP terms and indemnification
-- **Whether it can change under you** — notice of model changes, and for a tool that acts, who decides what it may do
+- It trains on your inputs, or will not commit not to
+- There is no data processing agreement, or it does not meet UK GDPR requirements
+- It is a free or consumer tier operating under consumer terms
+- It fails a requirement your client or department has set
 
-Assess the specific tier you will use: enterprise and consumer versions of the same product often differ on exactly these points.
+🛑 If any of these are true, stop. Choose a different tool, or escalate for a documented exemption.
 
-Then record what the tool is eligible for — classification ceiling, use types, autonomy ceiling, conditions, and who approved it. A blank register table is in the [introduction template](../templates/introduction.md).
+Then check the **highest classification the tool has been cleared for**. That is a decision made with authority, not a judgement to make for yourself. If the data you scoped in [Step 1](1-scope.md) sits above it, escalate to the SRO before going further.
 
-Where a client or department keeps its own approved tools list, treat it as a register and apply "stricter wins": their exclusions bind you.
+## What the profile tells you
+
+Everything else in a profile is fact, not permission. It does not tell you whether you may proceed — it tells you what you are dealing with, so the rest of the assessment can be specific rather than generic.
+
+The facts come in two kinds, and they are used in different places:
+
+| Kind of fact | Examples | Where it is used |
+| ---- | ---- | ---- |
+| **What the tool is** — its design | Data leaves your estate to a third party; it holds standing access to your repositories; it can execute commands and open pull requests | [Step 3](3-identify-risks.md) — design shapes the **inherent** risk |
+| **What the supplier promises** — its terms | Inputs are not used for training; data stays in the UK; 30-day retention; IP indemnified; 30 days' notice of model changes | [Step 4](4-safeguards.md) — promises are **mitigations**, and move the residual risk |
+
+Carry both forward. A tool running in your own tenancy genuinely presents a smaller risk than one that does not. A tool with a no-training commitment presents the same risk with a control on it. Those are different things, and the assessment should show which is which.
+
+Note also that a profile records what a tool **can** do, not what you will let it do. Whether you enable an agent mode that runs commands is your autonomy decision from [Step 1](1-scope.md#assess-the-level-of-autonomy) — but if the capability exists and can be switched on, the profile should say so.
+
+## Keeping the register honest
+
+Facts go stale. Suppliers change terms, models are updated, and tiers are renamed. Every profile needs a review date, and a profile that has not been checked recently should be treated as a starting point rather than a source of truth.
+
+Assess the specific tier you will use: enterprise and consumer versions of the same product routinely differ on exactly the facts that matter.
+
+Where a client or department keeps its own approved AI tools list, apply "stricter wins" — their exclusions bind you. Their inclusions do not tell you what the tool does, so you will still need a profile.
 
 ---
-
-Being eligible is not permission to proceed. It means the tool is not ruled out. Whether this particular use goes ahead is decided in [Step 4](4-safeguards.md), once you know the risks.
 
 [Next: Step 3 — Identify the Risks >](3-identify-risks.md)

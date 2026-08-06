@@ -26,15 +26,17 @@ We recognise that AI tools can significantly improve the quality and efficiency 
 
 ## Tool register
 
-The following AI tools have been assessed and are **eligible** for use on this project, within the limits recorded below. Whether a particular use may go ahead is decided by its risk assessment.
+The following AI tools have been assessed. Each has a **profile** recording what it does and what its supplier promises. A profile is not permission to use the tool for a given task — that is decided by the risk assessment for each specific use.
 
-| Tool (and tier) | Classification ceiling | Eligible use types | Autonomy ceiling | Conditions | Assessed / approved by | Last reviewed |
-| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| [e.g. GitHub Copilot Business] | [e.g. OFFICIAL] | [e.g. Coding] | [e.g. Drafts for review] | [e.g. Secrets scan before sharing; agent mode disabled] | [Names] | [Date] |
-| | | | | | | |
-| | | | | | | |
+| Tool (and tier) | Highest classification cleared | What it is, in short | Full profile | Last reviewed |
+| ---- | ---- | ---- | ---- | ---- |
+| [e.g. GitHub Copilot Business] | [e.g. OFFICIAL] | [e.g. Cloud-hosted, EU processing, no training on inputs, can run an agent mode that edits files and opens PRs] | [Link] | [Date] |
+| | | | | |
+| | | | | |
 
-**Do not use a tool that is not on this register, and do not use one beyond its recorded limits.** Going outside the classification ceiling, the eligible use types, or the autonomy ceiling is the same as using a tool nobody assessed, and needs the same escalation. If you want to use a new tool, or need a wider envelope for an existing one, speak to the Technical Lead and follow the [tool evaluation template](https://github.com/madetech/ai-risk-assessment/blob/main/templates/tool-evaluation.md) in the framework.
+**Do not use a tool that is not on this register.** If you want to use a new one, speak to the Technical Lead and complete a profile using the [tool profile template](https://github.com/madetech/ai-risk-assessment/blob/main/templates/tool-evaluation.md).
+
+If your data is above a tool's cleared classification, escalate to the SRO before using it.
 
 **Do not use free or consumer versions of AI tools** (e.g. free ChatGPT, consumer Claude) for any work-related information.
 

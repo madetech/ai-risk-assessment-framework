@@ -36,7 +36,7 @@ The key characteristic is that **AI is generating or modifying code** that may e
 
 **Also covers testing work:** generating test cases from acceptance criteria, exploratory test charters, and accessibility audit assistance. Test coverage is evidence against the Service Standard, so AI-written tests carry a specific failure mode — tests that pass without meaningfully testing anything. Review AI-generated tests for what they actually assert, not just that they are green. If you are generating *test data* rather than test code, that is a separate use type — see AI-assisted synthetic data generation below.
 
-**Action required:** Check the contents of your code before sharing. Remove any secrets, credentials, or sensitive configuration. Ensure the AI tool is eligible for this use.
+**Action required:** Check the contents of your code before sharing. Remove any secrets, credentials, or sensitive configuration. Ensure the AI tool is on the register and cleared for the classification of the code.
 
 **Typical risk fingerprint:** Data leakage and IP/licensing are worth assessing; accuracy, supply chain, and prompt injection depend on how AI-generated code enters the product. Accountability, bias, and over-reliance are usually lower (but watch skill erosion in junior developers).
 
@@ -242,6 +242,6 @@ Even genuinely routine use is not risk-free. Meeting transcriptions may contain 
 
 **Key concerns:** Meetings and emails frequently contain sensitive discussions, PII, commercial information, and operational details. AI tools used for productivity often request broad permissions (access to calendar, contacts, files) that may expose more data than intended.
 
-**Action required:** Review what permissions the AI tool requires and whether they are proportionate. Do not transcribe or summarise meetings containing sensitive discussions without assessing the data involved. Check whether the tool is eligible for the classification level of the data it will access. Confirm the task genuinely belongs in this category rather than business analysis or content.
+**Action required:** Review what permissions the AI tool requires and whether they are proportionate. Do not transcribe or summarise meetings containing sensitive discussions without assessing the data involved. Check whether the tool is cleared for the classification level of the data it will access. Confirm the task genuinely belongs in this category rather than business analysis or content.
 
 **Typical risk fingerprint:** Data leakage is worth assessing (and can be high given broad permissions). Accuracy, over-reliance, supply chain, and prompt injection are worth assessing.

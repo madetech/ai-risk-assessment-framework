@@ -8,13 +8,13 @@ The principle is proportionality: higher inherent risk requires more rigorous co
 
 **Inherent risk: Low**
 
-- Confirm the tool is eligible for this use, within its recorded limits (see [Step 2](2-check-tool.md))
+- Confirm the tool is on the register and cleared for your data's classification (see [Step 2](2-check-tool.md))
 - Human review of all AI outputs before they are used, committed, or acted upon
 - Record the AI use as a risk assessment (see [Step 5](5-record-and-work.md))
 - Follow the relevant per-use [checklist](../reference/checklists.md)
-- Comply with data handling policies — do not share data beyond the tool's recorded classification ceiling
+- Comply with data handling policies — do not share data above the classification the tool is cleared for
 
-No additional approval is required beyond confirming the tool is eligible and following standard team practices.
+No additional approval is required beyond the tool check in Step 2 and following standard team practices.
 
 **Inherent risk: Medium**
 
@@ -42,7 +42,7 @@ Some uses should not proceed regardless of mitigations, including:
 
 - Processing SECRET or TOP SECRET data through any external AI service
 - Using AI to make automated decisions about individuals without meaningful human oversight, particularly in statutory contexts
-- Using tools that do not meet the [baseline eligibility criteria](../reference/tool-criteria.md) and cannot be brought into compliance
+- Using tools that are [excluded](../reference/tool-criteria.md) and cannot be brought into compliance
 - Using AI on data where consent or contractual agreements explicitly prohibit it
 - Any use the client has explicitly prohibited
 

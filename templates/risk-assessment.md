@@ -93,28 +93,20 @@ See [Step 2 of the framework](../assess/3-identify-risks.md) for guidance on ide
 
 **Is this tool on the project's tool register?** [Yes / No]
 
-_If no, a tool evaluation must be completed and the tool entered on the register before proceeding. See [tool evaluation template](tool-evaluation.md)._
+_If no, a profile must be completed and the tool added to the register before proceeding. See [tool profile template](tool-evaluation.md)._
 
-**Does the tool meet the baseline eligibility criteria for:**
+**Is it excluded?** [Yes / No] — _if yes, stop._
 
-| Criterion | Met? | Notes |
+**Highest classification cleared:** [From the profile] — _is the data in this assessment at or below it? If not, escalate to the SRO._
+
+**The facts that matter for this use.** Pull these from the tool's profile. They are not a permission to proceed — they are what the risk ratings below are based on.
+
+| | From the profile | Why it matters here |
 | ---- | ---- | ---- |
-| Data residency requirements | | |
-| Data retention and deletion policy | | |
-| Inputs not used for model training | | |
-| Security certifications | | |
-| Acceptable IP/licensing terms | | |
+| **What the tool is** (design — feeds inherent risk) | [e.g. cloud-hosted, third party receives the data; holds standing repository access; can execute commands] | |
+| **What the supplier promises** (terms — count as mitigations) | [e.g. no training on inputs; UK residency; 30-day retention; IP indemnified] | |
 
-**Does its entry cover this use?** Compare your scope against the tool's recorded limits.
-
-| Check | Tool's recorded limit | This use | Within limits? |
-| ---- | ---- | ---- | ---- |
-| Classification | | | |
-| Use type | | | |
-| Autonomy level | | | |
-| Conditions attached | | | |
-
-_If any answer is no, you may not proceed on this basis. Narrow the use to fit, choose a different tool, or seek a wider register entry with SRO approval._
+_If anything in the profile does not fit what you are doing, that is not a blocker in itself — it is an input to the risk ratings below, and may call for extra mitigations in Step 4._
 
 ---
 
