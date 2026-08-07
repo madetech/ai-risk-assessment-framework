@@ -20,7 +20,7 @@ The categories below describe **tasks people do while delivering a service**, no
 
 Most AI use falls into one of eleven categories. Some uses span more than one — if so, assess against each and apply the more restrictive safeguards.
 
-**These categories are a thinking aid, not an exhaustive taxonomy.** Their job is to get you to the right risks quickly by pointing at the closest well-understood shape of work. If your use does not fit neatly, pick the nearest one or two, note why the fit is imperfect, and carry on — what matters is that you assess the right risks, not that you chose the right label. If you are doing something the categories genuinely do not describe, work through [Step 3](3-identify-risks.md) on its merits and [feed the gap back](5-record-and-work.md) so the framework can catch up.
+**These categories are a thinking aid, not an exhaustive list.** Their job is to get you to the right risks quickly by pointing at the closest well-understood shape of work. If your use does not fit neatly, pick the nearest one or two, note why the fit is imperfect, and carry on — what matters is that you assess the right risks, not that you chose the right label. If you are doing something the categories genuinely do not describe, work through [Step 3](3-identify-risks.md) on its merits and feed the gap back so the framework can catch up.
 
 | Category | The key characteristic |
 | ---- | ---- |
@@ -71,13 +71,23 @@ Beyond secrets, consider:
 
 ### If you are sharing data
 
-**What is the data classification?** This is a hard gate. The Government Security Classifications Policy classifies government information as follows:
+**What is the data classification?** This is a hard gate. Under the [Government Security Classifications Policy](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1166145/Government_Security_Classifications_Policy_June_2023.pdf), government information carries one of three classifications: OFFICIAL, SECRET, or TOP SECRET. **‑SENSITIVE is not a fourth tier** — it is a handling caveat applied to the minority of OFFICIAL information that needs extra care. It still changes what you must do.
 
 | Classification | AI implications |
 | ---- | ---- |
-| **OFFICIAL** | AI tools that meet the [tool criteria](../reference/tool-criteria.md) are generally appropriate, subject to the risk assessment in [Step 3](3-identify-risks.md). |
-| **OFFICIAL-SENSITIVE** | Only tools formally assessed and approved for OFFICIAL-SENSITIVE data may be used. Do not make this assessment yourself — if the tool has not been approved for this level, escalate to the SRO before proceeding. Client approval is likely needed. |
-| **SECRET / TOP SECRET** | 🛑 Do not use external AI services. Any AI use must be within accredited secure environments. This is outside the scope of most delivery projects and requires specialist security guidance. |
+| **OFFICIAL** | Tools on your project's register are generally appropriate, subject to the risk assessment in [Step 3](3-identify-risks.md). |
+| **OFFICIAL with a ‑SENSITIVE marking** | Only tools cleared for it may be used — check the classification recorded in the tool's profile ([Step 2](2-check-tool.md)). Do not make that call yourself: if the tool is cleared only to OFFICIAL, escalate to the SRO. Client approval is likely needed. The [AI Playbook](https://assets.publishing.service.gov.uk/media/67aca2f7e400ae62338324bd/AI_Playbook_for_the_UK_Government__12_02_.pdf) is explicit that public or unassured generative AI must not process OFFICIAL information carrying additional markings. |
+| **SECRET / TOP SECRET** | 🛑 Stop — see below. |
+
+### If your data is SECRET or above
+
+🛑 **Do not use external AI services.** This is a hard stop, not a high risk rating: do not continue to [Step 2](2-check-tool.md).
+
+The [Government Security Classifications Policy](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1166145/Government_Security_Classifications_Policy_June_2023.pdf) requires SECRET and TOP SECRET information to be handled on dedicated, accredited systems, by security-cleared people, on a strict need-to-know basis. No commercially available AI service meets that bar, so there is no version of this assessment that ends in "proceed".
+
+AI use at these tiers is not impossible, but it has to happen inside an accredited environment. Take specialist security advice, and do not treat anything here as authority to proceed. It may also be possible to use local non-internet-connected LLMs on this data but extreme caution should be exercised.
+
+### Other factors beyond classification
 
 Classification is not the only factor. OFFICIAL data can still carry significant risk. Also ask:
 

@@ -7,11 +7,11 @@ The framework is organised into a **tight core** (the assessment steps) and a **
 - `readme.md` — Front door: purpose, the 5-step assessment overview, and ground rules
 - `assess/` — The five core assessment steps:
   - `1-scope.md` — define and categorise the use, record the autonomy level, and assess what code/data is shared (merges the old define + data steps)
-  - `2-check-tool.md` — confirm the tool is on the register and not excluded, and pick up its facts for the risk work
+  - `2-check-tool.md` — the tool register: what disqualifies a tool, the facts a profile records, and the two decisions that need sign-off
   - `3-identify-risks.md` — the risk heatmap, the eight risk definitions, the autonomy adjustment, and the likelihood/impact matrix
   - `4-safeguards.md` — proportionate mitigations, residual risk, and approvals
   - `5-record-and-work.md` — record the assessment, do the work via the checklist, and share learnings
-- `reference/` — Supporting detail linked from the core: `risk-catalogue.md` (the eight risks in depth by use type), `use-type-profiles.md` (the eleven use types), `checklists.md` (per-use before/during/after checklists), `tool-criteria.md`, `government-guidance.md`, `worked-examples.md`, `glossary.md`
+- `reference/` — Supporting detail linked from the core: `risk-catalogue.md` (the eight risks in depth by use type), `use-type-profiles.md` (the eleven use types), `checklists.md` (per-use before/during/after checklists), `government-guidance.md`, `worked-examples.md`, `glossary.md`
 - `templates/` — Reusable templates (introduction, risk assessment, tool profile — note `tool-evaluation.md` holds the tool profile template)
 - `getting-started.md` — Practical guide for applying the framework to a project
 - `scripts/` — Utility scripts (e.g. `build-combined.py`, which stitches the sections into a single document; update its `FILE_ORDER` when adding or moving files)

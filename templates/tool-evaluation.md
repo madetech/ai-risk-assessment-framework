@@ -1,6 +1,6 @@
 # Appendix A: Tool Profile Template
 
-Use this when adding an AI tool to the project's tool register — see [Step 2](../assess/2-check-tool.md) and [Reference: Assessing a Tool](../reference/tool-criteria.md).
+Use this when adding an AI tool to the project's tool register — see [Step 2: Check the Tool](../assess/2-check-tool.md) for what each fact means and why it matters.
 
 This records what the tool **is** and what its supplier **promises**. It does not say what the tool may be used for: that is settled use by use, in each risk assessment.
 

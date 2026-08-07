@@ -26,7 +26,6 @@ FILE_ORDER = [
     "reference/use-type-profiles.md",
     "reference/risk-catalogue.md",
     "reference/checklists.md",
-    "reference/tool-criteria.md",
     "reference/worked-examples.md",
     "reference/government-guidance.md",
     "reference/glossary.md",

@@ -9,7 +9,7 @@ The principle is proportionality: higher inherent risk requires more rigorous co
 **Inherent risk: Low**
 
 - Confirm the tool is on the register and cleared for your data's classification (see [Step 2](2-check-tool.md))
-- Human review of all AI outputs before they are used, committed, or acted upon
+- Human review of all AI outputs before they are used, committed, or acted upon — **but only count this as a mitigation if it goes beyond what your autonomy level already assumes.** A use scoped at *suggests* or *drafts for review* has review built into its inherent rating, so claiming it again here counts it twice and makes the residual look better than it is. What does count is review that is genuinely additional: a second reviewer, a domain expert rather than the author, or review against the source material rather than a read-through
 - Record the AI use as a risk assessment (see [Step 5](5-record-and-work.md))
 - Follow the relevant per-use [checklist](../reference/checklists.md)
 - Comply with data handling policies — do not share data above the classification the tool is cleared for
@@ -40,9 +40,9 @@ All medium-risk mitigations, plus:
 
 Some uses should not proceed regardless of mitigations, including:
 
-- Processing SECRET or TOP SECRET data through any external AI service
+- Processing SECRET or TOP SECRET data through any external AI service — a hard stop at [Step 1](1-scope.md#if-your-data-is-secret-or-above), listed here as a backstop
 - Using AI to make automated decisions about individuals without meaningful human oversight, particularly in statutory contexts
-- Using tools that are [excluded](../reference/tool-criteria.md) and cannot be brought into compliance
+- Using tools that are [excluded](2-check-tool.md#is-it-excluded) and cannot be brought into compliance
 - Using AI on data where consent or contractual agreements explicitly prohibit it
 - Any use the client has explicitly prohibited
 
@@ -65,8 +65,9 @@ For **"acts autonomously"**, SRO approval is required regardless of the overall 
 With the mitigations identified, go back through each risk category and re-rate the likelihood and impact **with the mitigations in place**. This is the residual risk. For each category, ask:
 
 - Does this mitigation reduce the **likelihood** of the risk materialising? (e.g. anonymising data before processing reduces the likelihood of a PII breach)
-- Does this mitigation reduce the **impact** if it does materialise? (e.g. human review of all outputs limits the impact of hallucination)
+- Does this mitigation reduce the **impact** if it does materialise? (e.g. a domain expert checking outputs against source material limits the impact of hallucination)
 - Is the residual risk now at an acceptable level?
+- **Is this mitigation genuinely additional**, or is it something the inherent rating already assumed? Anything baked into your autonomy level or your tool's design has already been counted, and counting it again inflates the improvement.
 
 Use the same risk matrix from [Step 3](3-identify-risks.md) to determine the residual level for each category and overall.
 

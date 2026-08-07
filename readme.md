@@ -1,32 +1,28 @@
 # A Practical Risk-Based Approach to the Use of AI in Projects
 
-This is a practical framework for delivery teams to decide **whether and how** to use AI for a specific activity on a government IT project. It is not about preventing AI use — used well, AI tools can significantly improve the quality and efficiency of delivery work. It is about making informed decisions: understanding the risks and applying proportionate safeguards.
+This is a practical framework for delivery teams to decide **whether and how** to use AI for a specific activity on government projects. It is not about preventing AI use, it is about making informed decisions: understanding the risks and applying proportionate safeguards. Whilst it is focused on a UK context, the approaches in the framework are widely applicable to any delivery.
 
 It covers the full range of AI use teams encounter: **coding**, **code analysis**, **synthetic data generation**, **product features**, **user-facing support**, **live service operations**, **user research**, **design**, **content**, **business analysis**, and **general productivity** — and, cutting across all of them, how much the AI is allowed to do on its own.
 
 ## How to use this
 
-When you want to use AI for a specific activity, work through the five-step [assessment](assess/1-scope.md) below. Each step builds on the previous one, taking you from scoping the use to recording your decision. Keep it proportionate — a genuinely low-risk case can be assessed in minutes; save the detail for cases that need it.
+When you want to use AI for a specific activity, work through the five-step [assessment](assess/1-scope.md) below. Each step builds on the previous one, taking you from scoping the use to recording your decision.
 
-New to this? The **[Getting Started guide](getting-started.md)** walks you through setting up AI governance on your project.
+If you haven't used this framework before, the **[Getting Started guide](getting-started.md)** walks you through setting up AI governance on your project.
 
 ## The assessment at a glance
 
 | Step | What you do |
 | ---- | ---- |
 | **[1. Scope your use](assess/1-scope.md)** | Define the activity, categorise it, record how much the AI may do on its own, and assess what code and data you will share (including its classification) |
-| **[2. Check the tool](assess/2-check-tool.md)** | Confirm the tool is on your project's register and not excluded, and pick up the facts about it that the risk assessment needs |
+| **[2. Check the tool](assess/2-check-tool.md)** | Confirm the tool is on your project's register and not excluded, and collect the facts about it that the risk assessment needs |
 | **[3. Identify the risks](assess/3-identify-risks.md)** | Use the heatmap to find the risks that matter for your use, rate each, adjust for autonomy, and take the highest as your **inherent** risk level |
 | **[4. Safeguards and approvals](assess/4-safeguards.md)** | Apply mitigations proportionate to the inherent risk, reassess the **residual** risk, and get the required sign-off |
 | **[5. Record and do the work](assess/5-record-and-work.md)** | Save the assessment (it is your record), do the work via your checklist, and share what you learned |
 
-The two hard stops come first, so you fail fast. Step 1: SECRET or above, or data whose consent or contract terms prohibit AI processing, means do not proceed. Step 2: a tool that is not on the register must be assessed before you use it, and a few facts — training on your inputs, no DPA, a consumer tier — rule a tool out entirely.
-
-**The register records what a tool is, not what it may be used for.** It tells you what you are dealing with; whether your particular use goes ahead is decided at Step 4, on the basis of risk.
-
 ## Ground rules that always apply
 
-Whichever path you take, these hold:
+However you might be using AI, these following principles always apply:
 
 - **You are accountable for AI outputs.** Code, analysis, content, or advice you submit, commit, or act on is your responsibility — treat it as your own work and apply the same quality standards.
 - **Assessed tools only.** Use only tools on your project's [tool register](assess/2-check-tool.md), and never above the classification a tool has been cleared for. Need a new tool? Get it profiled *before* use, never after. Unassessed use ("shadow AI") bypasses these safeguards; if you spot it, raise it with your delivery lead or SRO.
@@ -56,7 +52,6 @@ This framework operationalises UK Government guidance — including the **AI Pla
 - [Risk catalogue](reference/risk-catalogue.md) — the eight risks in depth, by use type
 - [Use-type profiles](reference/use-type-profiles.md) — the eleven use types, their tools and typical risks
 - [Per-use checklists](reference/checklists.md) — before / during / after, per use type
-- [Assessing a tool](reference/tool-criteria.md) — what disqualifies a tool, and the facts to record
 - [Worked examples](reference/worked-examples.md) — six end-to-end assessments
 - [Alignment with UK Government guidance](reference/government-guidance.md)
 - [Glossary](reference/glossary.md)

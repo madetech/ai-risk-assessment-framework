@@ -1,10 +1,10 @@
 # Step 3: Identify the Risks
 
-Not every risk matters equally for every use. The goal of this step is to quickly find the risks that are **material to your use**, then rate those by likelihood and impact to arrive at an inherent risk level — the risk before any mitigations are applied.
+Not every risk matters equally for every use. The goal of this step is to quickly find the risks that are **relevant to your use**, then rate those by likelihood and impact to arrive at an inherent risk level — the risk before any mitigations are applied.
 
-Work in four moves: **find your live risks** using the heatmap, **rate** each of them, **adjust for autonomy**, and **take the highest rating** as your overall inherent risk.
+Work in four stages: **identify your risks** using the heatmap, **rate** each of them, **adjust for autonomy**, and **take the highest rating** as your overall inherent risk.
 
-## 1. Find your live risks
+## 1. Identify your risks
 
 Find your use type (from [Step 1](1-scope.md)) in the heatmap below. The shaded cells are the risks that typically matter most for that use — start there. Do not ignore the lighter cells entirely, but spend your effort where the risk usually concentrates.
 
@@ -34,7 +34,7 @@ For each risk that is live for your use, read the one-paragraph definition below
 
 A model running in your own tenancy has lower inherent data leakage than a cloud service — the data never leaves. That is the tool's **design**, and it changes the size of the risk.
 
-"We don't train on your inputs", UK residency, indemnification — those are **promises**. They shrink a risk that already exists, so they belong in [Step 4](4-safeguards.md).
+"We don't train on your inputs", UK residency, indemnification — are **promises**. They shrink a risk that already exists, so they belong in [Step 4](4-safeguards.md).
 
 ### Data leakage
 Sensitive data sent to a third-party AI service is exposed, retained, used for training, or otherwise leaves your control — via prompts, context windows, uploaded files, or metadata.
@@ -86,7 +86,7 @@ Adversarial content — in code, documents, tickets, or user inputs — can mani
 
 ## 3. Adjust for autonomy
 
-The heatmap assumes a person reviews the AI's output before it has any effect. The more the AI is allowed to do on its own, the less that assumption holds — and three risks in particular stop being theoretical, because a mistake now reaches a real system rather than a reviewer.
+The heatmap assumes a person reviews the AI's output before it has any effect. The more the AI is allowed to do on its own, the less that assumption holds, and some risks stop being theoretical because a mistake now reaches a real system rather than a reviewer.
 
 Take the autonomy level you recorded in [Step 1](1-scope.md#assess-the-level-of-autonomy) and apply the adjustment:
 
@@ -94,10 +94,12 @@ Take the autonomy level you recorded in [Step 1](1-scope.md#assess-the-level-of-
 | ---- | ---- |
 | **Suggests** | No adjustment — the heatmap already assumes this |
 | **Drafts for review** | No adjustment, provided review is genuine and unhurried. If the artefact is large enough that review will be shallow in practice, raise **accuracy** by one likelihood step |
-| **Acts with approval** | Raise **accountability**, **supply chain**, and **prompt injection** by one likelihood step. A human clicking "approve" on something they did not fully read is not a control |
-| **Acts autonomously** | Rate **accountability**, **supply chain**, and **prompt injection** as at least **High impact**. Requires SRO approval regardless of the overall level (see [Step 4](4-safeguards.md)) |
+| **Acts with approval** | Raise **accuracy**, **accountability**, **supply chain**, and **prompt injection** by one likelihood step. A human clicking "approve" on something they did not fully read is not a control |
+| **Acts autonomously** | Rate **accuracy**, **accountability**, **supply chain**, and **prompt injection** as at least **High impact**, and raise **bias** by one impact step. Requires SRO approval regardless of the overall level (see [Step 4](4-safeguards.md)) |
 
-Why these three. **Accountability** because there is no longer a person who chose each action, only one who configured a system. **Supply chain** because an AI permitted to act is an actor inside your systems with whatever access you granted it. **Prompt injection** because injection stops being an information-disclosure problem and becomes a remote-action problem — an attacker who can get text in front of the AI can make it do things, and the NCSC's position that injection "may never be totally mitigated" means you cannot rely on the model refusing.
+Why these. **Accuracy** because autonomy does not change how often the model is wrong — that is a property of the model — but it changes whether anyone catches it. **Accountability** because there is no longer a person who chose each action, only one who configured a system. **Supply chain** because an AI permitted to act is an actor inside your systems with whatever access you granted it. **Prompt injection** because injection stops being an information-disclosure problem and becomes a remote-action problem — an attacker who can get text in front of the AI can make it do things, and the NCSC's position that injection "may never be totally mitigated" means you cannot rely on the model refusing.
+
+**Bias moves on impact rather than likelihood**, and the reason is worth knowing: human review is a weak control for bias in the first place. Bias is systematic, so each individual output looks perfectly reasonable and the pattern only appears in aggregate; the reviewer often shares it; and reviewers check whether an output is *correct*, not whether it is *fair across groups*. Removing a control that was barely working does not raise the likelihood much. What autonomy changes is the consequence. A reviewer is also a rate limiter, so at scale the skew now reaches every case. An autonomous system is reliably biased in the same direction every time, where humans are inconsistently biased — and consistency is what shows up in a legal challenge. And under UK GDPR Article 22, a solely automated decision with legal or similarly significant effects is a different proposition from a human decision that AI informed.
 
 ## 4. Determine your inherent risk level
 

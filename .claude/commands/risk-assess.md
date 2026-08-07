@@ -12,7 +12,7 @@ Read the following files to understand the framework:
 - `reference/use-type-profiles.md` — the eleven use types in detail
 - `assess/3-identify-risks.md` — the risk heatmap and how to rate each risk
 - `reference/risk-catalogue.md` — the eight risks in depth, by use type
-- `assess/2-check-tool.md` and `reference/tool-criteria.md` — the tool register and what a tool profile records
+- `assess/2-check-tool.md` — the tool register and what a tool profile records
 - `assess/4-safeguards.md` — mitigations by risk level
 - `templates/risk-assessment.md` — the template you will fill in
 
@@ -41,7 +41,9 @@ Ask these questions one at a time, waiting for each answer before proceeding:
 Ask these questions one at a time:
 
 1. **What data will be shared with the AI tool?** Provide example options relevant to the category identified in Step 1.
-2. **What is the data classification?** Offer: OFFICIAL, OFFICIAL-SENSITIVE, SECRET/TOP SECRET, Not sure.
+2. **What is the data classification?** Offer: OFFICIAL, OFFICIAL with a -SENSITIVE marking, SECRET/TOP SECRET, Not sure. (Under the GSCP there are three classifications; -SENSITIVE is a handling caveat on OFFICIAL, not a tier.)
+
+   **If they answer SECRET or TOP SECRET, stop the assessment there.** Explain that external AI services must not process information at these tiers: the GSCP requires it to be handled on dedicated accredited systems, so no assessment can end in "proceed". Point them at `assess/1-scope.md` and tell them to take specialist security advice. Do not continue to the remaining questions.
 3. **Does the data contain PII?** Offer: Yes, No, Not sure.
 4. **Does the data contain secrets, credentials, or API keys?** Offer: Yes, No, Not sure.
 5. **Are there consent or contractual constraints on how this data can be processed?** Offer: Yes, No, Not sure.
@@ -70,7 +72,7 @@ For each of the eight risk categories (data leakage, accuracy/hallucination, acc
 
 If a risk is clearly N/A for their use case, say so and suggest skipping it, but still let them confirm via AskUserQuestion.
 
-Apply the autonomy adjustment from `assess/3-identify-risks.md` when suggesting ratings: if they answered "acts with approval", raise accountability, supply chain, and prompt injection by one likelihood step; if "acts autonomously", rate those three as at least High impact. Explain the adjustment when you apply it.
+Apply the autonomy adjustment from `assess/3-identify-risks.md` when suggesting ratings: if they answered "acts with approval", raise accuracy, accountability, supply chain and prompt injection by one likelihood step; if "acts autonomously", rate those four as at least High impact and raise bias by one impact step. Explain the adjustment when you apply it. Bias moves on impact rather than likelihood because human review is a weak control for bias anyway — what autonomy changes is scale, consistency, and legal status under UK GDPR Article 22.
 
 When rating inherent risk, use the tool's **design** (is a third party involved at all, does it have standing access, can it act) but not the supplier's **promises** (no training on inputs, data residency, indemnification) — those are mitigations and belong in the next step. Otherwise inherent and residual collapse into each other.
 
@@ -80,7 +82,7 @@ After all eight categories, state the overall inherent risk level (the highest i
 
 Based on the inherent risk level, explain what mitigations are required (from assess/4-safeguards.md).
 
-For each risk rated Medium or High, ask one at a time what specific mitigations they will apply. Suggest appropriate mitigations as options based on the framework guidance.
+For each risk rated Medium or High, ask one at a time what specific mitigations they will apply. Only count a mitigation if it is additional to what the inherent rating already assumed — review that the autonomy level already implies has been counted once and must not be counted again. Suggest appropriate mitigations as options based on the framework guidance.
 
 If the autonomy level is "acts with approval" or "acts autonomously", also walk through the autonomy controls in `assess/4-safeguards.md`: least privilege, a hard stop on irreversible actions, a complete action log, a named accountable owner, and a kill switch. For "acts autonomously", tell them SRO approval is required regardless of the overall risk level.
 

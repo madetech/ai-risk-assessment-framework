@@ -3,7 +3,7 @@
 | Term | Definition |
 | ---- | ---- |
 | **ATRS** | Algorithmic Transparency Recording Standard. A mandatory UK government standard for recording how and why algorithmic tools are used in public services. |
-| **Data classification** | The Government Security Classifications Policy categorises data as OFFICIAL, OFFICIAL-SENSITIVE, SECRET, or TOP SECRET based on the damage that could result from compromise. |
+| **Data classification** | The [Government Security Classifications Policy](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1166145/Government_Security_Classifications_Policy_June_2023.pdf) categorises government information as OFFICIAL, SECRET, or TOP SECRET, based on the damage that could result from compromise. **‑SENSITIVE is a handling caveat**, applied to a subset of OFFICIAL information, not a fourth classification. |
 | **DPIA** | Data Protection Impact Assessment. A process required under GDPR to identify and minimise data protection risks of a project or system. |
 | **Hallucination** | When an AI system generates content that is factually incorrect, fabricated, or unsupported by its input data, but presented with apparent confidence. |
 | **LLM** | Large Language Model. A type of AI model trained on large amounts of text data, capable of generating and understanding natural language. Examples include GPT-4, Claude, and Gemini. |
@@ -12,7 +12,7 @@
 | **Shadow AI** | The use of AI tools by employees without the knowledge or approval of their organisation's IT governance. |
 | **Model card** | A document that describes a machine learning model's intended use, performance characteristics, limitations, and ethical considerations. |
 | **Human-in-the-loop** | A system design where a human reviews and approves AI outputs before they are acted upon or presented to end users. |
-| **Tool profile** | The record of what an AI tool is and what its supplier promises — where data goes, what the tool can reach and do, retention, training, certifications, IP terms. Deliberately facts rather than permissions: a profile does not say what the tool may be used for. See [Assessing a Tool](tool-criteria.md). |
+| **Tool profile** | The record of what an AI tool is and what its supplier promises — where data goes, what the tool can reach and do, retention, training, certifications, IP terms. Deliberately facts rather than permissions: a profile does not say what the tool may be used for. See [Step 2](../assess/2-check-tool.md). |
 | **Tool register** | The project's set of tool profiles. Being on it means a tool has been assessed and is not excluded — not that any particular use of it is approved. |
 | **Highest classification cleared** | The most sensitive data a tool has been signed off to handle. A decision made with authority, not inferred from the tool's facts. Recorded in its profile. |
 | **Autonomy level** | How much an AI is permitted to do without a person deciding each step: *suggests* (a person does the work), *drafts for review* (a person reviews before it takes effect), *acts with approval* (each action needs sign-off), or *acts autonomously* (no human in the loop per action). Recorded in [Step 1](../assess/1-scope.md#assess-the-level-of-autonomy) and applied as an adjustment in [Step 3](../assess/3-identify-risks.md). |
