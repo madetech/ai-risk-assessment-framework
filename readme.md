@@ -17,7 +17,7 @@ If you haven't used this framework before, the **[Getting Started guide](getting
 | **[1. Scope your use](assess/1-scope.md)** | Define the activity, categorise it, record how much the AI may do on its own, and assess what code and data you will share (including its classification) |
 | **[2. Check the tool](assess/2-check-tool.md)** | Confirm the tool is on your project's register and not excluded, and collect the facts about it that the risk assessment needs |
 | **[3. Identify the risks](assess/3-identify-risks.md)** | Use the heatmap to find the risks that matter for your use, rate each, adjust for autonomy, and take the highest as your **inherent** risk level |
-| **[4. Safeguards and approvals](assess/4-safeguards.md)** | Apply mitigations proportionate to the inherent risk, reassess the **residual** risk, and get the required sign-off |
+| **[4. Safeguards and approvals](assess/4-safeguards.md)** | Mitigate each risk you rated medium or high, reassess what is left as your **residual** risk, and get the sign-off the overall level requires |
 | **[5. Record and do the work](assess/5-record-and-work.md)** | Save the assessment (it is your record), do the work via your checklist, and share what you learned |
 
 ## Ground rules that always apply

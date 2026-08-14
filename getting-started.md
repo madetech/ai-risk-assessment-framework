@@ -60,10 +60,11 @@ When someone on the team wants to use AI for a specific activity, create a new r
    - Apply mitigations and reassess the residual risk (Step 4)
    - Record the assessment and do the work (Step 5)
 
-3. **Get the required approval** based on the inherent risk level:
+3. **Get the required approval** based on the overall inherent risk level:
    - **Low** — Self-assessed, recorded
    - **Medium** — Reviewed by the Technical or Delivery Lead
    - **High** — Formal approval from the SRO
+   - Any use where the AI **acts autonomously** — SRO approval regardless of the risk level
 
 4. **Record it** (Step 5) — the assessment page itself serves as your record. Make sure it captures who assessed it, when, and what approvals were obtained.
 

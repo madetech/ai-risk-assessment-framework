@@ -1,56 +1,27 @@
 # Step 4: Safeguards and Approvals
 
-You now have an inherent risk level from [Step 3](3-identify-risks.md) — the risk before any mitigations. This step has three parts: determine mitigations proportionate to that inherent risk, apply them, and reassess the residual risk to confirm they are sufficient. It ends with the required approvals.
+You now have a rating for each risk from [Step 3](3-identify-risks.md), and an overall inherent level that is the highest of them. This step works through three parts: **mitigate each risk that needs it**, **reassess** what is left, and **get the governance right** for the overall level.
 
-## Part A: Determine mitigations based on the inherent risk level
+The distinction matters. Controls are chosen risk by risk — a use that is high for data leakage and low for bias needs serious data controls, not serious everything. What the *overall* level determines is how much scrutiny the decision needs: who signs it off, and what has to be documented.
 
-The principle is proportionality: higher inherent risk requires more rigorous controls.
+## Part A: Mitigate each risk
 
-**Inherent risk: Low**
+Take the risks you rated **Medium** or **High** in Step 3 and work through them one at a time. For each, choose controls that address that specific risk.
 
-- Confirm the tool is on the register and cleared for your data's classification (see [Step 2](2-check-tool.md))
-- Human review of all AI outputs before they are used, committed, or acted upon — **but only count this as a mitigation if it goes beyond what your autonomy level already assumes.** A use scoped at *suggests* or *drafts for review* has review built into its inherent rating, so claiming it again here counts it twice and makes the residual look better than it is. What does count is review that is genuinely additional: a second reviewer, a domain expert rather than the author, or review against the source material rather than a read-through
-- Record the AI use as a risk assessment (see [Step 5](5-record-and-work.md))
-- Follow the relevant per-use [checklist](../reference/checklists.md)
-- Comply with data handling policies — do not share data above the classification the tool is cleared for
+[Reference: Risk Catalogue](../reference/risk-catalogue.md) lists key controls under each of the eight risks. Start there, then adapt to your situation — a control that works for one team's data leakage problem may be irrelevant to yours.
 
-No additional approval is required beyond the tool check in Step 2 and following standard team practices.
+Four things to hold to as you choose:
 
-**Inherent risk: Medium**
+- **Target the actual risk.** "We will review the output" is not a mitigation for data leakage; the data has already gone. Say which risk each control addresses, and be honest when a control you like does not address the one that is driving your rating.
+- **Say whether it cuts likelihood or impact.** Anonymising data before submitting it reduces the *likelihood* of a PII breach. A kill switch reduces the *impact* of one. You need to know which, because that is what you re-rate in Part B.
+- **Only count what is additional.** If a control is already baked into your autonomy level or your tool's design, the inherent rating has counted it once. Claiming it again makes the residual look better than it is. Human review is the common case: a use scoped at *suggests* or *drafts for review* already assumes review, so what counts here is review that goes further — a second reviewer, a domain expert rather than the author, or checking against source material rather than reading through.
+- **Some risks resist mitigation.** Prompt injection cannot be eliminated, and bias in historical data cannot be tested away. Where that is true, control the *consequences* instead, and say so plainly rather than claiming a reduction you have not achieved.
 
-All low-risk mitigations, plus:
-
-- Specific additional controls determined by the risk assessment — for example: anonymise or redact sensitive data before submitting; enhanced code review for security-sensitive areas; peer review of AI-assisted research findings against source material; additional testing or validation of outputs
-- Approval from the **tech lead or delivery lead** before proceeding
-- Document the specific enhanced controls being applied and why
-
-**Inherent risk: High**
-
-All medium-risk mitigations, plus:
-
-- Formal documentation:
-  - **Data Protection Impact Assessment (DPIA)** if personal data is involved
-  - **Model card or system documentation** for AI-powered product features
-  - **ATRS record** if the use falls within the scope of the Algorithmic Transparency Recording Standard
-- Approval from the **senior responsible owner** or equivalent governance authority
-- **Client approval** may be required — check with the delivery lead
-- A defined review date to reassess the risk level and mitigations
-
-**Inherent risk: Do not proceed**
-
-Some uses should not proceed regardless of mitigations, including:
-
-- Processing SECRET or TOP SECRET data through any external AI service — a hard stop at [Step 1](1-scope.md#if-your-data-is-secret-or-above), listed here as a backstop
-- Using AI to make automated decisions about individuals without meaningful human oversight, particularly in statutory contexts
-- Using tools that are [excluded](2-check-tool.md#is-it-excluded) and cannot be brought into compliance
-- Using AI on data where consent or contractual agreements explicitly prohibit it
-- Any use the client has explicitly prohibited
-
-If you believe an exception is justified, escalate to the senior responsible owner with a written justification. Do not proceed without explicit written approval.
+Whatever the ratings, these always apply: use only a tool from the register within its cleared classification ([Step 2](2-check-tool.md)), follow the relevant per-use [checklist](../reference/checklists.md), and record the assessment ([Step 5](5-record-and-work.md)).
 
 ### Additional controls where the AI acts rather than advises
 
-The mitigations above scale with the risk level. These scale with **autonomy**, and apply on top, regardless of the risk level. If you recorded an autonomy level of "acts with approval" or "acts autonomously" in [Step 1](1-scope.md#assess-the-level-of-autonomy):
+These scale with **autonomy** rather than with any single risk rating, and apply on top. If you recorded an autonomy level of *acts with approval* or *acts autonomously* in [Step 1](1-scope.md#assess-the-level-of-autonomy):
 
 - **Least privilege.** The AI's access should be the minimum the task needs. Review what it was actually granted, not what was intended — inherited service accounts and broad API tokens are the common failure.
 - **A hard stop on irreversible actions.** Deleting data, changing access control, spending money, and communicating with the public should require a human decision, enforced in code rather than by instructing the AI to ask first.
@@ -58,28 +29,45 @@ The mitigations above scale with the risk level. These scale with **autonomy**, 
 - **A named accountable owner** for the AI's actions — a specific person, not a team.
 - **A kill switch** that someone on shift can operate without a deployment.
 
-For **"acts autonomously"**, SRO approval is required regardless of the overall risk level, along with a defined review date. Removing the human from each decision is a governance change, not just a technical one, and should be decided at that level.
-
 ## Part B: Reassess the residual risk
 
-With the mitigations identified, go back through each risk category and re-rate the likelihood and impact **with the mitigations in place**. This is the residual risk. For each category, ask:
+Go back through each risk you mitigated and re-rate its likelihood and impact **with the controls in place**. This is the residual risk. For each, ask:
 
-- Does this mitigation reduce the **likelihood** of the risk materialising? (e.g. anonymising data before processing reduces the likelihood of a PII breach)
-- Does this mitigation reduce the **impact** if it does materialise? (e.g. a domain expert checking outputs against source material limits the impact of hallucination)
-- Is the residual risk now at an acceptable level?
-- **Is this mitigation genuinely additional**, or is it something the inherent rating already assumed? Anything baked into your autonomy level or your tool's design has already been counted, and counting it again inflates the improvement.
+- Does the control reduce the **likelihood** of this risk materialising?
+- Does it reduce the **impact** if it does materialise?
+- Is what remains at an acceptable level?
 
-Use the same risk matrix from [Step 3](3-identify-risks.md) to determine the residual level for each category and overall.
+Use the same matrix from [Step 3](3-identify-risks.md). Your overall residual level is again the highest of the individual ratings.
 
-**If the residual risk for any category remains at "Do not proceed"**, the mitigations are insufficient — identify stronger mitigations, change your approach, or do not proceed.
+**If any risk remains at "Do not proceed"**, the controls are insufficient — find stronger ones, change your approach, or do not proceed.
 
-**If the residual risk is no lower than the inherent risk**, the mitigations are not adding value — reconsider whether the right mitigations have been chosen, or whether the risk genuinely cannot be reduced.
+**If a risk has not moved**, either the control does not address it or it is not additional. Both are worth knowing: an unmoved rating is honest, an inflated one is not.
 
-## Part C: Obtain approvals
+## Part C: Governance for the overall level
 
-Approvals are determined by the **inherent** risk level — because it reflects the seriousness of what you are dealing with and the rigour of governance needed. The residual risk confirms the mitigations are sufficient but does not reduce the approval requirements. An autonomy level of "acts autonomously" requires SRO approval even where the inherent risk is low or medium.
+The overall **inherent** level sets the governance, because it reflects the seriousness of what you are dealing with. Residual risk confirms the controls are sufficient; it does not reduce what has to be signed off.
 
-Record both the inherent and residual risk levels. You will use these in [Step 5](5-record-and-work.md).
+| Overall inherent risk | What is required |
+| ---- | ---- |
+| **Low** | Record the assessment. No approval needed beyond the tool check in Step 2 and standard team practice. |
+| **Medium** | Approval from the **tech lead or delivery lead** before proceeding. Document the controls you applied and why. |
+| **High** | Approval from the **SRO** or equivalent governance authority, and possibly the client — check with the delivery lead. Formal documentation: a **DPIA** if personal data is involved, a **model card or system documentation** for AI-powered product features, and an **ATRS record** if the use is in scope. Set a review date. |
+
+An autonomy level of *acts autonomously* requires SRO approval and a review date **regardless of the overall level**, including where it is low or medium. Removing the human from each decision is a governance change, not just a technical one.
+
+### Uses that should not proceed
+
+Some uses should not go ahead whatever controls you apply:
+
+- Processing SECRET or TOP SECRET data through any external AI service — a hard stop at [Step 1](1-scope.md#if-your-data-is-secret-or-above), listed here as a backstop
+- Using AI to make automated decisions about individuals without meaningful human oversight, particularly in statutory contexts
+- Using tools that are [excluded](2-check-tool.md#is-it-excluded) and cannot be brought into compliance
+- Using AI on data where consent or contractual agreements explicitly prohibit it
+- Any use the client has explicitly prohibited
+
+If you believe an exception is justified, escalate to the SRO with a written justification. Do not proceed without explicit written approval.
+
+Record both the inherent and residual levels, and the individual ratings behind them. You will use these in [Step 5](5-record-and-work.md).
 
 ---
 

@@ -114,9 +114,11 @@ _If anything in the profile does not fit what you are doing, that is not a block
 
 ### Mitigations
 
-Based on the inherent risk level, describe the mitigations that will be applied. See [Step 4 of the framework](../assess/4-safeguards.md) for required mitigations at each risk level.
+Work risk by risk. For each risk rated Medium or High above, describe the controls that address **that** risk, and say whether each reduces its likelihood or its impact. Leave rows blank where the risk is low and needs nothing. See [Step 4](../assess/4-safeguards.md) for how to choose controls, and the [risk catalogue](../reference/risk-catalogue.md) for the key controls under each risk.
 
-| Risk category | Mitigation | Detail |
+_Only record controls that are **additional** to what the inherent rating already assumed. Review that your autonomy level already implies has been counted once._
+
+| Risk category | Mitigation | Reduces likelihood or impact? |
 | ---- | ---- | ---- |
 | Data leakage | | |
 | Accuracy and hallucination | | |
@@ -126,6 +128,8 @@ Based on the inherent risk level, describe the mitigations that will be applied.
 | Over-reliance and skill erosion | | |
 | Supply chain and security | | |
 | Prompt injection | | |
+
+_If the AI acts with approval or autonomously, also record the autonomy controls from Step 4: least privilege, a hard stop on irreversible actions, a complete action log, a named accountable owner, and a kill switch._
 
 ### Residual risk
 

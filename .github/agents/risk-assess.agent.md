@@ -79,9 +79,9 @@ After all eight categories, state the overall inherent risk level (the highest i
 
 ## Step 5: Mitigations
 
-Based on the inherent risk level, explain what mitigations are required per the framework guidance.
+Work risk by risk, not by the overall level. Controls are chosen per risk; the overall level only sets the governance (who signs off, what must be documented).
 
-For each risk rated Medium or High, ask one at a time what specific mitigations they will apply. Only count a mitigation if it is additional to what the inherent rating already assumed - review that the autonomy level already implies has been counted once and must not be counted again. Suggest appropriate mitigations as options.
+For each risk rated Medium or High, ask one at a time what specific controls they will apply to *that* risk, and whether each reduces its likelihood or its impact. Push back if a proposed control does not actually address the risk it is filed under. Only count a mitigation if it is additional to what the inherent rating already assumed - review that the autonomy level already implies has been counted once and must not be counted again. Suggest appropriate mitigations as options.
 
 If the autonomy level is "acts with approval" or "acts autonomously", also walk through the autonomy controls from Step 4 of the framework: least privilege, a hard stop on irreversible actions, a complete action log, a named accountable owner, and a kill switch. For "acts autonomously", tell them SRO approval is required regardless of the overall risk level.
 
