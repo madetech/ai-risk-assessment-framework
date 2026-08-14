@@ -31,7 +31,7 @@ Any "yes" rules the tool out, whatever the intended use.
 
 ## What the tool is
 
-_Design facts. These shape the **inherent** risk in [Step 3](../assess/3-identify-risks.md)._
+_Design facts. These shape the **inherent** risk in [Step 3](../assess/3-assess-risks.md)._
 
 | Fact | Details |
 | ---- | ---- |
@@ -44,7 +44,7 @@ _Design facts. These shape the **inherent** risk in [Step 3](../assess/3-identif
 
 ## What the supplier promises
 
-_Contractual and configurable guarantees. These are **mitigations** in [Step 4](../assess/4-safeguards.md)._
+_Contractual and configurable guarantees. These are **mitigations** in [Step 3](../assess/3-assess-risks.md#5-choose-mitigations-that-address-this-risk)._
 
 | Fact | Details |
 | ---- | ---- |

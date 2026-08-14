@@ -56,17 +56,16 @@ When someone on the team wants to use AI for a specific activity, create a new r
 2. **Work through each section** of the template, using the framework for detailed guidance:
    - Scope the use — define it and assess what code and data you will share (Step 1)
    - Check the tool is on the register, not excluded, and cleared for your classification — or profile it (Step 2)
-   - Identify the risks using the heatmap and rate each one (Step 3)
-   - Apply mitigations and reassess the residual risk (Step 4)
-   - Record the assessment and do the work (Step 5)
+   - Assess the risks — find them with the heatmap, then take each one through inherent rating, mitigations, and residual rating (Step 3)
+   - Get approval, record the assessment, and do the work (Step 4)
 
 3. **Get the required approval** based on the overall inherent risk level:
    - **Low** — Self-assessed, recorded
-   - **Medium** — Reviewed by the Technical or Delivery Lead
-   - **High** — Formal approval from the SRO
+   - **Medium** — Approval from the SRO
+   - **High** — Approval from the SRO, with formal documentation
    - Any use where the AI **acts autonomously** — SRO approval regardless of the risk level
 
-4. **Record it** (Step 5) — the assessment page itself serves as your record. Make sure it captures who assessed it, when, and what approvals were obtained.
+4. **Record it** (Step 4) — the assessment page itself serves as your record. Make sure it captures who assessed it, when, and what approvals were obtained.
 
 ### Tips for writing good assessments
 
@@ -96,7 +95,7 @@ The collection of risk assessments in your documentation space is your record of
 - **Drift** — Are people still following the mitigations they committed to?
 - **Staleness** — Have any assessments become outdated because the scope, data, or tooling has changed?
 
-Update assessments after the work is complete with any issues encountered and learnings to share ([Step 5](assess/5-record-and-work.md)).
+Share what you learned once the work is complete, and revisit the assessment if the scope, data, or tooling has changed ([Step 4](assess/4-record-and-work.md)).
 
 ## 6. Build the habit
 

@@ -20,17 +20,17 @@ If the user described their use case in the prompt, use it to pre-fill answers w
 Use these files as reference throughout the assessment:
 - [1-scope.md](../../assess/1-scope.md) — categories of AI use and data assessment guidance
 - [use-type-profiles.md](../../reference/use-type-profiles.md) — the eleven use types in detail
-- [3-identify-risks.md](../../assess/3-identify-risks.md) — the risk heatmap and how to rate each risk
-- [risk-catalogue.md](../../reference/risk-catalogue.md) — the eight risks in depth, by use type
 - [2-check-tool.md](../../assess/2-check-tool.md) — the tool register and what a tool profile records
-- [4-safeguards.md](../../assess/4-safeguards.md) — mitigations by risk level
+- [3-assess-risks.md](../../assess/3-assess-risks.md) — the heatmap, the autonomy adjustment, and the per-risk loop: rate, mitigate, re-rate
+- [risk-catalogue.md](../../reference/risk-catalogue.md) — the eight risks in depth by use type, with the questions to ask and key mitigations under each
+- [4-record-and-work.md](../../assess/4-record-and-work.md) — approvals for the overall inherent level
 
 ## Step 1: Gather the basics
 
 Ask these questions one at a time:
 
 1. **What do you want to use AI for?** Be specific - push back on vague descriptions like "using AI for coding". Provide a few example descriptions as options.
-2. **Which category does it fall into?** Offer the eleven categories as options: coding, code analysis, synthetic data generation, product feature, user-facing support, live service operations, user research, design, content, business analysis, general productivity.
+2. **Which category does it fall into?** Offer the eleven categories as options: software development, code analysis, synthetic data generation, product feature, user-facing support, live service operations, user research, design, content, business analysis, general productivity.
 3. **How much is the AI allowed to do on its own?** Offer the four autonomy levels: "Suggests - a person does the work", "Drafts for review - a person reviews before it takes effect", "Acts with approval - each action needs sign-off", "Acts autonomously - no human in the loop per action". Ask what the tool is *permitted* to do, not what they intend to let it do.
 4. **What will you do with the AI output?** Offer options like: "Goes directly into production", "Reviewed and edited first", "Informs a decision", etc.
 5. **Who is affected?** Offer options like: "Just me/my team", "End users of the service", "Members of the public whose data is processed".
@@ -63,31 +63,32 @@ The register records what a tool is, not what it may be used for. Clearing this 
 
 ## Step 4: Assess the risks
 
-For each of the eight risk categories (data leakage, accuracy/hallucination, accountability, bias/fairness, IP/licensing, over-reliance, supply chain/security, prompt injection), work through them **one category per message** - do not present all eight at once:
+Take the eight risk categories (data leakage, accuracy/hallucination, accountability, bias/fairness, IP/licensing, over-reliance, supply chain/security, prompt injection) **one category per message** - do not present all eight at once. Finish a risk completely before starting the next one.
+
+For each risk, in a single message:
 
 1. Briefly explain (1-2 sentences) how this risk applies to their specific use case and category, based on the framework guidance.
-2. Suggest a likelihood and impact rating based on what they have told you.
-3. Ask them to confirm or adjust the rating. Offer options like: "Agree with suggested rating", "Lower", "Higher".
+2. Suggest an **inherent** likelihood and impact rating based on what they have told you, and say why.
+3. If that rating is Medium or High, suggest the mitigations that would address *this* risk, saying whether each cuts likelihood or impact, and suggest the **residual** rating that follows. If it is Low, say no mitigation is needed.
+4. Ask them to confirm or adjust. Offer options like: "Agree", "Inherent should be higher/lower", "Different mitigations", "Residual should be higher/lower".
 
-If a risk is clearly N/A for their use case, say so and suggest skipping it, but still let them confirm.
+If a risk is clearly N/A for their use case, say so and suggest N/A with a one-line reason, but still let them confirm. Do not leave a risk blank.
 
-Apply the autonomy adjustment from the framework when suggesting ratings: if they answered "acts with approval", raise accuracy, accountability, supply chain and prompt injection by one likelihood step; if "acts autonomously", rate those four as at least High impact and raise bias by one impact step. Explain the adjustment when you apply it. Bias moves on impact rather than likelihood because human review is a weak control for bias anyway - what autonomy changes is scale, consistency, and legal status under UK GDPR Article 22.
+**Rating discipline.** Three things to hold to, because the assessment now rates and mitigates in one pass:
 
-When rating inherent risk, use the tool's **design** (is a third party involved at all, does it have standing access, can it act) but not the supplier's **promises** (no training on inputs, data residency, indemnification) - those are mitigations and belong in the next step. Otherwise inherent and residual collapse into each other.
+- When rating **inherent** risk, use the tool's **design** (is a third party involved at all, does it have standing access, can it act) but not the supplier's **promises** (no training on inputs, data residency, indemnification) - those are mitigations. Otherwise inherent and residual collapse into each other.
+- Only count a mitigation if it is **additional** to what the inherent rating already assumed. Review that the autonomy level already implies has been counted once and must not be counted again.
+- Never justify the inherent rating and the residual rating with the **same fact**. If you find yourself writing the same sentence twice, the drop is not real - say the rating has not moved and explain why.
 
-After all eight categories, state the overall inherent risk level (the highest individual rating).
+Push back if a proposed mitigation does not actually address the risk it is filed under. Some risks - prompt injection, bias in historical data - resist mitigation; where that is true, control the consequences and say so rather than claiming a reduction.
 
-## Step 5: Mitigations
+Apply the autonomy adjustment from the framework when suggesting inherent ratings: if they answered "acts with approval", raise accuracy, accountability, supply chain and prompt injection by one likelihood step; if "acts autonomously", rate those four as at least High impact and raise bias by one impact step. Explain the adjustment when you apply it. Bias moves on impact rather than likelihood because human review is a weak mitigation for bias anyway - what autonomy changes is scale, consistency, and legal status under UK GDPR Article 22.
 
-Work risk by risk, not by the overall level. Controls are chosen per risk; the overall level only sets the governance (who signs off, what must be documented).
+If the autonomy level is "acts with approval" or "acts autonomously", walk through the autonomy mitigations after the eight risks: least privilege, a hard stop on irreversible actions, a complete action log, a named accountable owner, and a kill switch.
 
-For each risk rated Medium or High, ask one at a time what specific controls they will apply to *that* risk, and whether each reduces its likelihood or its impact. Push back if a proposed control does not actually address the risk it is filed under. Only count a mitigation if it is additional to what the inherent rating already assumed - review that the autonomy level already implies has been counted once and must not be counted again. Suggest appropriate mitigations as options.
+After all eight, state the overall inherent risk level and the overall residual level (the highest individual rating in each case), and which risks drive each. Tell them what approval the overall **inherent** level requires - SRO for medium and high - and that "acts autonomously" requires SRO approval regardless.
 
-If the autonomy level is "acts with approval" or "acts autonomously", also walk through the autonomy controls from Step 4 of the framework: least privilege, a hard stop on irreversible actions, a complete action log, a named accountable owner, and a kill switch. For "acts autonomously", tell them SRO approval is required regardless of the overall risk level.
-
-Then reassess the residual risk with mitigations in place - present your suggested residual ratings and ask the user to confirm.
-
-## Step 6: Generate the assessment
+## Step 5: Generate the assessment
 
 Once all sections are complete:
 

@@ -1,10 +1,10 @@
 # Reference: Use-Type Profiles
 
-This reference gives the detail behind the eleven use types. Use it alongside [Step 1: Scope Your Use](../assess/1-scope.md) to categorise your use precisely, and alongside [Step 3: Identify the Risks](../assess/3-identify-risks.md) to understand the typical risk fingerprint of your use type.
+This reference gives the detail behind the eleven use types. Use it alongside [Step 1: Scope Your Use](../assess/1-scope.md) to categorise your use precisely, and alongside [Step 3: Identify the Risks](../assess/3-assess-risks.md) to understand the typical risk fingerprint of your use type.
 
-The use types describe **tasks people do while delivering a government service**, not the services themselves. The one exception is AI-powered product features, which covers AI you build *into* the service — it is included because it carries the highest governance requirements and teams need to recognise when they have crossed into it.
+The use types describe **tasks people do while delivering a government service**, not the services themselves. The one exception is product features, which covers AI you build *into* the service — it is included because it carries the highest governance requirements and teams need to recognise when they have crossed into it.
 
-Most AI use on delivery projects falls into one of eleven categories. Some uses span more than one — if so, assess against each relevant category and apply the more restrictive set of safeguards. As [Step 1](../assess/1-scope.md#categorise-your-use) sets out, these are a thinking aid rather than an exhaustive taxonomy: they exist to get you to the right risks quickly, so pick the closest fit rather than arguing the boundary.
+Most AI use on delivery projects falls into one of eleven categories. Some uses span more than one — if so, assess against each relevant category and apply the more restrictive set of mitigations. As [Step 1](../assess/1-scope.md#categorise-your-use) sets out, these are a thinking aid rather than an exhaustive taxonomy: they exist to get you to the right risks quickly, so pick the closest fit rather than arguing the boundary.
 
 ## Types of AI
 
@@ -22,7 +22,7 @@ Many tools combine multiple types. A support ticket triage system might use an L
 
 ---
 
-## AI-assisted coding
+## Software development
 
 Using AI tools to help write, complete, review, test, or debug code. This includes code generation from prompts, inline code completion, AI-assisted code review, test generation, and using AI to help debug issues.
 
@@ -34,7 +34,7 @@ The key characteristic is that **AI is generating or modifying code** that may e
 
 **Key concerns:** Embedded secrets in the working file or adjacent files; proprietary business logic in the immediate context.
 
-**Also covers testing work:** generating test cases from acceptance criteria, exploratory test charters, and accessibility audit assistance. Test coverage is evidence against the Service Standard, so AI-written tests carry a specific failure mode — tests that pass without meaningfully testing anything. Review AI-generated tests for what they actually assert, not just that they are green. If you are generating *test data* rather than test code, that is a separate use type — see AI-assisted synthetic data generation below.
+**Also covers testing work:** generating test cases from acceptance criteria, exploratory test charters, and accessibility audit assistance. Test coverage is evidence against the Service Standard, so AI-written tests carry a specific failure mode — tests that pass without meaningfully testing anything. Review AI-generated tests for what they actually assert, not just that they are green. If you are generating *test data* rather than test code, that is a separate use type — see Synthetic data generation below.
 
 **Action required:** Check the contents of your code before sharing. Remove any secrets, credentials, or sensitive configuration. Ensure the AI tool is on the register and cleared for the classification of the code.
 
@@ -42,11 +42,11 @@ The key characteristic is that **AI is generating or modifying code** that may e
 
 ---
 
-## AI-assisted code analysis
+## Code analysis
 
 Using AI to analyse existing codebases — identifying patterns, mapping dependencies, assessing architecture, finding technical debt, detecting security issues, or building understanding of legacy systems.
 
-The key characteristic is that **large volumes of existing code are being sent to the AI tool**, and the output is analytical (findings, assessments, recommendations) rather than code destined for production. This is distinct from AI-assisted coding because the risk profile differs: the primary concerns are the sensitivity of the code being shared and the reliability of the analysis, rather than the quality of generated code.
+The key characteristic is that **large volumes of existing code are being sent to the AI tool**, and the output is analytical (findings, assessments, recommendations) rather than code destined for production. This is distinct from Software development because the risk profile differs: the primary concerns are the sensitivity of the code being shared and the reliability of the analysis, rather than the quality of generated code.
 
 **Common tools:** Claude, ChatGPT Enterprise, Gemini, SonarQube AI.
 
@@ -64,11 +64,11 @@ The key characteristic is that **large volumes of existing code are being sent t
 
 ---
 
-## AI-assisted synthetic data generation
+## Synthetic data generation
 
 Using AI to generate artificial datasets that stand in for real data — test data for development and QA environments, demonstration data, data for load and performance testing, or training data for a model.
 
-The key characteristic is that **real data is used to produce artificial data that is then treated as safe**. That assumption is the risk. Synthetic data is often generated *from* production data, and the resulting dataset can carry real records through — either memorised verbatim by the model or reconstructable by combining fields. A dataset that everyone believes is synthetic will be handled with far less care than the data it was derived from, so a leak here bypasses every control you have placed on the real thing.
+The key characteristic is that **real data is used to produce artificial data that is then treated as safe**. That assumption is the risk. Synthetic data is often generated *from* production data, and the resulting dataset can carry real records through — either memorised verbatim by the model or reconstructable by combining fields. A dataset that everyone believes is synthetic will be handled with far less care than the data it was derived from, so a leak here bypasses every mitigation you have placed on the real thing.
 
 The second failure mode is fidelity. Synthetic data that does not reflect the real distribution gives false confidence: the service passes its tests and then fails in production on the cases the generator never produced — unusual names, non-Latin characters, missing fields, very long values, edge-case dates. Under-representation is not random. Generators trained on majority-case data under-produce exactly the minority cases where government services most often fail their users, so a fidelity problem becomes an equality problem.
 
@@ -84,7 +84,7 @@ The second failure mode is fidelity. Synthetic data that does not reflect the re
 
 ---
 
-## AI-powered product features
+## Product feature
 
 Building AI capabilities into the product or service being delivered — chatbots, content summarisation, document classification, triage systems, recommendation engines, or automated decision support.
 
@@ -104,11 +104,11 @@ The key characteristic is that **AI will directly interact with or affect end us
 
 ---
 
-## AI-assisted user-facing support
+## User-facing support
 
 Using AI to help manage support and service desk operations — auto-categorising and routing tickets, suggesting or drafting responses for agents, providing first-line chatbot support, summarising ticket history, generating knowledge base articles, or predicting escalations and SLA risks.
 
-The key characteristic is that **AI is processing operational support data to help teams respond to and resolve requests from people**. This is distinct from AI-powered product features: support AI is an internal/operational tool that assists the team, whereas product features are delivered directly to end users. It is also distinct from live service operations: this use type is about handling requests from *people*, whereas live service operations is about diagnosing and fixing *systems*. The risks here are the unpredictable sensitivity of ticket content (users routinely paste credentials, PII, and system details), the consequences of incorrect triage or advice, and the potential for automation to act without adequate human oversight.
+The key characteristic is that **AI is processing operational support data to help teams respond to and resolve requests from people**. This is distinct from Product feature: support AI is an internal/operational tool that assists the team, whereas product features are delivered directly to end users. It is also distinct from live service operations: this use type is about handling requests from *people*, whereas live service operations is about diagnosing and fixing *systems*. The risks here are the unpredictable sensitivity of ticket content (users routinely paste credentials, PII, and system details), the consequences of incorrect triage or advice, and the potential for automation to act without adequate human oversight.
 
 **Common tools:** Microsoft Copilot for Service, Zendesk AI, ServiceNow AI.
 
@@ -122,7 +122,7 @@ The key characteristic is that **AI is processing operational support data to he
 
 ---
 
-## AI-assisted live service operations
+## Live service operations
 
 Using AI in the running of a live service — triaging alerts, investigating incidents, correlating and summarising logs, proposing root causes, generating or reviewing infrastructure-as-code, drafting runbooks, and suggesting or applying remediations.
 
@@ -140,7 +140,7 @@ The key characteristic is that **AI is working against production systems**, oft
 
 ---
 
-## AI-assisted user research
+## User research
 
 Using AI to support research with users — transcribing and summarising interviews, identifying themes across sessions, analysing survey free text, synthesising findings, and building personas or journey maps from research data.
 
@@ -160,7 +160,7 @@ The key characteristic is that **AI is processing what real people told you, in 
 
 ---
 
-## AI-assisted design
+## Design
 
 Using AI in the design of the service — exploring interaction and service design options, generating and iterating prototypes, producing diagrams and journey maps, and assessing designs against accessibility standards.
 
@@ -180,7 +180,7 @@ The key characteristic is that **AI is shaping how the service works and how peo
 
 ---
 
-## AI-assisted content
+## Content
 
 Using AI to draft, edit, translate, or restructure the words in and around the service — service content and guidance, page copy, form labels and hint text, error messages, letters, emails and notifications, and published communications.
 
@@ -204,13 +204,13 @@ The key characteristic is that **AI is producing text that reaches the public in
 
 ---
 
-## AI-assisted business analysis
+## Business analysis
 
-Using AI to work out and write down **what the team is doing and why** — turning stakeholder notes into user stories and acceptance criteria, mapping as-is and to-be processes, analysing dependencies and options, and drafting the artefacts that record and justify decisions: architecture options papers, ADRs, business cases, spend control submissions, service assessment evidence, and DPIA drafts.
+Using AI to work out and write down **what the team is doing and why** — turning stakeholder notes into user stories and acceptance criteria, mapping as-is and to-be processes, analysing dependencies and options, and drafting the artefacts that record and justify decisions: architecture options papers, ADRs, business cases, spend mitigation submissions, service assessment evidence, and DPIA drafts.
 
 The key characteristic is that **the output is treated by others as settled reasoning**. A requirement is built from. A business case is approved against. A service assessment submission is evidence that a team thought something through. In each case the reader is not checking the reasoning — they are relying on it having happened. That is what makes this different from general productivity, where a wrong output inconveniences a colleague, and different from research and design, where the output is visibly a draft to be tested.
 
-The name follows the delivery discipline, but the category is a little broader than business analysis strictly is: architecture decision records and assurance submissions sit here too, because they share the same risk shape. Note also that this is analysis of *the work*, not of code — AI-assisted code analysis is a separate use type with an almost opposite fingerprint.
+The name follows the delivery discipline, but the category is a little broader than business analysis strictly is: architecture decision records and assurance submissions sit here too, because they share the same risk shape. Note also that this is analysis of *the work*, not of code — Code analysis is a separate use type with an almost opposite fingerprint.
 
 **Common tools:** Claude, ChatGPT Enterprise, Microsoft 365 Copilot, Miro AI, Jira and Azure DevOps AI features.
 
@@ -226,7 +226,7 @@ The name follows the delivery discipline, but the category is a little broader t
 
 ---
 
-## AI-assisted general productivity
+## General productivity
 
 Using AI for routine work tasks that do not shape a decision — drafting or summarising emails and meeting notes, transcribing meetings and calls, translating internal documents, generating images for presentations, extracting data from documents, or formatting and restructuring content.
 

@@ -2,13 +2,13 @@
 
 Your project should keep a **tool register**: a record of the AI tools that have been assessed, and what is true about each one. Each entry is a **profile** — what the tool *is*, and what its supplier *promises*.
 
-A profile deliberately does not say what the tool may be used for. That is settled use by use, through the risk assessment in [Step 3](3-identify-risks.md) and [Step 4](4-safeguards.md). Recording facts rather than permissions means a profile does not have to anticipate uses nobody has proposed yet, and it stays true instead of quietly going out of date.
+A profile deliberately does not say what the tool may be used for. That is settled use by use, through the risk assessment in [Step 3](3-assess-risks.md). Recording facts rather than permissions means a profile does not have to anticipate uses nobody has proposed yet, and it stays true instead of quietly going out of date.
 
 This step has two jobs — confirm your tool is not excluded, and pick up the facts you will need for the rest of the assessment. It comes before the risk work because those facts feed straight into it.
 
 ## Is the tool already on the register?
 
-If it is, you can move on to the next step: [Identify the Risks](3-identify-risks.md)
+If it is, you can move on to the next step: [Assess the Risks](3-assess-risks.md)
 
 If it is not, it must be assessed and added before you use it. Gather the facts set out below, using the [tool profile template](../templates/tool-evaluation.md). Anyone can gather facts; the two decisions at the end need sign-off.
 
@@ -31,11 +31,11 @@ Then check the **highest classification the tool has been cleared for**. That is
 
 Any AI tool that processes your data is sharing that data with a third party — the provider. Most of these facts are pinning down what that means in practice.
 
-They come in two kinds, and the difference matters. A tool running in your own tenancy genuinely presents a smaller risk than one that does not. A tool with a no-training commitment presents the same risk with a control on it. Those are different things, so the two kinds are recorded separately and used in different places.
+They come in two kinds, and the difference matters. A tool running in your own tenancy genuinely presents a smaller risk than one that does not. A tool with a no-training commitment presents the same risk with a mitigation on it. Those are different things, so the two kinds are recorded separately and used in different places.
 
 ### What the tool is
 
-Design facts. These shape the **inherent** risk you rate in [Step 3](3-identify-risks.md) — they change how big the risk fundamentally is.
+Design facts. These shape the **inherent** risk you rate in [Step 3](3-assess-risks.md) — they change how big the risk fundamentally is.
 
 | Fact | What to establish |
 | ---- | ---- |
@@ -47,7 +47,7 @@ Design facts. These shape the **inherent** risk you rate in [Step 3](3-identify-
 
 ### What the supplier promises
 
-Contractual and configurable guarantees. These are **mitigations**, applied in [Step 4](4-safeguards.md) — they shrink a risk that already exists.
+Contractual and configurable guarantees. These are **mitigations**, applied in [Step 3](3-assess-risks.md#5-choose-mitigations-that-address-this-risk) — they shrink a risk that already exists.
 
 | Fact | What to establish |
 | ---- | ---- |
@@ -82,4 +82,4 @@ Where a client or department keeps its own approved AI tools list, apply "strict
 
 ---
 
-[Next: Step 3 — Identify the Risks >](3-identify-risks.md)
+[Next: Step 3 — Assess the Risks >](3-assess-risks.md)

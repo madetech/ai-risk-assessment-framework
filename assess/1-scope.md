@@ -16,25 +16,25 @@ Answer these three questions:
 
 ## Categorise your use
 
-The categories below describe **tasks people do while delivering a service**, not the services themselves — with one exception, AI-powered product features, which covers AI you build *into* the service.
+The categories below describe **tasks people do while delivering a service**, not the services themselves — with one exception, product features, which covers AI you build *into* the service. Every category is a use of AI, so the names below drop the "AI-assisted" prefix; assume it.
 
-Most AI use falls into one of eleven categories. Some uses span more than one — if so, assess against each and apply the more restrictive safeguards.
+Most AI use falls into one of eleven categories. Some uses span more than one — if so, assess against each and apply the more restrictive mitigations.
 
-**These categories are a thinking aid, not an exhaustive list.** Their job is to get you to the right risks quickly by pointing at the closest well-understood shape of work. If your use does not fit neatly, pick the nearest one or two, note why the fit is imperfect, and carry on — what matters is that you assess the right risks, not that you chose the right label. If you are doing something the categories genuinely do not describe, work through [Step 3](3-identify-risks.md) on its merits and feed the gap back so the framework can catch up.
+**These categories are a thinking aid, not an exhaustive list.** Their job is to get you to the right risks quickly by pointing at the closest well-understood shape of work. If your use does not fit neatly, pick the nearest one or two, note why the fit is imperfect, and carry on — what matters is that you assess the right risks, not that you chose the right label. If you are doing something the categories genuinely do not describe, work through [Step 3](3-assess-risks.md) on its merits and feed the gap back so the framework can catch up.
 
 | Category | The key characteristic |
 | ---- | ---- |
-| **AI-assisted coding** | AI generates or modifies code that may end up in the product |
-| **AI-assisted code analysis** | Large volumes of existing code are sent to the AI; the output is analytical, not production code |
-| **AI-assisted synthetic data generation** | AI produces artificial data that will be handled as though it were safe |
-| **AI-powered product features** | AI directly interacts with or affects end users of the service |
-| **AI-assisted user-facing support** | AI processes support data to help the team respond to requests from people |
-| **AI-assisted live service operations** | AI works against production systems — alerts, incidents, logs, infrastructure |
-| **AI-assisted user research** | AI processes what real people told you, to represent them to the team |
-| **AI-assisted design** | AI shapes how the service works and how people move through it |
-| **AI-assisted content** | AI produces text that reaches the public in the department's name |
-| **AI-assisted business analysis** | AI produces requirements or decision artefacts that others treat as settled reasoning |
-| **AI-assisted general productivity** | AI assists with routine work tasks that do not shape a decision |
+| **Software development** | AI generates or modifies code that may end up in the product |
+| **Code analysis** | Large volumes of existing code are sent to the AI; the output is analytical, not production code |
+| **Synthetic data generation** | AI produces artificial data that will be handled as though it were safe |
+| **Product feature** | AI directly interacts with or affects end users of the service |
+| **User-facing support** | AI processes support data to help the team respond to requests from people |
+| **Live service operations** | AI works against production systems — alerts, incidents, logs, infrastructure |
+| **User research** | AI processes what real people told you, to represent them to the team |
+| **Design** | AI shapes how the service works and how people move through it |
+| **Content** | AI produces text that reaches the public in the department's name |
+| **Business analysis** | AI produces requirements or decision artefacts that others treat as settled reasoning |
+| **General productivity** | AI assists with routine work tasks that do not shape a decision |
 
 For the full description of each category — the tools typically used, what is shared, and the typical risk fingerprint — see [Reference: Use-Type Profiles](../reference/use-type-profiles.md). (That reference also explains the underlying types of AI: GenAI, LLMs, ML, and NLP.)
 
@@ -53,11 +53,11 @@ Pick the level that matches what the AI is actually permitted to do:
 
 Two things to be careful about. First, **the level is what the AI is permitted to do, not what you intend to let it do** — if the approval prompt can be turned off, or a "yes to all" option exists and gets used under pressure, assess at the higher level. Second, **autonomy tends to creep**: a tool introduced at *drafts for review* acquires an auto-apply setting, or a team that reviewed every suggestion in week one stops by week six. Note the level you assessed, and reassess if the way the tool is used changes.
 
-You will use this in [Step 3](3-identify-risks.md), where higher autonomy raises specific risks, and in [Step 4](4-safeguards.md), where fully autonomous action requires SRO approval regardless of the overall risk level.
+You will use this in [Step 3](3-assess-risks.md), where higher autonomy raises specific risks and adds extra mitigations, and in [Step 4](4-record-and-work.md), where fully autonomous action requires SRO approval regardless of the overall risk level.
 
 ## Understand what you are sharing
 
-What you share with the AI tool is often the single most important factor in determining what safeguards are needed. Most uses involve **code**, **data**, or **both** — assess each, because they have different risk profiles.
+What you share with the AI tool is often the single most important factor in determining what mitigations are needed. Most uses involve **code**, **data**, or **both** — assess each, because they have different risk profiles.
 
 ### If you are sharing code
 
@@ -75,7 +75,7 @@ Beyond secrets, consider:
 
 | Classification | AI implications |
 | ---- | ---- |
-| **OFFICIAL** | Tools on your project's register are generally appropriate, subject to the risk assessment in [Step 3](3-identify-risks.md). |
+| **OFFICIAL** | Tools on your project's register are generally appropriate, subject to the risk assessment in [Step 3](3-assess-risks.md). |
 | **OFFICIAL with a ‑SENSITIVE marking** | Only tools cleared for it may be used — check the classification recorded in the tool's profile ([Step 2](2-check-tool.md)). Do not make that call yourself: if the tool is cleared only to OFFICIAL, escalate to the SRO. Client approval is likely needed. The [AI Playbook](https://assets.publishing.service.gov.uk/media/67aca2f7e400ae62338324bd/AI_Playbook_for_the_UK_Government__12_02_.pdf) is explicit that public or unassured generative AI must not process OFFICIAL information carrying additional markings. |
 | **SECRET / TOP SECRET** | 🛑 Stop — see below. |
 
@@ -98,9 +98,9 @@ Classification is not the only factor. OFFICIAL data can still carry significant
 
 ### When both code and data are involved
 
-Many uses involve both — for example, code analysis on a codebase that contains sample records, or a product feature whose defining prompts are shared alongside user data at runtime. Assess each independently and apply the more restrictive set of safeguards. See [Reference: Use-Type Profiles](../reference/use-type-profiles.md) for how code and data typically combine in each use type.
+Many uses involve both — for example, code analysis on a codebase that contains sample records, or a product feature whose defining prompts are shared alongside user data at runtime. Assess each independently and apply the more restrictive set of mitigations. See [Reference: Use-Type Profiles](../reference/use-type-profiles.md) for how code and data typically combine in each use type.
 
-**Record your scope.** Note what the AI will be used for, its category, its autonomy level, what code and data will be shared, the data classification, whether PII is involved, and any consent or contractual constraints. You will use all of this in [Step 2](2-check-tool.md) and [Step 3](3-identify-risks.md).
+**Record your scope.** Note what the AI will be used for, its category, its autonomy level, what code and data will be shared, the data classification, whether PII is involved, and any consent or contractual constraints. You will use all of this in [Step 2](2-check-tool.md) and [Step 3](3-assess-risks.md).
 
 ---
 

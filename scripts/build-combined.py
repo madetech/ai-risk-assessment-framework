@@ -16,10 +16,9 @@ FILE_ORDER = [
     "readme.md",
     "getting-started.md",
     "assess/1-scope.md",
-    "assess/3-identify-risks.md",
     "assess/2-check-tool.md",
-    "assess/4-safeguards.md",
-    "assess/5-record-and-work.md",
+    "assess/3-assess-risks.md",
+    "assess/4-record-and-work.md",
     "templates/risk-assessment.md",
     "templates/tool-evaluation.md",
     "templates/introduction.md",
@@ -65,7 +64,7 @@ def main():
         # Also map relative paths that start with ../ (e.g. ../reference/glossary.md)
         file_to_anchor["../" + s["filename"]] = s["anchor"]
         # Also map the bare basename so sibling links within a subdirectory
-        # (e.g. [Step 2](3-identify-risks.md) inside assess/) resolve too.
+        # (e.g. [Step 3](3-assess-risks.md) inside assess/) resolve too.
         # Basenames are unique across the framework, so this cannot collide.
         file_to_anchor[Path(s["filename"]).name] = s["anchor"]
 
@@ -73,11 +72,17 @@ def main():
         text = match.group(1)
         prefix = match.group(2) or ""
         file = match.group(3)
+        fragment = match.group(4) or ""
         # Try the full path as written, then with prefix
         anchor = file_to_anchor.get(file) or file_to_anchor.get(prefix + file)
-        if anchor:
-            return f"[{text}](#{anchor})"
-        return match.group(0)
+        if not anchor:
+            return match.group(0)
+        # A link to a specific heading (e.g. 3-assess-risks.md#adjust-for-autonomy)
+        # can keep its fragment: that heading survives in the combined document.
+        # Only the file path needs dropping.
+        if fragment:
+            return f"[{text}]({fragment})"
+        return f"[{text}](#{anchor})"
 
     # 3. Process each section
     processed = []
@@ -95,7 +100,11 @@ def main():
             md = re.sub(r"\n## Contents[\s\S]*$", "\n", md)
 
         # Convert inter-file .md links to internal anchor links
-        md = re.sub(r"\[([^\]]+)\]\((\.\.?/)?([a-z][\w/-]*\.md)\)", replace_link, md)
+        md = re.sub(
+            r"\[([^\]]+)\]\((\.\.?/)?([a-z][\w/-]*\.md)(#[\w-]+)?\)",
+            replace_link,
+            md,
+        )
 
         # Add page break before each section (except the first)
         if i > 0:
