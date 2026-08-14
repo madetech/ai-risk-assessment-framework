@@ -24,7 +24,7 @@ AI Governance/
 1. Create a new space or a top-level page called **AI Governance** (or similar) under your project space.
 2. Create child pages for each section above.
 3. For **Risk Assessments** and **Tool Evaluations**, create them as parent pages — individual assessments will be added as child pages beneath them.
-4. Consider using Confluence page templates (Space Settings > Content Templates) so that team members can create new risk assessments and tool evaluations with the correct structure pre-filled.
+4. Consider using Confluence page templates (Space Settings > Content Templates) so that team members can create new risk assessments and tool profiles with the correct structure pre-filled.
 
 ### In SharePoint
 
@@ -43,7 +43,7 @@ Copy the [introduction template](templates/introduction.md) into your documentat
 
 1. **Responsible people** — Identify who fills each role. Not every project will need all roles as separate people; on smaller teams one person may cover multiple roles. The important thing is that responsibilities are explicitly assigned.
 
-2. **Approved tools** — If your organisation already has an approved tools list, reference or copy it. If not, this is the place to build one. Start with the tools your team is already using (or wants to use) and run each through the tool evaluation process ([Step 4](step-4-check-tool.md) and [tool evaluation template](templates/tool-evaluation.md)).
+2. **Tool register** — If your organisation already has an approved AI tools list, reference or copy it, but record what each tool actually *does* rather than just that it is on the list. If there is no list, this is the place to build one. Start with the tools your team is already using (or wants to use) and write a profile for each ([Step 2](assess/2-check-tool.md) and [tool profile template](templates/tool-evaluation.md)).
 
 3. **Review schedule** — Set a realistic cadence. Tying it to an existing ceremony (e.g. sprint retros, monthly team reviews) is more sustainable than creating a new meeting.
 
@@ -54,18 +54,18 @@ When someone on the team wants to use AI for a specific activity, create a new r
 1. **Create a new page** under your Risk Assessments section using the [risk assessment template](templates/risk-assessment.md). Name it descriptively, e.g. "2026-04 — Using Copilot for unit test generation on payments service".
 
 2. **Work through each section** of the template, using the framework for detailed guidance:
-   - Define the use case (Step 1)
-   - Document what data will be shared (Step 2)
-   - Assess each risk category for likelihood and impact (Step 3)
-   - Confirm the tool is approved or evaluate it (Step 4)
-   - Identify mitigations and reassess the residual risk (Step 5)
+   - Scope the use — define it and assess what code and data you will share (Step 1)
+   - Check the tool is on the register, not excluded, and cleared for your classification — or profile it (Step 2)
+   - Assess the risks — find them with the heatmap, then take each one through inherent rating, mitigations, and residual rating (Step 3)
+   - Get approval, record the assessment, and do the work (Step 4)
 
-3. **Get the required approval** based on the inherent risk level:
+3. **Get the required approval** based on the overall inherent risk level:
    - **Low** — Self-assessed, recorded
-   - **Medium** — Reviewed by the Technical or Delivery Lead
-   - **High** — Formal approval from the SRO
+   - **Medium** — Approval from the SRO
+   - **High** — Approval from the SRO, with formal documentation
+   - Any use where the AI **acts autonomously** — SRO approval regardless of the risk level
 
-4. **Record it** (Step 6) — the assessment page itself serves as your record. Make sure it captures who assessed it, when, and what approvals were obtained.
+4. **Record it** (Step 4) — the assessment page itself serves as your record. Make sure it captures who assessed it, when, and what approvals were obtained.
 
 ### Tips for writing good assessments
 
@@ -76,13 +76,13 @@ When someone on the team wants to use AI for a specific activity, create a new r
 
 ## 4. Evaluate and approve new tools
 
-When someone wants to use a tool that is not on the approved list:
+When someone wants to use a tool that is not on the register, or needs a wider envelope than an existing entry allows:
 
 1. Create a new page under **Tool Evaluations**.
-2. Use the tool evaluation template ([tool evaluation template](templates/tool-evaluation.md)) to gather the required information.
+2. Use the [tool profile template](templates/tool-evaluation.md) to gather the facts.
 3. Have the Technical Lead review the evaluation.
 4. Submit to the SRO for approval.
-5. If approved, add it to the **Approved Tools** table on the introduction page.
+5. If signed off, add it to the **Tool register** on the introduction page, with a link to its full profile and the highest classification it is cleared for.
 
 Do not let people use tools while the evaluation is in progress. This is one area where being strict up front avoids problems later.
 
@@ -95,7 +95,7 @@ The collection of risk assessments in your documentation space is your record of
 - **Drift** — Are people still following the mitigations they committed to?
 - **Staleness** — Have any assessments become outdated because the scope, data, or tooling has changed?
 
-Update assessments after the work is complete with any issues encountered and learnings to share ([Step 8](step-8-share.md)).
+Share what you learned once the work is complete, and revisit the assessment if the scope, data, or tooling has changed ([Step 4](assess/4-record-and-work.md)).
 
 ## 6. Build the habit
 
@@ -106,17 +106,6 @@ The framework only works if people use it. Some practical ways to embed it:
 - **Keep it lightweight for low-risk cases.** If the process feels burdensome for routine use, people will skip it. A low-risk assessment should take minutes, not hours.
 - **Celebrate good practice.** When someone's assessment catches a real issue, or their shared learnings help the team, acknowledge it.
 - **Use retrospectives.** Review the assessments during retros. Ask: "What AI did we use this sprint? Did anything go wrong? Did anything go well?"
-
-## 7. Scale as you learn
-
-Start simple and add structure as you need it:
-
-- **Week 1:** Set up the documentation space, fill in the introduction page, approve your initial tools.
-- **Month 1:** Create assessments for your most common use cases.
-- **Month 3:** Review how it is going. Are assessments being done? Are the risk levels calibrated right? Update the introduction page and any assessments that need revisiting.
-- **Ongoing:** Share learnings across teams. Feed improvements back into the framework.
-
-The goal is informed, proportionate AI use — not perfect paperwork. If the framework is helping your team make better decisions about AI, it is working.
 
 ---
 

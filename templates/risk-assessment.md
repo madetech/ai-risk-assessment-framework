@@ -12,105 +12,53 @@
 
 ## How is AI being used?
 
-**What activity will AI assist with?**
-_Be specific. "Using AI for coding" is too broad. "Using an AI coding assistant to generate unit tests for the payments service" is better._
-
-[Description]
-
-**Category:** [Coding / Code analysis / Product feature / Support / Research & design / General productivity]
-
-**What will you do with the AI's output?**
-_Will it go directly into production? Inform a decision? Be reviewed and edited first?_
-
-[Description]
-
-**Who is affected?**
-_Just your team? End users? Members of the public whose data is being processed?_
-
-[Description]
+| Question | Answer |
+| ---- | ---- |
+| **What activity will AI assist with?** | [Be specific. "Using AI for coding" is too broad; "using an AI coding assistant to generate unit tests for the payments service" is assessable] |
+| **Which category is it?** | [Software development / Code analysis / Synthetic data generation / Product feature / User-facing support / Live service operations / User research / Design / Content / Business analysis / General productivity] |
+| **What is the AI permitted to do?** | [Suggests / Drafts for review / Acts with approval / Acts autonomously — what it is _permitted_ to do, not what you intend to let it do. See [Step 1](../assess/1-scope.md#assess-the-level-of-autonomy)] |
+| **What will you do with the output?** | [Straight into production? Reviewed and edited first? Informs a decision?] |
+| **Who is affected?** | [Just your team? End users of the service? Members of the public whose data is processed?] |
 
 ---
 
 ## What data is being shared?
 
-**What data will be sent to or shared with the AI tool?**
-
-[Description — e.g. source code, user research transcripts, support tickets, meeting recordings]
-
-**Data classification:** [OFFICIAL / OFFICIAL-SENSITIVE / Other]
-
-**Does the data contain personal information (PII)?** [Yes / No]
-
-_If yes, describe what personal data is involved and the lawful basis for processing it:_
-
-[Description]
-
-**Does the data contain secrets, credentials, or API keys?** [Yes / No]
-
-**Are there consent or contractual constraints on how this data can be processed?** [Yes / No]
-
-_If yes, describe the constraints:_
-
-[Description]
-
-**Is the data commercially sensitive?** [Yes / No]
-
-_If yes, describe:_
-
-[Description]
-
----
-
-## What are the risks?
-
-For each risk category, rate the **likelihood** (how likely is this to happen?) and **impact** (how serious would it be if it did?) to determine the inherent risk level — the risk before any mitigations are applied.
-
-Use: **Low**, **Medium**, **High**, or **N/A** (if genuinely not applicable to this use case — justify briefly).
-
-See [Step 3 of the framework](../step-3-assess-risks.md) for detailed guidance on each risk category.
-
-| Risk category | Likelihood | Impact | Inherent risk | Notes |
-| ---- | ---- | ---- | ---- | ---- |
-| Data leakage | | | | |
-| Accuracy and hallucination | | | | |
-| Accountability gaps | | | | |
-| Bias and fairness | | | | |
-| IP and licensing | | | | |
-| Over-reliance and skill erosion | | | | |
-| Supply chain and security | | | | |
-| Prompt injection | | | | |
-
-**Overall inherent risk level:** [Highest individual inherent risk rating]
+| Question | Answer |
+| ---- | ---- |
+| **What data will be sent to or shared with the AI tool?** | [e.g. source code, user research transcripts, support tickets, meeting recordings] |
+| **What is the data classification?** | [OFFICIAL / OFFICIAL with a ‑SENSITIVE marking / Other — see [Step 1](../assess/1-scope.md#if-you-are-sharing-data)] |
+| **Does it contain personal data (PII)?** | [Yes / No — if yes, what personal data is involved and the lawful basis for processing it] |
+| **Does it contain secrets, credentials, or API keys?** | [Yes / No — if yes, they must be removed before anything is shared] |
+| **Are there consent or contractual constraints on processing it?** | [Yes / No — if yes, what they are] |
+| **Is the data commercially sensitive?** | [Yes / No — if yes, in what way] |
 
 ---
 
 ## Which tool is being used?
 
-**Tool name:** [e.g. GitHub Copilot Business, Claude API via AWS Bedrock]
-
-**Is this tool on the project's approved tools list?** [Yes / No]
-
-_If no, a tool evaluation must be completed before proceeding. See [tool evaluation template](tool-evaluation.md)._
-
-**Does the tool meet baseline criteria for:**
-
-| Criterion | Met? | Notes |
-| ---- | ---- | ---- |
-| Data residency requirements | | |
-| Data retention and deletion policy | | |
-| Inputs not used for model training | | |
-| Security certifications | | |
-| Acceptable IP/licensing terms | | |
+| Question | Answer |
+| ---- | ---- |
+| **Which tool will you use?** | [Name the specific tier, e.g. GitHub Copilot Business, Claude API via AWS Bedrock — enterprise and consumer versions are different tools] |
+| **Is it on the project's tool register?** | [Yes / No — if no, it must be profiled and added before use. See the [tool profile template](tool-evaluation.md)] |
+| **Is it excluded?** | [Yes / No — if yes, stop] |
+| **What is the highest classification it is cleared for?** | [From the profile — is the data above at or below it? If not, escalate to the SRO] |
+| **What the tool is** — the design facts your inherent ratings rest on | [From the profile, e.g. cloud-hosted, so a third party receives the data; holds standing repository access; can execute commands] |
+| **What the supplier promises** — these count as mitigations, not as lower inherent risk | [From the profile, e.g. no training on inputs; UK residency; 30-day retention; IP indemnified] |
 
 ---
 
-## How are the risks being mitigated?
+## Risk summary
 
-### Mitigations
+| | |
+| ---- | ---- |
+| **Overall inherent risk** | [🟢 Low / 🟠 Medium / 🔴 High — the highest inherent rating below] |
+| **Driven by** | [Which risks] |
+| **Overall residual risk** | [🟢 Low / 🟠 Medium / 🔴 High — the highest residual rating below] |
+| **Driven by** | [Which risks] |
+| **Approval required** | [None (low) / SRO (medium and high)] |
 
-Based on the inherent risk level, describe the mitigations that will be applied. See [Step 5 of the framework](../step-5-mitigate.md) for required mitigations at each risk level.
-
-| Risk category | Mitigation | Detail |
+| Risk | Inherent | Residual |
 | ---- | ---- | ---- |
 | Data leakage | | |
 | Accuracy and hallucination | | |
@@ -121,58 +69,105 @@ Based on the inherent risk level, describe the mitigations that will be applied.
 | Supply chain and security | | |
 | Prompt injection | | |
 
-### Residual risk
+_This table is a summary. The per-risk sections below contain the detail._
 
-Re-rate each risk category with the mitigations in place.
+---
 
-| Risk category | Inherent risk | Residual risk |
-| ---- | ---- | ---- |
-| Data leakage | | |
-| Accuracy and hallucination | | |
-| Accountability gaps | | |
-| Bias and fairness | | |
-| IP and licensing | | |
-| Over-reliance and skill erosion | | |
-| Supply chain and security | | |
-| Prompt injection | | |
+## The risks in detail
 
-**Overall residual risk level:** [Highest individual residual risk rating]
+Work through all eight risks below. Each one takes the same shape:
 
-**Is the residual risk acceptable?** [Yes / No]
+> **[Risk name]**
+>
+> [How this risk shows up in _this_ use — the specific thing that could go wrong given your scope, your data and your tool.]
+>
+> | Likelihood | Impact | Inherent risk |
+> | ---- | ---- | ---- |
+> | [Unlikely / Possible / Likely] | [Low / Medium / High] | [🟢 **Low** / 🟠 **Medium** / 🔴 **High**] |
+>
+> **Mitigations:**
+>
+> - [What you will do about this risk] _(likelihood)_
+> - [What you will do about this risk] _(impact)_
+>
+> [What is left once those are in place, and why.]
+>
+> | Likelihood | Impact | Residual risk |
+> | ---- | ---- | ---- |
+> | [Unlikely / Possible / Likely] | [Low / Medium / High] | [🟢 **Low** / 🟠 **Medium** / 🔴 **High**] |
 
-_If no, identify additional mitigations and reassess, or do not proceed._
+Step 3 shows [one risk filled in](../assess/3-assess-risks.md#what-one-assessed-risk-looks-like); the [worked examples](../reference/worked-examples.md) show six complete assessments. Four things to hold to:
+
+- Rate the **inherent** risk on your scope and the tool's **design** — not on supplier promises, and not on mitigations you plan to apply. Use the matrix in [Step 3](../assess/3-assess-risks.md#4-calculate-the-inherent-rating).
+- If the autonomy level above is _acts with approval_ or _acts autonomously_, apply the [autonomy adjustment](../assess/3-assess-risks.md#3-adjust-for-autonomy) before you calculate the inherent rating.
+- Only count mitigations that are **additional** to what the inherent rating already assumed. Where the inherent rating is low, write "None needed" and move on — a low risk needs a line, not a page.
+- Do not re-use a fact you already counted in the inherent rating. If the same sentence justifies both ratings, the drop is not real.
+
+Where a risk genuinely does not apply, write **N/A** and one line saying why. Do not leave it blank.
+
+The [risk catalogue](../reference/risk-catalogue.md) has, for each risk, how it typically shows up in your use type, the questions to ask yourself, and the key mitigations.
+
+### Data leakage
+
+[Complete using the shape above.]
+
+### Accuracy and hallucination
+
+[Complete using the shape above.]
+
+### Accountability gaps
+
+[Complete using the shape above.]
+
+### Bias and fairness
+
+[Complete using the shape above.]
+
+### IP and licensing
+
+[Complete using the shape above.]
+
+### Over-reliance and skill erosion
+
+[Complete using the shape above.]
+
+### Supply chain and security
+
+[Complete using the shape above.]
+
+### Prompt injection
+
+[Complete using the shape above.]
+
+### Mitigations for AI that acts rather than advises
+
+_Complete this section if the autonomy level is "acts with approval" or "acts autonomously". These scale with autonomy rather than with any single risk rating — see [Step 3](../assess/3-assess-risks.md#add-the-mitigations-that-scale-with-autonomy)._
+
+| Mitigation | How it is implemented |
+| ---- | ---- |
+| **Least privilege** | |
+| **Hard stop on irreversible actions** | |
+| **Complete action log** | |
+| **Named accountable owner** | |
+| **Kill switch** | |
+
+---
+
+## Is the residual risk acceptable?
+
+**[Yes / No]**
+
+_If no, identify additional mitigations and reassess, or do not proceed. If any risk remains at "Do not proceed", the mitigations are insufficient._
 
 ---
 
 ## Approval
 
-**Approval required:** [None (low) / Tech/Delivery Lead (medium) / SRO (high)]
+_Set by the overall **inherent** level, recorded in the risk summary above — see [Step 4](../assess/4-record-and-work.md#get-the-approval-the-risk-level-requires). An autonomy level of "acts autonomously" requires SRO approval regardless of the risk level._
 
 | Role | Name | Decision | Date |
 | ---- | ---- | ---- | ---- |
 | Assessed by | | | |
 | Approved by | | | |
-
----
-
-## Review and learnings
-
-_Update this section once the work is complete (see [Step 8](../step-8-share.md))._
-
-**Issues encountered:**
-
-[Description, or "None"]
-
-**What worked well:**
-
-[Description]
-
-**What would you do differently:**
-
-[Description]
-
-**Were the risk level and mitigations appropriate in practice?**
-
-[Description]
 
 **Review date:** [Date for next review, if applicable]
