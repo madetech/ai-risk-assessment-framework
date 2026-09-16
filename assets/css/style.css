@@ -1,38 +1,73 @@
 /* ==========================================================================
-   BRAND TOKENS
-   Everything brand-specific lives in this block. To apply Made Tech branding,
-   change these values (and the font stack below) — nothing else needs touching.
+   BRAND TOKENS — Made Tech
+   Values from "Brand visual identity guidelines", sections 03 and 04.
+   Every colour here is a named brand colour; nothing is invented or tinted.
+
+   Two rules from the guidelines shape the choices below:
+   - Light green (#00AC32) is only permitted on white at 24px and above. Below
+     that the guidelines direct you to mid green, so links and small text use
+     mid green and light green is reserved for large text and non-text accents.
+   - "Black is best" for type, so body copy is black rather than a soft grey.
    ========================================================================== */
 
 :root {
-  --brand-accent: #2a4fd6;
-  --brand-accent-strong: #1c3596;
-  --brand-ink: #15171c;
-  --brand-surface: #fbfaf9;
-  --brand-surface-raised: #ffffff;
-  --brand-muted: #5b606b;
-  --brand-line: #e2e0dc;
-  --brand-highlight: #f2f5ff;
+  /* Primary palette — used dominantly, per the >80% rule */
+  --mt-green-light: #00ac32;
+  --mt-green-mid: #007f00;
+  --mt-green-dark: #004d00;
+  --mt-grey: #757575;
+  --mt-grey-dark: #595959;
+  --mt-grey-extra-dark: #333333;
+  --mt-grey-mid: #a4a4a4;
+  --mt-grey-light: #f1f1f1;
+  --mt-white: #ffffff;
+  --mt-black: #000000;
 
-  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  /* Tertiary — permitted for warnings only, never as body type */
+  --mt-red: #b30017;
+
+  /* Roles */
+  --brand-ink: var(--mt-black);
+  --brand-muted: var(--mt-grey-dark);
+  --brand-surface: var(--mt-white);
+  --brand-surface-sunken: var(--mt-grey-light);
+  --brand-line: var(--mt-grey-mid);
+  --brand-link: var(--mt-green-mid);
+  --brand-link-hover: var(--mt-green-dark);
+  --brand-link-underline: currentColor;
+  --brand-nav-current: var(--mt-green-dark);
+
+  /* Light green carries no text anywhere: rules, dashes, indicators, borders.
+     It is the one brand colour that fails AA at body size on both grounds. */
+  --brand-accent-line: var(--mt-green-light);
+
+  /* Poppins for titles, headings and subheadings; Montserrat for body copy.
+     Both are open source Google fonts, self-hosted in assets/fonts/. */
+  --font-heading: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body: "Montserrat", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
-  --radius: 6px;
+  --radius: 4px;
   --sidebar-width: 17rem;
   --content-width: 46rem;
 }
 
+/* Dark theme. The guidelines define no dark palette, so this stays inside the
+   primary one: extra dark grey ground (the deck prefers it to black), white
+   type, mid grey for secondary text. No brand green reaches 4.5:1 on this
+   ground at body size, so links are white and carry a green underline instead
+   of being green — the colour still signals the link without failing contrast. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --brand-accent: #90a8ff;
-    --brand-accent-strong: #b9c7ff;
-    --brand-ink: #e8e9ec;
-    --brand-surface: #14161a;
-    --brand-surface-raised: #1b1e24;
-    --brand-muted: #a0a5b0;
-    --brand-line: #2e323b;
-    --brand-highlight: #1e2430;
+    --brand-ink: var(--mt-white);
+    --brand-muted: var(--mt-grey-mid);
+    --brand-surface: var(--mt-grey-extra-dark);
+    --brand-surface-sunken: var(--mt-grey-dark);
+    --brand-line: var(--mt-grey);
+    --brand-link: var(--mt-white);
+    --brand-link-hover: var(--mt-grey-light);
+    --brand-link-underline: var(--mt-green-light);
+    --brand-nav-current: var(--mt-white);
   }
 }
 
@@ -56,23 +91,27 @@ body {
   background: var(--brand-surface);
   color: var(--brand-ink);
   font-family: var(--font-body);
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-size: 1rem;
+  /* The guidelines ask for 1.5 line spacing wherever possible. */
+  line-height: 1.6;
+  text-align: left;
   -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: var(--brand-accent);
+  color: var(--brand-link);
+  text-decoration-color: var(--brand-link-underline);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
 }
 
 a:hover {
-  color: var(--brand-accent-strong);
+  color: var(--brand-link-hover);
+  text-decoration-thickness: 2px;
 }
 
 :focus-visible {
-  outline: 3px solid var(--brand-accent);
+  outline: 3px solid var(--brand-accent-line);
   outline-offset: 2px;
 }
 
@@ -86,7 +125,8 @@ a:hover {
   top: 1rem;
   z-index: 10;
   padding: 0.6rem 1rem;
-  background: var(--brand-surface-raised);
+  background: var(--brand-surface);
+  border: 2px solid var(--brand-accent-line);
   border-radius: var(--radius);
 }
 
@@ -100,13 +140,46 @@ a:hover {
   gap: 1rem;
   align-items: baseline;
   justify-content: space-between;
-  padding: 1.1rem clamp(1rem, 4vw, 2.5rem);
-  background: var(--brand-surface-raised);
-  border-bottom: 1px solid var(--brand-line);
+  /* Vertical padding clears the logo's own height, per the clear space rule. */
+  padding: 1.5rem clamp(1rem, 4vw, 2.5rem);
+  background: var(--brand-surface);
+  /* The deck rules its slides off with a green line; this echoes that. */
+  border-bottom: 3px solid var(--brand-accent-line);
+}
+
+.site-header__brand {
+  display: flex;
+  align-items: center;
+  /* Clear space: at least the width of the mountains, and nothing else inside it. */
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* The wordmark paths carry no fill of their own, so they follow currentColor —
+   black on white, white on the dark ground. That is the reversed logo the
+   guidelines permit on solid colours. The mountains keep their own green. */
+.logo {
+  display: flex;
+}
+
+.logo svg {
+  display: block;
+  /* Minimum on screen is 150px wide and 18px high; this clears both. */
+  width: 170px;
+  height: auto;
+  fill: currentColor;
+  color: var(--brand-ink);
+}
+
+.site-header__divider {
+  width: 1px;
+  height: 1.5rem;
+  background: var(--brand-line);
 }
 
 .site-header__title {
-  font-weight: 650;
+  font-family: var(--font-heading);
+  font-weight: 800;
   font-size: 1.05rem;
   letter-spacing: -0.01em;
   color: var(--brand-ink);
@@ -114,14 +187,18 @@ a:hover {
 }
 
 .site-header__repo {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 .site-footer {
   padding: 2rem clamp(1rem, 4vw, 2.5rem);
   border-top: 1px solid var(--brand-line);
   color: var(--brand-muted);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
+}
+
+.site-footer .logo {
+  margin-bottom: 1.5rem;
 }
 
 .site-footer p {
@@ -154,16 +231,28 @@ a:hover {
   top: 2rem;
   max-height: calc(100vh - 4rem);
   overflow-y: auto;
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
 }
 
+/* Section labels in the deck are preceded by a short green dash. */
 .nav__heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin: 1.75rem 0 0.5rem;
+  font-family: var(--font-heading);
   font-size: 0.75rem;
-  font-weight: 650;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--brand-muted);
+}
+
+.nav__heading::before {
+  content: "";
+  width: 0.85rem;
+  height: 3px;
+  background: var(--brand-accent-line);
 }
 
 .nav__list {
@@ -182,15 +271,15 @@ a:hover {
 }
 
 .nav__list a:hover {
-  background: var(--brand-highlight);
-  color: var(--brand-accent-strong);
+  background: var(--brand-surface-sunken);
+  color: var(--brand-nav-current);
 }
 
 .nav__list a[aria-current="page"] {
-  background: var(--brand-highlight);
-  color: var(--brand-accent-strong);
-  font-weight: 600;
-  box-shadow: inset 2px 0 0 var(--brand-accent);
+  background: var(--brand-surface-sunken);
+  color: var(--brand-nav-current);
+  font-weight: 700;
+  box-shadow: inset 3px 0 0 var(--brand-accent-line);
 }
 
 /* ==========================================================================
@@ -210,9 +299,21 @@ h1,
 h2,
 h3,
 h4 {
+  font-family: var(--font-heading);
   line-height: 1.25;
   letter-spacing: -0.015em;
   scroll-margin-top: 1.5rem;
+}
+
+/* Extra Bold for the large headers the guidelines call section titles. */
+h1,
+h2 {
+  font-weight: 800;
+}
+
+h3,
+h4 {
+  font-weight: 600;
 }
 
 h1 {
@@ -237,7 +338,6 @@ h4 {
   margin: 1.5rem 0 0.5rem;
 }
 
-/* Heading permalinks from markdown-it-anchor: readable, not link-coloured. */
 h1 a,
 h2 a,
 h3 a,
@@ -250,7 +350,7 @@ h2 a:hover::after,
 h3 a:hover::after,
 h4 a:hover::after {
   content: " #";
-  color: var(--brand-accent);
+  color: var(--brand-link);
   font-weight: 400;
 }
 
@@ -270,7 +370,7 @@ li > ol {
 }
 
 strong {
-  font-weight: 650;
+  font-weight: 700;
 }
 
 hr {
@@ -280,16 +380,17 @@ hr {
   background: var(--brand-line);
 }
 
+/* The guidelines offer a green vertical line as the alternative to italics
+   for quotes, so blockquotes use exactly that. */
 blockquote {
   margin: 1.5rem 0;
   padding: 0.25rem 0 0.25rem 1.25rem;
-  border-left: 3px solid var(--brand-accent);
-  color: var(--brand-muted);
+  border-left: 3px solid var(--brand-accent-line);
 }
 
 code {
   padding: 0.12em 0.35em;
-  background: var(--brand-highlight);
+  background: var(--brand-surface-sunken);
   border-radius: 3px;
   font-family: var(--font-mono);
   font-size: 0.875em;
@@ -298,7 +399,7 @@ code {
 pre {
   padding: 1rem 1.15rem;
   overflow-x: auto;
-  background: var(--brand-surface-raised);
+  background: var(--brand-surface-sunken);
   border: 1px solid var(--brand-line);
   border-radius: var(--radius);
 }
@@ -317,14 +418,13 @@ pre code {
   overflow-x: auto;
   border: 1px solid var(--brand-line);
   border-radius: var(--radius);
-  background: var(--brand-surface-raised);
 }
 
 table {
   width: 100%;
   min-width: 34rem;
   border-collapse: collapse;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 }
 
 th,
@@ -336,8 +436,9 @@ td {
 }
 
 thead th {
-  background: var(--brand-highlight);
-  font-weight: 650;
+  background: var(--brand-surface-sunken);
+  font-family: var(--font-heading);
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -358,10 +459,11 @@ tbody tr:last-child td {
   border-top: 1px solid var(--brand-line);
 }
 
+/* Alignment is always left, per the accessibility guidance — including the
+   "next" card, which would conventionally be right-aligned. */
 .pager__link {
   flex: 1 1 13rem;
   padding: 0.85rem 1.1rem;
-  background: var(--brand-surface-raised);
   border: 1px solid var(--brand-line);
   border-radius: var(--radius);
   text-decoration: none;
@@ -369,16 +471,14 @@ tbody tr:last-child td {
 }
 
 .pager__link:hover {
-  border-color: var(--brand-accent);
-}
-
-.pager__link--next {
-  text-align: right;
+  border-color: var(--brand-accent-line);
 }
 
 .pager__label {
   display: block;
+  font-family: var(--font-heading);
   font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--brand-muted);
@@ -386,8 +486,8 @@ tbody tr:last-child td {
 
 .pager__title {
   display: block;
-  font-weight: 600;
-  color: var(--brand-accent-strong);
+  font-weight: 700;
+  color: var(--brand-link);
 }
 
 /* ==========================================================================
@@ -401,15 +501,37 @@ tbody tr:last-child td {
 
   .nav {
     padding-top: 1.25rem;
-    border-bottom: 1px solid var(--brand-line);
     padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--brand-line);
   }
 
   .nav__toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
     padding: 0.5rem 0;
+    font-family: var(--font-heading);
     font-weight: 600;
     cursor: pointer;
+    list-style: none;
+  }
+
+  /* display on a summary removes the default marker, so supply our own. */
+  .nav__toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav__toggle::after {
+    content: "";
+    width: 0.4rem;
+    height: 0.4rem;
+    border-right: 2px solid var(--brand-muted);
+    border-bottom: 2px solid var(--brand-muted);
+    transform: translateY(-2px) rotate(45deg);
+  }
+
+  .nav[open] .nav__toggle::after {
+    transform: translateY(1px) rotate(225deg);
   }
 
   .nav__panel {
@@ -424,7 +546,7 @@ tbody tr:last-child td {
 }
 
 /* ==========================================================================
-   Print — the single-document build is the better route, but make this usable
+   Print
    ========================================================================== */
 
 @media print {
@@ -445,12 +567,5 @@ tbody tr:last-child td {
 
   .content {
     max-width: none;
-  }
-}
-
-/* Desktop always shows the nav, even if it was collapsed on a small screen. */
-@media (min-width: 60.0625rem) {
-  .nav:not([open]) > .nav__panel {
-    display: block;
   }
 }
