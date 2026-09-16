@@ -1,14 +1,14 @@
 # Step 3: Assess the Risks
 
-Not every risk matters equally for every use. Find the risks that are live for yours, then take each one through the same short procedure: **describe** it, **rate** it, **adjust for autonomy**, **mitigate** it, and **re-rate** what is left.
+Not every risk matters equally for every use. Identify the risks that apply to yours, then take each one through the same short procedure: **describe** it, **rate** it, **adjust for autonomy**, **mitigate** it, and **re-rate** what is left.
 
 Risk levels are shown throughout as 🟢 low, 🟠 medium, 🔴 high, and ⛔ do not proceed.
 
-Finish one risk before starting the next, and record all of it together. Keeping a rating, its mitigations, and what remains in one place is what makes the assessment readable by whoever has to approve it — and it is the only way to see whether a mitigation has actually moved anything.
+Finish one risk before starting the next, and record all of it together. Keeping a rating, its mitigations, and what remains in one place is what makes the assessment readable by whoever has to approve it, and it shows whether a mitigation has actually changed anything.
 
 ## What one assessed risk looks like
 
-Before the procedure, here is what it produces. A developer wants to use a cloud-hosted coding assistant to generate unit tests for a case management service holding OFFICIAL-SENSITIVE data. Taken through the six moves below, the first of the eight risks comes out like this:
+Before the procedure, here is what it produces. A developer wants to use a cloud-hosted coding assistant to generate unit tests for a case management service holding OFFICIAL-SENSITIVE data. Taken through the six stages below, the first of the eight risks comes out like this:
 
 > **Data leakage**
 >
@@ -33,7 +33,7 @@ Before the procedure, here is what it produces. A developer wants to use a cloud
 
 This shows one assessed risk: the reasoning, a rating, what was done about it, and what is left. The rest of this step is the procedure that produces it, repeated for each of the eight risks. Six of the eight in this example came out low and needed a line each.
 
-## Find the risks that matter
+## Find the risks for your use
 
 Find your use type (from [Step 1](1-scope.md)) in the heatmap below. The shaded cells are the risks that typically matter most for that use — start there. Do not ignore the lighter cells entirely, but spend your effort where the risk usually concentrates.
 
@@ -59,7 +59,7 @@ Still assess all eight, including the ones that look quiet. A shaded cell tells 
 
 ## Work through each risk
 
-Take the eight risks in turn. For each one, do these six things.
+Take the eight risks in turn. For each one, work through these six stages.
 
 ### 1. Describe the risk in your own terms
 
@@ -76,7 +76,7 @@ Rate both **before any mitigations**:
 - **Likelihood** — unlikely, possible, or likely
 - **Impact** — low, medium, or high
 
-**Rate the design, not the promises.** A model running in your own tenancy has lower inherent data leakage than a cloud service: the data never leaves. That is the tool's **design**, and it changes the size of the risk, so it belongs here. "We don't train on your inputs", UK residency, indemnification — are **promises**. They shrink a risk that already exists, so they belong at move 5. The facts in the tool's profile ([Step 2](2-check-tool.md)) are already split along this line.
+**Rate the design, not the promises.** A model running in your own tenancy has lower inherent data leakage than a cloud service: the data never leaves. That is the tool's **design**, and it changes the size of the risk, so it belongs here. "We don't train on your inputs", UK residency, indemnification — are **promises**. They shrink a risk that already exists, so they belong at stage 5. The facts in the tool's profile ([Step 2](2-check-tool.md)) are already split along this line.
 
 This is the distinction that keeps inherent and residual as two different numbers. Get it wrong and you will use the same fact twice — once to hold the inherent rating down, and again to justify the drop.
 
@@ -93,7 +93,7 @@ Take the autonomy level you recorded in [Step 1](1-scope.md#assess-the-level-of-
 | **Acts with approval** | Raise **accuracy**, **accountability**, **supply chain**, and **prompt injection** by one likelihood step. A human clicking "approve" on something they did not fully read is not a mitigation |
 | **Acts autonomously** | Rate **accuracy**, **accountability**, **supply chain**, and **prompt injection** as at least **High impact**, and raise **bias** by one impact step. Requires SRO approval regardless of the overall level (see [Step 4](4-record-and-work.md)) |
 
-Note the adjustment where you apply it, so the rating shows its working. The reasoning behind these particular moves is at the [end of this step](#why-autonomy-moves-these-risks).
+Note the adjustment where you apply it, so the rating shows its working. The reasoning behind these particular adjustments is at the [end of this step](#why-autonomy-moves-these-risks).
 
 ### 4. Calculate the inherent rating
 
@@ -128,8 +128,8 @@ Rate likelihood and impact again **with those mitigations in place**, and read t
 
 Three things to watch as you write it down:
 
-- **Never justify the inherent and the residual rating with the same fact.** If the sentence you are writing here also appears in move 2, you have counted it twice and the drop is not real. Writing the two a few lines apart is what makes this visible.
-- **If a risk has not moved**, either the mitigation does not address it or it is not additional. Both are worth knowing: an unmoved rating is honest, an inflated one is not.
+- **Never justify the inherent and the residual rating with the same fact.** If the sentence you are writing here also appears in stage 2, you have counted it twice and the drop is not real. Writing the two a few lines apart is what makes this visible.
+- **If a risk has not moved**, either the mitigation does not address it or it is not additional. Both are worth knowing: an unmoved rating is more useful than an inflated one.
 - **If a risk remains at "Do not proceed"**, the mitigations are insufficient — find stronger ones, change your approach, or do not proceed.
 
 Then move to the next risk.
@@ -159,7 +159,7 @@ Record both, and which risks drive each. The overall **inherent** level determin
 
 ## Why autonomy moves these risks
 
-Not needed to complete the assessment, but worth knowing if you are wondering where move 3 comes from.
+Not needed to complete the assessment, but worth knowing if you are wondering where stage 3 comes from.
 
 **Accuracy** because autonomy does not change how often the model is wrong — that is a property of the model — but it changes whether anyone catches it. **Accountability** because there is no longer a person who chose each action, only one who configured a system. **Supply chain** because an AI permitted to act is an actor inside your systems with whatever access you granted it. **Prompt injection** because injection stops being an information-disclosure problem and becomes a remote-action problem — an attacker who can get text in front of the AI can make it do things, and the NCSC's position that injection "may never be totally mitigated" means you cannot rely on the model refusing.
 
