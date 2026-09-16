@@ -30,6 +30,11 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("assets");
 
+  // The readme links to these; copy them verbatim so the links resolve on the
+  // site as well as on GitHub.
+  eleventyConfig.addPassthroughCopy("LICENSE");
+  eleventyConfig.addPassthroughCopy("LICENSE-CODE");
+
   const md = markdownIt({ html: true }).use(markdownItAnchor, {
     level: [2, 3, 4],
     slugify: githubSlug,

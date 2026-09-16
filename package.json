@@ -2,7 +2,7 @@
   "name": "ai-risk-assessment-framework-site",
   "version": "1.0.0",
   "description": "Static site for the AI Risk Assessment Framework",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true,
   "type": "module",
   "scripts": {

@@ -63,3 +63,18 @@ This framework applies UK Government guidance — including the AI Playbook, ATR
 - [Risk assessment template](templates/risk-assessment.md)
 - [Tool profile template](templates/tool-evaluation.md)
 - [Introduction template](templates/introduction.md) — adopt the framework into your own project docs
+
+## Licence
+
+The framework — all the documentation in this repository, including the assessment steps, the reference library and the templates — is licensed under [CC BY-SA 4.0](LICENSE). You may copy, adapt and reuse it, including commercially, provided you give attribution:
+
+> Based on "A Practical Risk-Based Approach to the Use of AI in Projects" by Made Tech Ltd, licensed under CC BY-SA 4.0.
+
+**ShareAlike:** if you share an adapted version, you must license it under CC BY-SA 4.0 or a compatible licence. This applies when you distribute the adaptation — adapting the templates into policy documents used inside your own organisation is not itself sharing.
+
+The code that builds the site is licensed separately under the [MIT Licence](LICENSE-CODE). The licences do not grant rights in the Made Tech name or logo, and use of the framework does not imply endorsement by Made Tech.
+
+This framework contains public sector information licensed under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
+
+**This is not legal advice.** The framework is a practical aid to assessing AI use, not a substitute for your own legal, security or data protection advice. Decisions about data protection, security classification and statutory duties remain yours.
+
