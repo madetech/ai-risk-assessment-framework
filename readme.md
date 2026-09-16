@@ -1,8 +1,12 @@
 # A Practical Risk-Based Approach to the Use of AI in Projects
 
-This is a practical framework for delivery teams to decide **whether and how** to use AI for a specific activity on government projects. The aim is informed decisions: understand the risks and apply proportionate safeguards. It is written for a UK context, but the approach should still be applicable in a global context.
+This is a practical framework for delivery teams to decide **whether and how** to use AI for a specific activity on government projects. The aim is informed decisions: understand the risks and apply proportionate safeguards. It is written for a UK context, but the approach should transfer to other global contexts.
 
 It covers eleven categories of AI use: software development, code analysis, synthetic data generation, product features, user-facing support, live service operations, user research, design, content, business analysis, and general productivity. It also covers autonomy — how much the AI is allowed to do on its own — which cuts across all eleven.
+
+## Why this exists
+
+This framework came out of work on government IT projects, where teams wanting to use AI kept meeting the same obstacle: no one could say whether a particular use was allowed, because no one had assessed the risks. That caution is justified — without an understanding of the risks, "no" is the right default — but it leaves teams with no way to reach any other answer. This framework sets out how to understand, document and mitigate the risks of a specific use, so that the decision rests on evidence.
 
 ## How to use this
 
