@@ -6,7 +6,7 @@ You have scoped the use, checked the tool, and assessed each risk through to a r
 
 The overall **inherent** level sets the governance, because it reflects the seriousness of what you are dealing with. Residual risk confirms the mitigations are sufficient; it does not reduce what has to be signed off.
 
-Mitigations were chosen risk by risk in [Step 3](3-assess-risks.md) — a use that is high for data leakage and low for bias needs serious data mitigations, not serious everything. What the *overall* level determines is how much scrutiny the decision needs: who signs it off, and what has to be documented. Your specific enagagement should agree the sign-off approach before starting to use this framework. 
+Mitigations were chosen risk by risk in [Step 3](3-assess-risks.md) — a use that is high for data leakage and low for bias needs strong data mitigations, not strong mitigations across the board. What the *overall* level determines is how much scrutiny the decision needs: who signs it off, and what has to be documented. Your engagement should agree the sign-off approach before starting to use this framework.
 
 | Overall inherent risk | What is required |
 | ---- | ---- |
@@ -66,4 +66,4 @@ Review existing risk assessments at regular intervals — for example during spr
 - Check for autonomy creep: is the AI now doing more on its own than the assessment assumed — an approval step switched off, or reviews that have become perfunctory?
 - Check for staleness: has any assessment become outdated because the scope, data, or tooling changed?
 
-Your collection of risk assessments supports wider governance: if the project is audited, they evidence responsible AI use; if an incident occurs, they support investigation. The goal is to make AI use a team capability, not an individual one — the more openly teams share their experiences, including failures, the faster everyone learns to use AI effectively and safely.
+Your collection of risk assessments supports wider governance: if the project is audited, they evidence responsible AI use; if an incident occurs, they support investigation. Sharing experiences openly, including failures, makes AI use a team capability rather than an individual one.

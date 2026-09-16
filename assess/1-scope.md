@@ -1,6 +1,6 @@
 # Step 1: Scope Your Use
 
-Before assessing risks or choosing tools, describe precisely what you want to do and what you would share with the AI tool. Being specific here makes the rest of the assessment straightforward — a vague scope cannot be assessed.
+Before assessing risks or choosing tools, describe precisely what you want to do and what you would share with the AI tool. Being specific here makes the rest of the assessment straightforward; a vague scope cannot be assessed.
 
 This step has three parts: **define** the use, **assess the level of autonomy**, and **understand what you are sharing**.
 
@@ -20,7 +20,7 @@ The categories below describe **tasks people do while delivering a service**, no
 
 Most AI use falls into one of eleven categories. Some uses span more than one — if so, assess against each and apply the more restrictive mitigations.
 
-**These categories are a thinking aid, not an exhaustive list.** Their job is to get you to the right risks quickly by pointing at the closest well-understood shape of work. If your use does not fit neatly, pick the nearest one or two, note why the fit is imperfect, and carry on — what matters is that you assess the right risks, not that you chose the right label. If you are doing something the categories genuinely do not describe, work through [Step 3](3-assess-risks.md) on its merits and feed the gap back so the framework can catch up.
+These categories are a thinking aid rather than an exhaustive list. They exist to get you to the right risks quickly by pointing at the closest well-understood shape of work. If your use does not fit neatly, pick the nearest one or two, note why the fit is imperfect, and carry on — what matters is that you assess the right risks, not that you chose the right label. If you are doing something the categories genuinely do not describe, work through [Step 3](3-assess-risks.md) on its merits and feed the gap back so the framework can be updated.
 
 | Category | The key characteristic |
 | ---- | ---- |
@@ -57,11 +57,11 @@ You will use this in [Step 3](3-assess-risks.md), where higher autonomy raises s
 
 ## Understand what you are sharing
 
-What you share with the AI tool is often the single most important factor in determining what mitigations are needed. Most uses involve **code**, **data**, or **both** — assess each, because they have different risk profiles.
+What you share with the AI tool is often the most important factor in determining what mitigations are needed. Most uses involve **code**, **data**, or **both** — assess each, because they have different risk profiles.
 
 ### If you are sharing code
 
-> 🛑 **Secrets must NEVER be shared with any AI tool.** API keys, credentials, tokens, database connection strings, and service endpoints must be removed before any code is shared. Run a secrets scanning tool before sharing code with any AI service. If you find secrets, remove them and re-evaluate what you should share.
+> 🛑 **Secrets must never be shared with any AI tool.** API keys, credentials, tokens, database connection strings, and service endpoints must be removed before any code is shared. Run a secrets scanning tool before sharing code with any AI service. If you find secrets, remove them and re-evaluate what you should share.
 
 Beyond secrets, consider:
 
@@ -83,9 +83,9 @@ Beyond secrets, consider:
 
 🛑 **Do not use external AI services.** This is a hard stop, not a high risk rating: do not continue to [Step 2](2-check-tool.md).
 
-The [Government Security Classifications Policy](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1166145/Government_Security_Classifications_Policy_June_2023.pdf) requires SECRET and TOP SECRET information to be handled on dedicated, accredited systems, by security-cleared people, on a strict need-to-know basis. No commercially available AI service meets that bar, so there is no version of this assessment that ends in "proceed".
+The [Government Security Classifications Policy](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1166145/Government_Security_Classifications_Policy_June_2023.pdf) requires SECRET and TOP SECRET information to be handled on dedicated, accredited systems, by security-cleared people, on a strict need-to-know basis. No commercially available AI service meets that bar, so this assessment cannot end in "proceed".
 
-AI use at these tiers is not impossible, but it has to happen inside an accredited environment. Take specialist security advice, and do not treat anything here as authority to proceed. It may also be possible to use local non-internet-connected LLMs on this data but extreme caution should be exercised.
+AI use at these tiers is not impossible, but it has to happen inside an accredited environment. Take specialist security advice, and do not treat anything here as authority to proceed. It may also be possible to use local, non-internet-connected LLMs on this data, but only with specialist security advice.
 
 ### Other factors beyond classification
 

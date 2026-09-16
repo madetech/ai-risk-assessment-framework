@@ -9,7 +9,7 @@ Create a dedicated area in your project's documentation tool (Confluence, ShareP
 ```
 AI Governance/
 ├── Introduction              ← Your project's AI policy (from the introduction template)
-├── Approved Tools            ← Register of assessed and approved AI tools
+├── Tool Register             ← Profiles of the AI tools that have been assessed
 ├── Risk Assessments/         ← One page per assessed use case
 │   ├── 2026-03 Copilot for unit tests
 │   ├── 2026-03 Claude for architecture analysis
@@ -72,7 +72,7 @@ When someone on the team wants to use AI for a specific activity, create a new r
 - **Be specific.** "Using AI for coding" is not assessable. "Using GitHub Copilot to generate unit tests for the payments service, which processes OFFICIAL data including customer references" gives you something concrete to assess.
 - **Don't over-engineer low-risk cases.** A low-risk assessment (e.g. using Copilot for boilerplate code with no sensitive data) can be a few lines. Save the detail for cases that need it.
 - **Reuse where sensible.** If multiple team members are doing the same type of work with the same tool on the same data, one assessment can cover them all. Note who is covered.
-- **Review and update.** Assessments are not set-and-forget. If the scope changes (different data, different tool, different context), revisit the assessment.
+- **Review and update.** If the scope changes (different data, different tool, different context), revisit the assessment.
 
 ## 4. Evaluate and approve new tools
 
@@ -84,7 +84,7 @@ When someone wants to use a tool that is not on the register, or needs a wider e
 4. Submit to the SRO for approval.
 5. If signed off, add it to the **Tool register** on the introduction page, with a link to its full profile and the highest classification it is cleared for.
 
-Do not let people use tools while the evaluation is in progress. This is one area where being strict up front avoids problems later.
+Do not let people use tools while the evaluation is in progress.
 
 ## 5. Review assessments regularly
 
@@ -104,7 +104,7 @@ The framework only works if people use it. Some practical ways to embed it:
 - **Add it to onboarding.** When someone joins the project, point them to the introduction page and the relevant checklists for their role.
 - **Make it visible.** Link to the AI Governance section from your project's main documentation page or README.
 - **Keep it lightweight for low-risk cases.** If the process feels burdensome for routine use, people will skip it. A low-risk assessment should take minutes, not hours.
-- **Celebrate good practice.** When someone's assessment catches a real issue, or their shared learnings help the team, acknowledge it.
+- **Recognise good practice.** When someone's assessment catches a real issue, or their shared learnings help the team, acknowledge it.
 - **Use retrospectives.** Review the assessments during retros. Ask: "What AI did we use this sprint? Did anything go wrong? Did anything go well?"
 
 ---

@@ -1,6 +1,6 @@
 # Reference: Use-Type Profiles
 
-This reference gives the detail behind the eleven use types. Use it alongside [Step 1: Scope Your Use](../assess/1-scope.md) to categorise your use precisely, and alongside [Step 3: Identify the Risks](../assess/3-assess-risks.md) to understand the typical risk fingerprint of your use type.
+This reference gives the detail behind the eleven use types. Use it alongside [Step 1: Scope Your Use](../assess/1-scope.md) to categorise your use precisely, and alongside [Step 3: Assess the Risks](../assess/3-assess-risks.md) to understand the typical risk fingerprint of your use type.
 
 The use types describe **tasks people do while delivering a government service**, not the services themselves. The one exception is product features, which covers AI you build *into* the service — it is included because it carries the highest governance requirements and teams need to recognise when they have crossed into it.
 
@@ -218,7 +218,7 @@ The name follows the delivery discipline, but the category is a little broader t
 
 **Key concerns:** Hallucinated detail here has a long fuse. An invented eligibility rule or misremembered statutory duty that enters a user story looks like a requirement by the time it reaches a developer, gets built, gets tested against itself, and ships — with every downstream step treating it as already verified. Nothing in the delivery process is designed to catch a requirement that was wrong from the start.
 
-**The accountability failure is the more serious one.** Governance bodies read an options paper or a DPIA as evidence that a named person reasoned through a problem. An artefact that reads well because a model wrote it, and that nobody has genuinely thought about, defeats the purpose of the governance step while passing it. Use AI to structure and express your reasoning, not to supply it. The test is simple: can the named author defend every claim in the document without referring back to the tool?
+**The accountability failure is the more serious one.** Governance bodies read an options paper or a DPIA as evidence that a named person reasoned through a problem. An artefact that reads well because a model wrote it, and that nobody has genuinely thought about, defeats the purpose of the governance step while passing it. Use AI to structure and express your reasoning, not to supply it. A useful test is whether the named author can defend every claim in the document without referring back to the tool.
 
 **Action required:** Trace any AI-stated rule, entitlement, or statutory duty back to the authoritative source before it enters the backlog or a decision document, and mark it unverified until you have. For assurance artefacts, confirm the accountable person has reviewed the reasoning rather than the wording. Be transparent with governance bodies about AI involvement where it is material.
 
