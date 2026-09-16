@@ -1,0 +1,5 @@
+{
+  "recurse": true,
+  "checkFragments": true,
+  "skip": ["^https://"]
+}

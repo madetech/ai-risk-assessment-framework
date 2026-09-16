@@ -1,0 +1,10 @@
+# Agent and tooling files, not content.
+# Note: .gitignore is also honoured, which already excludes the dated combined
+# documents, the PDFs and risk-assessments/.
+agents.md
+CLAUDE.md
+.claude
+.github
+scripts
+node_modules
+_site

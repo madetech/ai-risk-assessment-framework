@@ -4,7 +4,7 @@
 
 This document sets out how this project approaches the use of AI tools: our position, the people responsible for AI governance, and where to find the framework we follow.
 
-We use the [Practical Risk-Based Approach to the Use of AI in Projects](https://github.com/madetech/ai-risk-assessment) framework to assess and manage AI use. This document summarises our local application of that framework.
+We use the [Practical Risk-Based Approach to the Use of AI in Projects](https://github.com/madetech/ai-risk-assessment-framework) framework to assess and manage AI use. This document summarises our local application of that framework.
 
 ## Our approach
 
@@ -34,7 +34,7 @@ The following AI tools have been assessed. Each has a **profile** recording what
 | | | | | |
 | | | | | |
 
-**Do not use a tool that is not on this register.** If you want to use a new one, speak to the Technical Lead and complete a profile using the [tool profile template](https://github.com/madetech/ai-risk-assessment/blob/main/templates/tool-evaluation.md).
+**Do not use a tool that is not on this register.** If you want to use a new one, speak to the Technical Lead and complete a profile using the [tool profile template](https://github.com/madetech/ai-risk-assessment-framework/blob/main/templates/tool-evaluation.md).
 
 If your data is above a tool's cleared classification, escalate to the SRO before using it.
 
@@ -49,7 +49,7 @@ Before using AI for a new activity, follow the four-step assessment process:
 3. **Assess the risks** — identify the risks that apply to your use, then take each one through the same loop: rate it before mitigations, choose mitigations, and re-rate what is left
 4. **Approve, record and do the work** — get the sign-off the overall inherent level requires, save the assessment, follow the relevant checklist, and share what you learned
 
-For full details, see the [framework documentation](https://github.com/madetech/ai-risk-assessment).
+For full details, see the [framework documentation](https://github.com/madetech/ai-risk-assessment-framework).
 
 ## Training and awareness
 

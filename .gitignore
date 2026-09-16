@@ -2,3 +2,5 @@
 ai-risk-assessment-framework-*.md
 *.pdf
 risk-assessments/*
+_site/
+node_modules/

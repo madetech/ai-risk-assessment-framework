@@ -1,0 +1,21 @@
+{
+  "name": "ai-risk-assessment-framework-site",
+  "version": "1.0.0",
+  "description": "Static site for the AI Risk Assessment Framework",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "check-links": "linkinator _site",
+    "check-links:external": "linkinator _site --config linkinator.external.config.json",
+    "test": "npm run build && npm run check-links"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "linkinator": "^8.1.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0"
+  }
+}

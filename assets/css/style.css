@@ -1,0 +1,456 @@
+/* ==========================================================================
+   BRAND TOKENS
+   Everything brand-specific lives in this block. To apply Made Tech branding,
+   change these values (and the font stack below) — nothing else needs touching.
+   ========================================================================== */
+
+:root {
+  --brand-accent: #2a4fd6;
+  --brand-accent-strong: #1c3596;
+  --brand-ink: #15171c;
+  --brand-surface: #fbfaf9;
+  --brand-surface-raised: #ffffff;
+  --brand-muted: #5b606b;
+  --brand-line: #e2e0dc;
+  --brand-highlight: #f2f5ff;
+
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --radius: 6px;
+  --sidebar-width: 17rem;
+  --content-width: 46rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand-accent: #90a8ff;
+    --brand-accent-strong: #b9c7ff;
+    --brand-ink: #e8e9ec;
+    --brand-surface: #14161a;
+    --brand-surface-raised: #1b1e24;
+    --brand-muted: #a0a5b0;
+    --brand-line: #2e323b;
+    --brand-highlight: #1e2430;
+  }
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1.5rem;
+}
+
+body {
+  margin: 0;
+  background: var(--brand-surface);
+  color: var(--brand-ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--brand-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--brand-accent-strong);
+}
+
+:focus-visible {
+  outline: 3px solid var(--brand-accent);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: var(--brand-surface-raised);
+  border-radius: var(--radius);
+}
+
+/* ==========================================================================
+   Header and footer
+   ========================================================================== */
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 1.1rem clamp(1rem, 4vw, 2.5rem);
+  background: var(--brand-surface-raised);
+  border-bottom: 1px solid var(--brand-line);
+}
+
+.site-header__title {
+  font-weight: 650;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  color: var(--brand-ink);
+  text-decoration: none;
+}
+
+.site-header__repo {
+  font-size: 0.9rem;
+}
+
+.site-footer {
+  padding: 2rem clamp(1rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--brand-line);
+  color: var(--brand-muted);
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 0.25rem 0;
+}
+
+/* ==========================================================================
+   Layout and navigation
+   ========================================================================== */
+
+.layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2.5rem);
+}
+
+.nav {
+  padding-top: 2.25rem;
+}
+
+.nav__toggle {
+  display: none;
+}
+
+.nav__panel {
+  position: sticky;
+  top: 2rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  font-size: 0.95rem;
+}
+
+.nav__heading {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--brand-muted);
+}
+
+.nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav__list a {
+  display: block;
+  padding: 0.35rem 0.7rem;
+  margin-left: -0.7rem;
+  border-radius: var(--radius);
+  color: var(--brand-ink);
+  text-decoration: none;
+}
+
+.nav__list a:hover {
+  background: var(--brand-highlight);
+  color: var(--brand-accent-strong);
+}
+
+.nav__list a[aria-current="page"] {
+  background: var(--brand-highlight);
+  color: var(--brand-accent-strong);
+  font-weight: 600;
+  box-shadow: inset 2px 0 0 var(--brand-accent);
+}
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
+.content {
+  max-width: var(--content-width);
+  padding: 2.25rem 0 4rem;
+}
+
+.content > h1:first-child {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  scroll-margin-top: 1.5rem;
+}
+
+h1 {
+  font-size: clamp(1.85rem, 4vw, 2.4rem);
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 2.75rem 0 0.85rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--brand-line);
+}
+
+h3 {
+  font-size: 1.175rem;
+  margin: 2rem 0 0.6rem;
+}
+
+h4 {
+  font-size: 1rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+/* Heading permalinks from markdown-it-anchor: readable, not link-coloured. */
+h1 a,
+h2 a,
+h3 a,
+h4 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h2 a:hover::after,
+h3 a:hover::after,
+h4 a:hover::after {
+  content: " #";
+  color: var(--brand-accent);
+  font-weight: 400;
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 1.1rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.35rem;
+}
+
+strong {
+  font-weight: 650;
+}
+
+hr {
+  height: 1px;
+  margin: 2.5rem 0;
+  border: 0;
+  background: var(--brand-line);
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 3px solid var(--brand-accent);
+  color: var(--brand-muted);
+}
+
+code {
+  padding: 0.12em 0.35em;
+  background: var(--brand-highlight);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+pre {
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  background: var(--brand-surface-raised);
+  border: 1px solid var(--brand-line);
+  border-radius: var(--radius);
+}
+
+pre code {
+  padding: 0;
+  background: none;
+}
+
+/* ==========================================================================
+   Tables — the heatmap and matrices are wide, so they scroll independently
+   ========================================================================== */
+
+.table-wrap {
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  border: 1px solid var(--brand-line);
+  border-radius: var(--radius);
+  background: var(--brand-surface-raised);
+}
+
+table {
+  width: 100%;
+  min-width: 34rem;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+th,
+td {
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--brand-line);
+}
+
+thead th {
+  background: var(--brand-highlight);
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ==========================================================================
+   Pager
+   ========================================================================== */
+
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--brand-line);
+}
+
+.pager__link {
+  flex: 1 1 13rem;
+  padding: 0.85rem 1.1rem;
+  background: var(--brand-surface-raised);
+  border: 1px solid var(--brand-line);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--brand-ink);
+}
+
+.pager__link:hover {
+  border-color: var(--brand-accent);
+}
+
+.pager__link--next {
+  text-align: right;
+}
+
+.pager__label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--brand-muted);
+}
+
+.pager__title {
+  display: block;
+  font-weight: 600;
+  color: var(--brand-accent-strong);
+}
+
+/* ==========================================================================
+   Small screens
+   ========================================================================== */
+
+@media (max-width: 60rem) {
+  .layout {
+    display: block;
+  }
+
+  .nav {
+    padding-top: 1.25rem;
+    border-bottom: 1px solid var(--brand-line);
+    padding-bottom: 0.75rem;
+  }
+
+  .nav__toggle {
+    display: block;
+    padding: 0.5rem 0;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .nav__panel {
+    position: static;
+    max-height: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .content {
+    padding-top: 1.75rem;
+  }
+}
+
+/* ==========================================================================
+   Print — the single-document build is the better route, but make this usable
+   ========================================================================== */
+
+@media print {
+  .nav,
+  .pager,
+  .site-header__repo,
+  .skip-link {
+    display: none;
+  }
+
+  .layout {
+    display: block;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+
+  .content {
+    max-width: none;
+  }
+}
+
+/* Desktop always shows the nav, even if it was collapsed on a small screen. */
+@media (min-width: 60.0625rem) {
+  .nav:not([open]) > .nav__panel {
+    display: block;
+  }
+}
