@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if page.url == "/" %}{{ site.title }}{% else %}{{ title }} — {{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ site.description }}" />
+    <link rel="stylesheet" href="/assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="site-header__brand">
+        <a class="logo" href="https://www.madetech.com" aria-label="Made Tech">
+          {% include "logo.svg" %}
+        </a>
+        <span class="site-header__divider" aria-hidden="true"></span>
+        <a class="site-header__title" href="/">{{ site.title }}</a>
+      </div>
+      <a class="site-header__repo" href="{{ site.repo }}">View on GitHub</a>
+    </header>
+
+    <div class="layout">
+      <details class="nav" open>
+        <summary class="nav__toggle">Contents</summary>
+        <nav class="nav__panel" aria-label="Framework">
+          {% for group in nav %}
+            {% if group.title %}<h2 class="nav__heading">{{ group.title }}</h2>{% endif %}
+            <ul class="nav__list">
+              {% for item in group.items %}
+                <li>
+                  <a href="{{ item.url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.label }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endfor %}
+        </nav>
+      </details>
+
+      <script>
+        // The contents list is a sidebar on desktop and a collapsible panel on
+        // small screens, where leaving it open would push the page content far
+        // down. Runs inline, right after the element, to avoid a flash of the
+        // open state. Without JavaScript it stays open everywhere, which is
+        // long on a phone but perfectly usable.
+        (function () {
+          var nav = document.querySelector(".nav");
+          var narrow = window.matchMedia("(max-width: 60rem)");
+          function sync() { nav.open = !narrow.matches; }
+          sync();
+          narrow.addEventListener("change", sync);
+        })();
+      </script>
+
+      <main id="main" class="content">
+        {{ content | safe }}
+
+        {% if pager.prev or pager.next %}
+          <nav class="pager" aria-label="Pagination">
+            {% if pager.prev %}
+              <a class="pager__link pager__link--prev" href="{{ pager.prev.url }}">
+                <span class="pager__label">Previous</span>
+                <span class="pager__title">{{ pager.prev.label }}</span>
+              </a>
+            {% endif %}
+            {% if pager.next %}
+              <a class="pager__link pager__link--next" href="{{ pager.next.url }}">
+                <span class="pager__label">Next</span>
+                <span class="pager__title">{{ pager.next.label }}</span>
+              </a>
+            {% endif %}
+          </nav>
+        {% endif %}
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <a class="logo" href="https://www.madetech.com" aria-label="Made Tech">
+        {% include "logo.svg" %}
+      </a>
+      <p><a href="{{ site.repo }}">Source and issues on GitHub</a></p>
+    </footer>
+  </body>
+</html>

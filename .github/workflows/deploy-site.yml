@@ -1,0 +1,61 @@
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Check links against a root-path build: linkinator serves _site at /, so
+      # the deployment subpath would make every URL look broken.
+      - run: npm run build
+
+      # The .md link rewriter fails silently, so a broken link fails the deploy.
+      # Internal links and heading anchors only — the framework links to a lot of
+      # government guidance, and those hosts block crawlers (ai.gov.uk returns
+      # 403), which would make deploys flaky. Run `npm run check-links:external`
+      # by hand to check those.
+      - run: npm run check-links
+
+      # Rebuild with the deployment path prefix. This is the one place the
+      # subpath is set: for a custom domain, drop the env block and add a CNAME.
+      - run: npm run build
+        env:
+          PATH_PREFIX: /ai-risk-assessment-framework/
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
