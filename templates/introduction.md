@@ -10,10 +10,10 @@ We use the [Practical Risk-Based Approach to AI Use on Delivery Projects](https:
 
 AI tools can improve the quality and efficiency of delivery work when used responsibly. Our approach is:
 
-- **Risk-based** — we assess each AI use case individually rather than applying blanket rules. Higher-risk uses require more rigorous assessment and approval.
-- **Proportionate** — mitigations are matched to the level of risk. Low-risk uses follow standard practices; higher-risk uses require formal documentation and senior approval.
-- **Transparent** — all AI use is recorded, and assessments are available for review. Each assessed use case has its own risk assessment document; that assessment is the record, and we review our assessments regularly.
-- **"Stricter wins" by default** — where this framework and our client or department policy differ, the more restrictive position on any given point applies automatically. A less restrictive approach is only permitted with a specific, documented exemption approved by the SRO.
+- **Risk-based.** We assess each AI use case individually rather than applying blanket rules. Higher-risk uses require more rigorous assessment and approval.
+- **Proportionate.** Mitigations are matched to the level of risk. Low-risk uses follow standard practices; higher-risk uses require formal documentation and senior approval.
+- **Transparent.** All AI use is recorded, and assessments are available for review. Each assessed use case has its own risk assessment document; that assessment is the record, and we review our assessments regularly.
+- **"Stricter wins" by default.** Where this framework and our client or department policy differ, the more restrictive position on any given point applies automatically. A less restrictive approach is only permitted with a specific, documented exemption approved by the SRO.
 
 ## Responsible people
 
@@ -26,7 +26,7 @@ AI tools can improve the quality and efficiency of delivery work when used respo
 
 ## Tool register
 
-The following AI tools have been assessed. Each has a **profile** recording what it does and what its supplier promises. A profile is not permission to use the tool for a given task — that is decided by the risk assessment for each specific use.
+The following AI tools have been assessed. Each has a **profile** recording what it does and what its supplier promises. A profile is not permission to use the tool for a given task. That is decided by the risk assessment for each specific use.
 
 | Tool (and tier) | Highest classification cleared | What it is, in short | Full profile | Last reviewed |
 | ---- | ---- | ---- | ---- | ---- |
@@ -44,10 +44,10 @@ If your data is above a tool's cleared classification, escalate to the SRO befor
 
 Before using AI for a new activity, follow the four-step assessment process:
 
-1. **Scope your use** — define the activity, categorise it, record how much the AI is allowed to do on its own, and assess what code and data you will share
-2. **Check the tool** — confirm it is on the register, not excluded, and cleared for your classification, and pick up the facts its profile records
-3. **Assess the risks** — identify the risks that apply to your use, then take each one through the same loop: rate it before mitigations, choose mitigations, and re-rate what is left
-4. **Approve, record and do the work** — get the sign-off the overall inherent level requires, save the assessment, follow the relevant checklist, and share what you learned
+1. **Scope your use**: define the activity, categorise it, record how much the AI is allowed to do on its own, and assess what code and data you will share
+2. **Check the tool**: confirm it is on the register, not excluded, and cleared for your classification, and pick up the facts its profile records
+3. **Assess the risks**: identify the risks that apply to your use, then take each one through the same loop: rate it before mitigations, choose mitigations, and re-rate what is left
+4. **Approve, record and do the work**: get the sign-off the overall inherent level requires, save the assessment, follow the relevant checklist, and share what you learned
 
 For full details, see the [framework documentation](https://github.com/madetech/ai-risk-assessment-framework).
 

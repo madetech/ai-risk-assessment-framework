@@ -1,17 +1,18 @@
 A Practical Risk-Based Approach to AI Use on Delivery Projects
 Copyright (c) 2026 Made Tech Ltd
 
-The documentation in this repository — all markdown files, including the
-assessment steps, the reference library and the templates — is licensed
-under the Creative Commons Attribution-ShareAlike 4.0 International Licence
-(CC BY-SA 4.0), the full text of which follows.
+The documentation in this repository is licensed under the Creative Commons
+Attribution-ShareAlike 4.0 International Licence (CC BY-SA 4.0), the full
+text of which follows. This covers all markdown files, including the
+assessment steps, the reference library and the templates.
 
 You may copy, adapt and reuse it, including commercially. If you share an
 adapted version, you must license that version under CC BY-SA 4.0, a later
 version, or a BY-SA Compatible Licence (see Section 3(b) below).
 
-The code in this repository — the Eleventy site configuration, scripts and
-site assets — is licensed separately under the MIT Licence. See LICENSE-CODE.
+The code in this repository, meaning the Eleventy site configuration, scripts
+and site assets, is licensed separately under the MIT Licence. See
+LICENSE-CODE.
 
 Suggested attribution:
 

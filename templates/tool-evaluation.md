@@ -1,6 +1,6 @@
 # Appendix A: Tool Profile Template
 
-Use this when adding an AI tool to the project's tool register — see [Step 2: Check the Tool](../assess/2-check-tool.md) for what each fact means and why it matters.
+Use this when adding an AI tool to the project's tool register. See [Step 2: Check the Tool](../assess/2-check-tool.md) for what each fact means and why it matters.
 
 This records what the tool **is** and what its supplier **promises**. It does not say what the tool may be used for: that is settled use by use, in each risk assessment.
 
@@ -25,7 +25,7 @@ Any "yes" rules the tool out, whatever the intended use.
 | A free or consumer tier under consumer terms | | |
 | Fails a client or department requirement | | |
 
-**Excluded:** [Yes / No] — _if yes, stop here unless a documented exemption is approved by the SRO._
+**Excluded:** [Yes / No]. _If yes, stop here unless a documented exemption is approved by the SRO._
 
 ---
 
@@ -36,8 +36,8 @@ _Design facts. These shape the **inherent** risk in [Step 3](../assess/3-assess-
 | Fact | Details |
 | ---- | ---- |
 | **Where data is processed and stored** | [Countries and jurisdictions] |
-| **Permissions the tool holds** | [What it can reach — calendar, mailbox, files, repositories, ticketing systems. What it can access, not what you intend to give it] |
-| **What it can do** | [Produces output only, or can take actions — run commands, edit files, call APIs, change records. Record the most it is capable of] |
+| **Permissions the tool holds** | [What it can reach: calendar, mailbox, files, repositories, ticketing systems. What it can access, not what you intend to give it] |
+| **What it can do** | [Produces output only, or can take actions: run commands, edit files, call APIs, change records. Record the most it is capable of] |
 | **Control over what it can do** | [For tools that can act: who defines the available actions, and whether the limit can be enforced outside the tool's own configuration] |
 | **Authentication and access management** | [SSO, MFA, team/project access control, attribution of individual use] |
 | **Audit logging** | [What is logged, and who can read it] |
@@ -62,7 +62,7 @@ _Contractual and configurable guarantees. These are **mitigations** in [Step 3](
 
 _A judgement, not a fact. Needs authority._
 
-**Highest classification cleared:** [e.g. OFFICIAL] — _do not infer this from the facts above; UK residency and a DPA do not by themselves clear a tool for OFFICIAL-SENSITIVE._
+**Highest classification cleared:** [e.g. OFFICIAL]. _Do not infer this from the facts above; UK residency and a DPA do not by themselves clear a tool for OFFICIAL-SENSITIVE._
 
 | Role | Name | Decision | Date |
 | ---- | ---- | ---- | ---- |
