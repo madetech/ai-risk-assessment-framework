@@ -23,7 +23,7 @@ AI Governance/
 
 1. Create a new space or a top-level page called **AI Governance** (or similar) under your project space.
 2. Create child pages for each section above.
-3. For **Risk Assessments** and **Tool Evaluations**, create them as parent pages — individual assessments will be added as child pages beneath them.
+3. For **Risk Assessments** and **Tool Evaluations**, create them as parent pages. Individual assessments will be added as child pages beneath them.
 4. Consider using Confluence page templates (Space Settings > Content Templates) so that team members can create new risk assessments and tool profiles with the correct structure pre-filled.
 
 ### In SharePoint
@@ -35,37 +35,37 @@ AI Governance/
 
 1. Create a directory (e.g. `docs/ai-governance/`) in your project repository.
 2. Add the templates as markdown files.
-3. This approach works well for technical teams — assessments are version-controlled, reviewable in pull requests, and close to the code.
+3. This approach works well for technical teams, because assessments are version-controlled, reviewable in pull requests, and close to the code.
 
 ## 2. Populate the introduction page
 
 Copy the [introduction template](templates/introduction.md) into your documentation space and fill in the details for your project:
 
-1. **Responsible people** — Identify who fills each role. Not every project will need all roles as separate people; on smaller teams one person may cover multiple roles. The important thing is that responsibilities are explicitly assigned.
+1. **Responsible people.** Identify who fills each role. Not every project will need all roles as separate people; on smaller teams one person may cover multiple roles. The important thing is that responsibilities are explicitly assigned.
 
-2. **Tool register** — If your organisation already has an approved AI tools list, reference or copy it, but record what each tool actually *does* rather than just that it is on the list. If there is no list, this is the place to build one. Start with the tools your team is already using (or wants to use) and write a profile for each ([Step 2](assess/2-check-tool.md) and [tool profile template](templates/tool-evaluation.md)).
+2. **Tool register.** If your organisation already has an approved AI tools list, reference or copy it, but record what each tool actually *does* rather than just that it is on the list. If there is no list, this is the place to build one. Start with the tools your team is already using (or wants to use) and write a profile for each ([Step 2](assess/2-check-tool.md) and [tool profile template](templates/tool-evaluation.md)).
 
-3. **Review schedule** — Set a realistic cadence. Tying it to an existing ceremony (e.g. sprint retros, monthly team reviews) is more sustainable than creating a new meeting.
+3. **Review schedule.** Set a realistic cadence. Tying it to an existing ceremony (e.g. sprint retros, monthly team reviews) is more sustainable than creating a new meeting.
 
 ## 3. Create your first risk assessment
 
 When someone on the team wants to use AI for a specific activity, create a new risk assessment page:
 
-1. **Create a new page** under your Risk Assessments section using the [risk assessment template](templates/risk-assessment.md). Name it descriptively, e.g. "2026-04 — Using Copilot for unit test generation on payments service".
+1. **Create a new page** under your Risk Assessments section using the [risk assessment template](templates/risk-assessment.md). Name it descriptively, e.g. "2026-04: Using Copilot for unit test generation on payments service".
 
 2. **Work through each section** of the template, using the framework for detailed guidance:
-   - Scope the use — define it and assess what code and data you will share (Step 1)
-   - Check the tool is on the register, not excluded, and cleared for your classification — or profile it (Step 2)
-   - Assess the risks — find them with the heatmap, then take each one through inherent rating, mitigations, and residual rating (Step 3)
+   - Scope the use, defining it and assessing what code and data you will share (Step 1)
+   - Check the tool is on the register, not excluded, and cleared for your classification, or profile it (Step 2)
+   - Assess the risks, finding them with the heatmap, then take each one through inherent rating, mitigations, and residual rating (Step 3)
    - Get approval, record the assessment, and do the work (Step 4)
 
 3. **Get the required approval** based on the overall inherent risk level:
-   - **Low** — Self-assessed, recorded
-   - **Medium** — Approval from the SRO
-   - **High** — Approval from the SRO, with formal documentation
-   - Any use where the AI **acts autonomously** — SRO approval regardless of the risk level
+   - **Low**: self-assessed, recorded
+   - **Medium**: approval from the SRO
+   - **High**: approval from the SRO, with formal documentation
+   - Any use where the AI **acts autonomously**: SRO approval regardless of the risk level
 
-4. **Record it** (Step 4) — the assessment page itself serves as your record. Make sure it captures who assessed it, when, and what approvals were obtained.
+4. **Record it** (Step 4). The assessment page itself serves as your record. Make sure it captures who assessed it, when, and what approvals were obtained.
 
 ### Tips for writing good assessments
 
@@ -88,12 +88,12 @@ Do not let people use tools while the evaluation is in progress.
 
 ## 5. Review assessments regularly
 
-The collection of risk assessments in your documentation space is your record of AI use on the project. Review them periodically — for example during sprint retrospectives or monthly team reviews. Look for:
+The collection of risk assessments in your documentation space is your record of AI use on the project. Review them periodically, for example during sprint retrospectives or monthly team reviews. Look for:
 
-- **Patterns** — Are the same risks appearing repeatedly? Is a particular tool causing issues?
-- **Gaps** — Is AI being used in ways that haven't been assessed?
-- **Drift** — Are people still following the mitigations they committed to?
-- **Staleness** — Have any assessments become outdated because the scope, data, or tooling has changed?
+- **Patterns.** Are the same risks appearing repeatedly? Is a particular tool causing issues?
+- **Gaps.** Is AI being used in ways that haven't been assessed?
+- **Drift.** Are people still following the mitigations they committed to?
+- **Staleness.** Have any assessments become outdated because the scope, data, or tooling has changed?
 
 Share what you learned once the work is complete, and revisit the assessment if the scope, data, or tooling has changed ([Step 4](assess/4-record-and-work.md)).
 
