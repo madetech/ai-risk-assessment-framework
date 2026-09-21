@@ -1,4 +1,4 @@
-# A Practical Risk-Based Approach to the Use of AI in Projects
+# A Practical Risk-Based Approach to AI Use on Delivery Projects
 
 This is a practical framework for delivery teams to decide **whether and how** to use AI for a specific activity on government projects. The aim is informed decisions: understand the risks and apply proportionate safeguards. It is written for a UK context, but the approach should transfer to other global contexts.
 
@@ -68,7 +68,7 @@ This framework applies UK Government guidance — including the AI Playbook, ATR
 
 The framework — all the documentation in this repository, including the assessment steps, the reference library and the templates — is licensed under [CC BY-SA 4.0](LICENSE). You may copy, adapt and reuse it, including commercially, provided you give attribution:
 
-> Based on "A Practical Risk-Based Approach to the Use of AI in Projects" by Made Tech Ltd, licensed under CC BY-SA 4.0.
+> Based on "A Practical Risk-Based Approach to AI Use on Delivery Projects" by Made Tech Ltd, licensed under CC BY-SA 4.0.
 
 **ShareAlike:** if you share an adapted version, you must license it under CC BY-SA 4.0 or a compatible licence. This applies when you distribute the adaptation — adapting the templates into policy documents used inside your own organisation is not itself sharing.
 

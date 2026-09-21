@@ -109,7 +109,7 @@ The eleven use types are defined in [Reference: Use-Type Profiles](use-type-prof
 - Assign clear ownership: the person using AI is accountable for the output
 - Be transparent with stakeholders about AI involvement
 - Maintain audit trails of AI-assisted work where appropriate
-- Record AI usage in the project's risk assessments ([Step 4: Approve, Record and Do the Work](../assess/4-record-and-work.md))
+- Record AI use in the project's risk assessments ([Step 4: Approve, Record and Do the Work](../assess/4-record-and-work.md))
 
 ---
 

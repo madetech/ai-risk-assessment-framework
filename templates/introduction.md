@@ -4,7 +4,7 @@
 
 This document sets out how this project approaches the use of AI tools: our position, the people responsible for AI governance, and where to find the framework we follow.
 
-We use the [Practical Risk-Based Approach to the Use of AI in Projects](https://github.com/madetech/ai-risk-assessment-framework) framework to assess and manage AI use. This document summarises our local application of that framework.
+We use the [Practical Risk-Based Approach to AI Use on Delivery Projects](https://github.com/madetech/ai-risk-assessment-framework) framework to assess and manage AI use. This document summarises our local application of that framework.
 
 ## Our approach
 
